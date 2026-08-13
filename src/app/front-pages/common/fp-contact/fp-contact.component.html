@@ -1,0 +1,267 @@
+<div class="relative overflow-hidden bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-[100px] pb-16 sm:pb-20 md:pb-28">
+    <div class="container max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="contact-wrapper">
+
+            <!-- Glass Bubbles -->
+            <div class="hex-glass bubble-decor-1"></div>
+            <div class="hex-glass bubble-decor-2"></div>
+            <div class="hex-glass bubble-decor-3"></div>
+            <div class="hex-glass bubble-decor-4"></div>
+
+            <!-- Contact Card -->
+            <div class="contact-card rounded-[25px] sm:rounded-[35px]">
+
+                <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr]">
+
+                    <!-- Contact Information -->
+                    <div class="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+
+                        <h2
+                            class="text-2xl sm:text-3xl md:text-[36px] font-poppins font-medium text-[#0a0a23] mb-8 leading-tight">
+
+                            {{ 'CONTACT.titleLine1' | translate }}<br>
+                            {{ 'CONTACT.titleLine2' | translate }}
+
+                        </h2>
+
+                        <div class="flex flex-col gap-6">
+
+                            <!-- Email -->
+                            <div class="flex items-center gap-4">
+
+                                <span
+                                    class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex-shrink-0">
+
+                                    <i class="material-symbols-outlined text-[#0a0a23] text-[18px]">
+                                        mail
+                                    </i>
+
+                                </span>
+
+                                <a href="mailto:Qode@contact.qa"
+                                    class="font-poppins text-sm sm:text-base text-[#0a0a23]">
+
+                                    CB&#64;contact.com
+
+                                </a>
+
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-center gap-4">
+
+                                <span
+                                    class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex-shrink-0">
+
+                                    <i class="material-symbols-outlined text-[#0a0a23] text-[18px]">
+                                        call
+                                    </i>
+
+                                </span>
+
+                                <a href="tel:+21656028064"
+                                    class="font-poppins text-sm sm:text-base text-[#0a0a23]">
+
+                                    + 20906018
+
+                                </a>
+
+                            </div>
+
+                            <!-- Address -->
+                            <div class="flex items-start gap-4">
+
+                                <span
+                                    class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex-shrink-0">
+
+                                    <i class="material-symbols-outlined text-[#0a0a23] text-[18px]">
+                                        location_on
+                                    </i>
+
+                                </span>
+
+                                <span
+                                    class="font-poppins text-sm sm:text-base text-[#0a0a23] leading-relaxed">
+
+                                    {{ 'CONTACT.address' | translate }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- FORM -->
+                    <div class="p-6 sm:p-8 md:p-10 lg:p-12 lg:border-l border-white/20">
+
+                        <form
+                            class="flex flex-col gap-6"
+                            (ngSubmit)="sendForm()">
+
+                            <!-- Name -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                                <div>
+
+                                    <label class="block text-sm text-gray-500 mb-2">
+                                        {{ 'CONTACT.firstName' | translate }}
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        [(ngModel)]="firstName"
+                                        required
+                                        class="w-full border-0 border-b border-gray-300 bg-transparent text-[#0a0a23] placeholder:text-gray-500 pb-3 focus:border-[#644A9E] focus:outline-none transition">
+
+                                </div>
+
+                                <div>
+
+                                    <label class="block text-sm text-gray-500 mb-2">
+                                        {{ 'CONTACT.lastName' | translate }}
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        [(ngModel)]="lastName"
+                                        required
+                                        class="w-full border-0 border-b border-gray-300 bg-transparent text-[#0a0a23] placeholder:text-gray-500 pb-3 focus:border-[#644A9E] focus:outline-none transition">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Email & Phone -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    [(ngModel)]="email"
+                                    placeholder="{{ 'CONTACT.email' | translate }}"
+                                    class="w-full border-0 border-b border-gray-300 bg-transparent text-[#0a0a23] placeholder:text-gray-500 pb-3 focus:border-[#644A9E] focus:outline-none transition">
+
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    [(ngModel)]="phone"
+                                    maxlength="8"
+                                    minlength="8"
+                                    placeholder="{{ 'CONTACT.phone' | translate }}"
+                                    class="w-full border-0 border-b border-gray-300 bg-transparent text-[#0a0a23] placeholder:text-gray-500 pb-3 focus:border-[#644A9E] focus:outline-none transition">
+
+                            </div>
+                                                        <!-- Subject -->
+                            <div>
+
+                                <label class="block text-sm text-gray-500 mb-4">
+                                    {{ 'CONTACT.subject' | translate }}
+                                </label>
+
+                                <div class="flex flex-wrap gap-5">
+
+                                    <label
+                                        class="flex items-center gap-2 text-sm text-[#0a0a23] cursor-pointer">
+
+                                        <input
+                                            type="radio"
+                                            name="subject"
+                                            checked
+                                            class="accent-[#644A9E]">
+
+                                        {{ 'CONTACT.general' | translate }}
+
+                                    </label>
+
+                                    <label
+                                        class="flex items-center gap-2 text-sm text-[#0a0a23] cursor-pointer">
+
+                                        <input
+                                            type="radio"
+                                            name="subject"
+                                            class="accent-[#644A9E]">
+
+                                        {{ 'CONTACT.web' | translate }}
+
+                                    </label>
+
+                                    <label
+                                        class="flex items-center gap-2 text-sm text-[#0a0a23] cursor-pointer">
+
+                                        <input
+                                            type="radio"
+                                            name="subject"
+                                            class="accent-[#644A9E]">
+
+                                        {{ 'CONTACT.uiux' | translate }}
+
+                                    </label>
+
+                                    <label
+                                        class="flex items-center gap-2 text-sm text-[#0a0a23] cursor-pointer">
+
+                                        <input
+                                            type="radio"
+                                            name="subject"
+                                            class="accent-[#644A9E]">
+
+                                        {{ 'CONTACT.other' | translate }}
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Message -->
+
+                            <div>
+
+                                <label class="block text-sm text-gray-500 mb-2">
+                                    {{ 'CONTACT.message' | translate }}
+                                </label>
+
+                                <textarea
+                                    rows="5"
+                                    name="message"
+                                    [(ngModel)]="message"
+                                    [placeholder]="'CONTACT.placeholder' | translate"
+                                    class="w-full border-0 border-b border-gray-300 bg-transparent resize-none text-[#0a0a23] placeholder:text-gray-500 pb-3 focus:border-[#644A9E] focus:outline-none transition">
+                                </textarea>
+
+                            </div>
+
+                            <!-- Button -->
+
+                            <div class="flex justify-end pt-4">
+
+                                <button
+                                    type="submit"
+                                    class="inline-flex items-center gap-3 px-7 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[#0a0a23] font-medium hover:bg-white/30 hover:shadow-lg transition-all duration-300">
+
+                                    {{ 'CONTACT.send' | translate }}
+
+                                    
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

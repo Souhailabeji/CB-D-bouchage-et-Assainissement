@@ -1,0 +1,397 @@
+{
+  "NAVBAR": {
+    "LOGO_ALT": "Logo",
+    "MAIN_MENU": "Menu principal",
+    "HOME": "Accueil",
+    "SERVICES": "Services",
+    "PROJECTS": "Projets",
+    "ABOUT_US": "À propos",
+    "WEB_DEV": "Développement et conception de sites web",
+    "MOBILE_DEV": "Développement d'applications mobiles"
+  },
+
+  "hero": {
+    "title": "CB Débouchage & Assainissement",
+    "contactButton": "20906018"
+  },
+
+  "whatWeDo": {
+    "titleLine1": "Ce que",
+    "titleLine2": "nous faisons chez CB Débouchage & Assainissement",
+    "description": "Notre entreprise, CB Débouchage & Assainissement, est spécialisée dans le débouchage, le curage et l'entretien de toutes les canalisations bouchées partout en France! \nAppelez-nous dès maintenant !",
+    "learnMore": "En savoir plus",
+
+    "webDevLine1": "Diagnostic et inspection de canalisations par caméra",
+    "webDevLine2": "",
+    "webDevAlt": "Développement web",
+
+    "mobileDevLine1": "Curage et débouchage de canalisation",
+    "mobileDevLine2": "",
+    "mobileDevAlt": "Développement d'applications mobiles",
+
+    "uiUxLine1": "Débouchage canalisation WC / toilettes bouchés",
+    "uiUxLine2": "",
+    "uiUxAlt": "Design UI/UX",
+
+    "itConsultingLine1": "Débouchage évier bouché",
+    "itConsultingLine2": "",
+    "itConsultingAlt": "Conseil technologique"
+  },
+
+
+  "WORK": {
+    "title": "Aperçu de nos réalisations",
+
+    "parcel": "Débouchage Canalisation Principale – Immeuble Résidentiel",
+    "restaurant": "Débouchage & Réhabilitation de Canalisation Enterrée – Maison Individuelle",
+    "cars": "Débouchage Cuisine Professionnelle – Restaurant",
+    "padel": "Débouchage d'Urgence Nocturne – Local Commercial",
+
+    "parcelAlt": "Application de livraison de colis",
+    "restaurantAlt": "Système de gestion de restaurant",
+    "carsAlt": "Boutique en ligne de personnalisation automobile",
+    "padelAlt": "Application d'intelligence artificielle pour le padel",
+
+    "stat1": "Clients visitent CB Débouchage & Assainissement chaque mois pour leurs services.",
+
+    "stat2": "de satisfaction client grâce à nos formidables clients.",
+
+    "stat3": "Note moyenne des avis clients obtenus en ligne."
+  },
+
+
+ "CONTACT": {
+  "titleLine1": "Informations",
+  "titleLine2": "de contact",
+
+  "address": "France",
+
+  "firstName": "Prénom",
+  "lastName": "Nom",
+  "email": "E-mail",
+  "phone": "Numéro de téléphone",
+
+  "subject": "Quel est votre besoin ?",
+
+  "general": "Débouchage de canalisation",
+  "web": "Curage des canalisations",
+  "uiux": "Inspection caméra",
+  "other": "Autre demande",
+
+  "message": "Décrivez votre problème",
+  "placeholder": "Décrivez votre problème de canalisation ou votre demande...",
+
+  "send": "Envoyer la demande"
+},
+
+"FOOTER": {
+
+  "logoAlt": "Logo Débouchage",
+
+  "description1": "Spécialistes du débouchage de canalisations, nous intervenons rapidement pour résoudre vos problèmes d’évacuation.",
+
+  "description2": "Nous proposons des solutions professionnelles pour le débouchage des WC, canalisations, éviers, douches et réseaux d’assainissement.",
+
+
+  "company": "Notre entreprise",
+
+  "presentation": "À propos de nous",
+
+  "team": "Nos experts",
+
+  "projects": "Nos réalisations",
+
+
+  "services": "Nos services",
+
+  "webDevelopment": "Débouchage de canalisations",
+
+  "mobileDevelopment": "Débouchage de WC",
+
+  "uiux": "Inspection caméra",
+
+  "itConsulting": "Hydrocurage haute pression",
+
+
+  "quickLinks": "Liens rapides",
+
+
+  "contact": "Contactez-nous",
+
+
+  "copyright": "Copyright © 2026 Débouchage - Tous droits réservés"
+
+},
+  "PORTFOLIO": {
+
+  "TITLE_LINE1": "Nous créons de la beauté",
+  "TITLE_LINE2": "numérique avec",
+  "TITLE_LINE3": "les technologies",
+  "TITLE_LINE4": "modernes",
+
+  "DESCRIPTION_LINE1": "Découvrez nos projets et",
+  "DESCRIPTION_LINE2": "profitez de la rencontre entre créativité et innovation",
+  "DESCRIPTION_LINE3": "pour façonner le monde numérique.",
+
+
+  "PADEL": "Application Padel",
+  "PLATTER": "Platter",
+  "MSG": "MSG",
+  "WASSEL": "Wassel",
+  "QASA": "Qasa",
+  "MDR": "MDR",
+  "PADEL_DATA": "Padel Data SaaS",
+  "CARRIO": "Carrio",
+  "PRINCESS": "Princess",
+  "VOUCHER": "Application Voucher",
+  "QODE": "Technologie Qode",
+  "FOR_GABES": "Pour Gabès",
+  "Qode": "Technologie Qode",
+  "ENTERPRISE": "Enterprise"
+
+},
+
+  "PROJECT_DETAILS": {
+
+    "TITLE": "Site e-commerce pour une boutique de personnalisation automobile",
+
+    "DESCRIPTION": "Une expérience d'achat numérique immersive avec des présentations de voitures animées, des designs cinématographiques et des aperçus instantanés des pièces. Le site a été optimisé pour maximiser les conversions tout en conservant une identité automobile haute performance.",
+
+    "IMAGE_ALT": "Site e-commerce de personnalisation automobile",
+
+
+    "TECHNOLOGIES": "Technologies utilisées",
+
+    "CATEGORY": "Catégorie",
+
+    "CATEGORIES": {
+      "AUTOMOTIVE": "Automobile",
+      "ECOMMERCE": "E-commerce",
+      "LIFESTYLE": "Style de vie"
+    },
+
+
+    "DATE": "Date",
+
+    "DATE_VALUE": "Avril 2025",
+
+
+
+    "PROBLEM_TITLE": "Le problème",
+
+    "PROBLEM_TEXT": "Nous avons conçu une expérience e-commerce interactive pour une boutique spécialisée dans la personnalisation de voitures de luxe. L'objectif était de créer un design vivant qui ne se contente pas de vendre des pièces, mais qui raconte une histoire visuelle de puissance, de personnalisation et d'élégance.",
+
+
+
+    "SOLUTION_TITLE": "La solution",
+
+    "SOLUTION": {
+
+      "ANIMATION_TITLE": "- Présentation interactive du véhicule :",
+"ANIMATION_TEXT": "Un modèle 3D de véhicule interactif au centre de la page qui répond aux actions de l'utilisateur, affichant en temps réel différentes pièces telles que les jantes, les pare-chocs et les modifications.",
+
+"EXPERIENCE_TITLE": "- Expérience immersive :",
+"EXPERIENCE_TEXT": "Designs cinématographiques avec de grandes images, des effets de défilement fluides et des animations interactives pour enrichir l'expérience utilisateur.",
+
+"RESPONSIVE_TITLE": "- Design responsive :",
+"RESPONSIVE_TEXT": "Le site a été optimisé pour fonctionner sur tous les appareils sans compromettre les éléments interactifs.",
+
+"DESIGN_TITLE": "- Système de design :",
+"DESIGN_TEXT": "Un ensemble d'icônes personnalisées, de couleurs et de polices reflétant une identité moderne et haute performance.",
+
+"CONVERSION_TITLE": "- Interface orientée conversion :",
+"CONVERSION_TEXT": "Des pages produits structurées, un parcours d'achat simplifié et des boutons d'appel à l'action clairs pour équilibrer esthétique et facilité d'utilisation."
+    }
+
+  },
+  "ABOUT": {
+
+  "TITLE": "Découvrez qui nous sommes",
+
+  "STAT1": "Une équipe spécialisée dans le débouchage, le curage et l'entretien des canalisations.",
+
+  "STAT2": "Nous intervenons rapidement pour résoudre vos problèmes de canalisations et d'assainissement.",
+
+  "STAT3": "Des clients satisfaits grâce à notre professionnalisme, notre réactivité et la qualité de nos interventions.",
+
+  "CONTACT": "Contactez-nous",
+
+
+  "WHO_ALT": "Qui sommes-nous",
+
+  "WHO_TEXT": "CB Débouchage & Assainissement est une entreprise spécialisée dans le débouchage, le curage, l’entretien et l’inspection des canalisations. Nous intervenons auprès des particuliers, professionnels et entreprises afin de résoudre rapidement les problèmes liés aux canalisations bouchées ou aux réseaux d’assainissement.Notre objectif est simple : vous proposer une intervention rapide, efficace et professionnelle, tout en assurant un travail soigné et durable.",
+
+
+  "MISSION_ALT": "Notre mission",
+
+
+  "MISSION": {
+
+    "ONE": "Débouchage de canalisation: Nous intervenons pour éliminer les bouchons et rétablir rapidement l’écoulement normal de vos canalisations.",
+
+    "TWO": "Curage des canalisations: Le curage permet de nettoyer en profondeur les conduits et de limiter l'accumulation de graisses, déchets, boues et autres dépôts..",
+
+    "THREE": "Inspection par caméra: Lorsque l'origine du problème est difficile à identifier, l'inspection caméra permet de visualiser l'intérieur des canalisations et de localiser précisément les anomalies.",
+
+    "FOUR": "Entretien et prévention: Un entretien régulier permet de préserver vos installations, de réduire les risques de bouchons et d'éviter les interventions d'urgence."
+
+  }
+
+},
+
+  "WHAT_WE_DO": {
+    "TITLE_LINE1": "Ce que",
+    "TITLE_LINE2": "nous proposons",
+     "DESCRIPTION": "Découvrez nos services de débouchage, de curage et d’entretien des canalisations. Notre équipe intervient rapidement et efficacement pour résoudre vos problèmes d’assainissement partout en France." ,
+        "SERVICES": {
+      "WEB_DEV": "Diagnostic et inspection de canalisations par caméra",
+      "WEB_DEV_ALT": "Diagnostic et inspection de canalisations par caméra",
+      "MOBILE_DEV": "Curage et débouchage de canalisation",
+      "MOBILE_DEV_ALT": "Curage et débouchage de canalisation",
+      "IT_CONSULTING": "Débouchage canalisation WC / toilettes bouchés",
+      "IT_CONSULTING_ALT": "Débouchage canalisation WC / toilettes bouchés",
+      "UIUX_DESIGN": "Débouchage évier bouché",
+      "UIUX_DESIGN_ALT": "Débouchage évier bouché"
+    }
+  },
+  
+  
+  
+  
+  "CAR_MOD_SHOP": {
+    "TITLE": "Site e-commerce pour une boutique de personnalisation automobile",
+    "TAGLINE": "Une expérience d'achat visuellement immersive avec des présentations animées de voitures, des designs cinématographiques et des aperçus instantanés des pièces. Optimisée pour maximiser le taux de conversion tout en conservant une identité automobile haute performance.",
+    "TECH_USED": "Technologies utilisées :",
+    "CATEGORY_LABEL": "Catégorie",
+    "CATEGORY_1": "Automobile",
+    "CATEGORY_2": "E-commerce",
+    "CATEGORY_3": "Style de vie",
+    "DATE_LABEL": "Date :",
+    "DATE": "Avril 2025",
+    "PROBLEM_TITLE": "Le problème",
+    "PROBLEM_DESCRIPTION": "Nous avons conçu une expérience e-commerce interactive pour une boutique spécialisée dans la personnalisation de voitures de luxe. L'objectif était de créer un design vivant — un site qui ne se contente pas de vendre des pièces, mais qui raconte une histoire visuelle de puissance, de personnalisation et d'élégance.",
+    "SOLUTION_TITLE": "La solution",
+    "SOLUTION_1": "- Présentation animée du véhicule : un modèle 3D de voiture interactif au centre de la page qui répond aux actions de l'utilisateur, affichant instantanément différentes pièces telles que les jantes, l'aileron et le habillage.",
+    "SOLUTION_2": "- Expérience immersive : design cinématographique avec de grandes images, des effets de défilement fluides et des animations au survol pour enrichir le parcours utilisateur.",
+    "SOLUTION_3":  "- Design responsive : optimisé sur tous les appareils sans affecter les éléments animés.",
+    "SOLUTION_4": "- Système de design : un ensemble d'icônes personnalisées, de couleurs et de polices reflétant une identité élégante et haute performance.",
+    "SOLUTION_5": "- Interface orientée conversion : des pages produits claires, un parcours de paiement simplifié et des appels à l'action visibles pour équilibrer esthétique et facilité d'utilisation."
+  },
+  
+  "webDev": {
+    "title": "Diagnostic et inspection de canalisations par caméra",
+
+    "services": {
+      "showcase": {
+        "title": "l'importance de l'inspection par caméra",
+        "description": "L’entretien régulier des canalisations permet d’éviter les bouchages et les problèmes d’assainissement. Les WC, éviers, lavabos, douches, baignoires, fosses septiques et autres réseaux peuvent être concernés. En cas de blocage, un diagnostic professionnel est indispensable pour identifier la cause et l’emplacement de la panne. Nos experts utilisent des équipements modernes, notamment des caméras endoscopiques, pour inspecter l’intérieur des canalisations. Le passage caméra permet de détecter précisément les bouchons, fissures et autres anomalies. Après l’inspection, nous proposons rapidement une solution adaptée. Notre équipe intervient partout en France, 7j/7 et 24h/24, avec des tarifs abordables.."
+      },
+
+      "ecommerce": {
+        "title": "Le passage caméra pour un état des lieux général",
+       "description": "L’inspection caméra se déroule à l’aide d’un smartphone ou d’une tablette. Une fois que nos experts introduisent la caméra endoscopique dans les canalisations, les images sont directement projetées sur l’écran de l’appareil connecté. Cela permet d’identifier la nature du bouchon ainsi que sa localisation précise. Outre ces deux principaux avantages, le passage caméra permet également d’effectuer un état des lieux complet de vos réseaux d’assainissement. Il s’agit d’une méthode moderne et efficace pour vérifier l’état des conduits de votre habitation. L’inspection permet notamment d’analyser :\n\n- L’étanchéité des canalisations\n- La vétusté des matériaux utilisés\n- Les cassures et les fissures des canalisations\n- La cause d’une fuite d’eau\n- L’état général des réseaux d’assainissement\n- Les canalisations avant ou après une prestation de débouchage\n- Un simple contrôle préventif de vos canalisations\n- Etc."},
+
+      "customDesign": {
+        "title": "L’inspection caméra pour plus de précision dans le débouchage",
+        "description": "Le passage caméra permet de localiser avec précision les fuites, fissures et cassures dans les canalisations. Il aide également à identifier les bouchons, dépôts de déchets, problèmes d’écoulement et défauts de conception. Cette inspection permet de détecter les canalisations mal positionnées, les raccordements défectueux ou les affaissements de terrain. Grâce à ce diagnostic précis, nos experts peuvent déterminer rapidement l’origine du problème et proposer une intervention adaptée."
+      },
+
+      "maintenance": {
+        "title": "Les différentes étapes d’une inspection caméra",
+        "description": "Nous nous déplaçons gratuitement vers vous, peu importe votre localisation dans toute la France. Nous ne majorons pas nos interventions même les jours fériés. Pour l’inspection caméra, nous définissons une fois sur place le mode d’intervention sécurisée et respectueuse de votre habitation et du voisinage.Nous introduisons la caméra endoscopique dans l’axe de la canalisation à diagnostiquer. Nos experts restent très attentifs à toutes les anomalies que présentent les conduits sur l’écran. Après cette inspection, nous vous présentons un compte rendu ou un rapport d’inspection qui retrace tous les problèmes et pannes relevés.Nous vous donnons des conseils et astuces pour bien entretenir vos canalisations et éviter les bouchages à l’avenir. Notre équipe de professionnels reste apte à vous apporter d’autres prestations de qualité dans toute la France à des prix raisonnables. Vous pouvez demander un devis gratuitement pour une inspection caméra de vos canalisations.."
+      }
+    }
+  },
+  
+  "mobileApps": {
+    "title": "Nos services de curage et débouchage près de chez vous",
+    "services": {
+      "ios": {
+        "title": "Curage de canalisation",
+        "description": "Le curage est un nettoyage en profondeur de vos canalisations et ouvrages d’assainissement. Il permet d’éliminer boue, tartre, graisse et autres dépôts qui entravent l’écoulement des eaux. Cette opération est indispensable pour prévenir les bouchons et les débordements. Nos équipes interviennent sur tous types de réseaux : eaux domestiques, eaux-vannes et eaux pluviales, pour assurer un assainissement efficace."
+      },
+      "android": {
+        "title": "Dégorgement de canalisation",
+        "description": "Lorsque vos canalisations sont bouchées, nous proposons un service de dégorgement rapide. Nos spécialistes identifient et éliminent les obstructions, garantissant ainsi un écoulement optimal. Le service est disponible 24/7 autour de vous, pour une intervention immédiate en cas d’urgence."
+      },
+      "crossPlatform": {
+        "title": "Inspection télévisée des canalisations",
+        "description": "Grâce à nos caméras d’inspection, nous contrôlons l’état de vos canalisations et détectons les problèmes tels que fuites, cassures ou mauvaises pentes. Cette inspection permet d’établir un diagnostic précis et d’adapter nos interventions pour un nettoyage et un curage efficace, garantissant un réseau de canalisations sain et fonctionnel."
+      },
+      "uiux": {
+        "title": "Débouchage des canalisations bouchées",
+        "description": "Nous intervenons rapidement pour déboucher vos canalisations bouchées, qu’il s’agisse de WC, éviers, lavabos, douches ou colonnes d’immeubles. Nos spécialistes utilisent des techniques adaptées et des équipements haute pression pour rétablir un écoulement optimal et prévenir tout engorgement futur."
+      },
+      "maintenance": {
+        "title": "Service d’urgence et intervention rapide",
+        "description": "Les canalisations bouchées peuvent provoquer des désagréments importants et des dégâts. C’est pourquoi Fast Débouchage met à votre disposition un service d’urgence autour de vous, disponible 24/7. Nos équipes se déplacent immédiatement pour déboucher, curer et nettoyer vos canalisations afin de rétablir un écoulement normal et éviter tout incident."
+      }
+    }
+  },
+  
+  "itConsulting": {
+    "title": "Débouchage évier bouché",
+
+    "services": {
+
+      "research": {
+        "title": "Débouchage manuel",
+        "description": "Le débouchage manuel est souvent la première étape pour éliminer un bouchon. Nos techniciens utilisent des outils comme la ventouse ou le furet manuel pour déloger les bouchons situés près de l’entrée de la canalisation. Cette méthode est rapide, économique, et adaptée aux bouchons peu profonds."
+      },
+
+      "wireframe": {
+        "title": "Débouchage mécanique",
+        "description": "Pour les bouchons plus résistants ou situés plus loin dans la canalisation, nous utilisons des furets motorisés. Ces appareils permettent d’atteindre et de briser les obstructions profondes, comme les amas de graisse ou les amas solides, sans abîmer vos tuyaux. Le débouchage mécanique est très efficace pour un nettoyage complet."
+      },
+
+      "interface": {
+        "title": "Débouchage haute pression",
+        "description": "Nous employons également des techniques de nettoyage à haute pression d’eau. Cette méthode utilise un jet puissant qui nettoie en profondeur les parois des canalisations tout en éliminant les bouchons. Le débouchage haute pression permet aussi de prévenir les futurs engorgements en délogeant les dépôts accumulés."
+      },
+
+      "testing": {
+        "title": "Inspection par caméra",
+        "description": "Pour diagnostiquer précisément la cause et l’emplacement du bouchon, nous réalisons des inspections vidéo à l’aide de caméras spécifiques. Cette technologie nous aide à cibler l’intervention, éviter les dommages inutiles, et garantir un débouchage efficace."
+      },
+
+      "interaction": {
+        "title": "Entretien et prévention",
+        "description": " Au-delà du débouchage, nous proposons des solutions d’entretien régulier pour éviter la formation de bouchons. Nous conseillons sur les bonnes pratiques et pouvons effectuer un nettoyage périodique des canalisations afin d’assurer leur bon fonctionnement durablement."
+      }
+
+    }
+  },
+  
+  "uiux": {
+    "title": "Design UI/UX",
+
+    "services": {
+
+      "strategy": {
+        "title": "Conseil en stratégie technologique",
+        "description": "Développement d'une stratégie technologique intégrée alignée sur les objectifs de votre entreprise, optimisant l'utilisation de la technologie pour accroître l'efficacité, la productivité et une croissance durable."
+      },
+
+      "transformation": {
+        "title": "Transformation numérique",
+        "description": "Transformer votre entreprise grâce à des solutions numériques innovantes qui améliorent les processus, renforcent l'expérience client et augmentent la performance opérationnelle."
+      },
+
+      "cloud": {
+        "title": "Conseil en solutions cloud",
+        "description": "Tirer parti de solutions cloud évolutives pour améliorer les performances, la sécurité et l'accessibilité, avec des stratégies de migration vers le cloud sur mesure."
+      },
+
+      "cybersecurity": {
+        "title": "Conseil en cybersécurité",
+        "description": "Protéger votre entreprise grâce à des stratégies de sécurité avancées incluant l'évaluation des risques, la protection contre les menaces et la conformité aux exigences de sécurité."
+      },
+
+      "integration": {
+        "title": "Intégration technologique",
+        "description": "Intégrer les technologies modernes de manière fluide avec les systèmes existants pour améliorer la compatibilité, l'efficacité et soutenir l'innovation numérique."
+      }
+
+    }
+  }
+}

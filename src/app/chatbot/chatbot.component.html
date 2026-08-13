@@ -1,0 +1,33 @@
+<!-- STATIC BOT CHARACTER -->
+<div class="bot-container floating" (click)="toggleChat()">
+    <img src="images/chat-bot-light.png" alt="Chatbot" class="bot-image inline-block dark:hidden" />
+    <img src="images/chat-bot-dark.png" alt="Chatbot" class="bot-image hidden dark:inline-block" />
+
+    <!-- THINKING DOTS -->
+    <div class="thinking-dots" *ngIf="showThinkingDots && !isOpen">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- MESSAGE BUBBLE -->
+    <div class="message-bubble" *ngIf="showMessage && !isOpen">
+        {{ currentMessage }}
+        <div class="bubble-tail"></div>
+    </div>
+</div>
+
+<!-- FIXED CHAT UI AT BOTTOM -->
+<div class="chatbox-wrapper" *ngIf="isOpen">
+    <div class="chat-header">
+        <img src="images/logo-big.png" class="chat-logo" />
+        Qora — Virtual Assistant
+        <button class="close-btn" (click)="closeChat()">×</button>
+    </div>
+    <div class="chat-body">
+        <div class="messages">
+            <div *ngFor="let msg of messages" [ngClass]="msg.sender">{{ msg.text }}</div>
+        </div>
+        <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type a message..." />
+    </div>
+</div>

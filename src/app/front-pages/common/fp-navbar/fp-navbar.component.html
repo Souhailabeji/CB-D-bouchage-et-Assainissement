@@ -1,0 +1,172 @@
+<div
+  class="fixed top-0 left-0 right-0 z-[50] transition-all duration-300 "
+  id="navbar"
+  [ngClass]="{'is-sticky': isSticky}"
+>
+
+  <div class="container mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center justify-between lg:justify-start min-h-[74px]">
+
+      <!-- LOGO -->
+      <a routerLink="/" class="inline-flex w-[100px] sm:w-[120px] lg:w-[140px]">
+        <img
+          [src]="logoSrc"
+          [alt]="'NAVBAR.LOGO_ALT' | translate"
+          class="w-full h-auto object-contain"
+        >
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <div class="hidden lg:flex items-center grow">
+
+        <ul class="flex items-center justify-center gap-[25px] xl:gap-[35px] mx-auto">
+
+          <li>
+            <a
+              routerLink=""
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="closeDropdown()"
+              [ngClass]="isSticky ? 'text-gray-800' : 'text-white'"
+              class="font-glacial font-normal hover:text-[#644A9E] transition-all text-[30px] leading-[100%] tracking-[0%]"
+            >
+              {{ 'NAVBAR.HOME' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/services"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="closeDropdown()"
+              [ngClass]="isSticky ? 'text-gray-800' : 'text-white'"
+              class="font-glacial font-normal hover:text-[#644A9E] transition-all text-[30px] leading-[100%] tracking-[0%]"
+            >
+              {{ 'NAVBAR.SERVICES' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/projects"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="closeDropdown()"
+              [ngClass]="isSticky ? 'text-gray-800' : 'text-white'"
+              class="font-glacial font-normal hover:text-[#644A9E] transition-all text-[30px] leading-[100%] tracking-[0%]"
+            >
+              {{ 'NAVBAR.PROJECTS' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/about-us"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="closeDropdown()"
+              [ngClass]="isSticky ? 'text-gray-800' : 'text-white'"
+              class="font-glacial font-normal hover:text-[#644A9E] transition-all text-[30px] leading-[100%] tracking-[0%]"
+            >
+              {{ 'NAVBAR.ABOUT_US' | translate }}
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- MOBILE ACTIONS -->
+      <div class="flex items-center gap-3 lg:hidden">
+
+        <!-- BURGER -->
+        <button
+          type="button"
+          class="burger"
+          [ngClass]="{'opened': classApplied, 'burger--light': !isSticky}"
+          (click)="toggleClass()"
+          [attr.aria-expanded]="classApplied"
+          [attr.aria-label]="'NAVBAR.MAIN_MENU' | translate"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div
+        id="navbar-collapse"
+        class="absolute top-[74px] left-0 w-full bg-white dark:bg-[#484546] shadow-lg lg:hidden p-5 transition-all duration-300"
+        [ngClass]="{
+          'block': classApplied,
+          'hidden': !classApplied
+        }"
+      >
+
+        <ul class="flex flex-col gap-5">
+
+          <li>
+            <a
+              routerLink=""
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="onNavItemClick()"
+              class="flex items-center gap-2 text-gray-900 dark:text-white font-glacial font-normal text-[30px] leading-[100%] tracking-[0%]"
+            >
+              <span class="material-symbols-outlined">home</span>
+              {{ 'NAVBAR.HOME' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/services"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="onNavItemClick()"
+              class="flex items-center gap-2 text-gray-900 dark:text-white font-glacial font-normal text-[30px] leading-[100%] tracking-[0%]"
+            >
+              <span class="material-symbols-outlined">build</span>
+              {{ 'NAVBAR.SERVICES' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/projects"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="onNavItemClick()"
+              class="flex items-center gap-2 text-gray-900 dark:text-white font-glacial font-normal text-[30px] leading-[100%] tracking-[0%]"
+            >
+              <span class="material-symbols-outlined">view_kanban</span>
+              {{ 'NAVBAR.PROJECTS' | translate }}
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/about-us"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}"
+              (click)="onNavItemClick()"
+              class="flex items-center gap-2 text-gray-900 dark:text-white font-glacial font-normal text-[30px] leading-[100%] tracking-[0%]"
+            >
+              <span class="material-symbols-outlined">info</span>
+              {{ 'NAVBAR.ABOUT_US' | translate }}
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

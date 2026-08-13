@@ -1,0 +1,1042 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.project-details {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  overflow-x: hidden;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+  width: 100%;
+  max-width: 100%;
+
+  padding: 120px 40px 70px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   HERO INTRO
+========================================== */
+
+.hero-intro {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+.hero-intro h1 {
+  width: 100%;
+
+  margin: 0 0 28px;
+
+  color: #16181d;
+
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 300;
+  line-height: 1.15;
+
+  letter-spacing: -1px;
+
+  text-align: left;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.hero-intro p {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: #64748b;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  text-align: left;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ==========================================
+   META
+========================================== */
+
+.hero-meta {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 55px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+.hero-meta-col {
+  width: 100%;
+  min-width: 0;
+
+  text-align: left;
+}
+
+.hero-meta h3 {
+  margin: 0 0 12px;
+
+  color: #16181d;
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.hero-meta p,
+.hero-meta span {
+  display: block;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.9;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ==========================================
+   IMAGE GALLERY
+========================================== */
+
+.image-gallery {
+  width: 100%;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 45px;
+  padding: 15px 20px 25px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+
+  -webkit-overflow-scrolling: touch;
+
+  cursor: grab;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  overscroll-behavior-x: contain;
+}
+
+.image-gallery.wheel-scrolling {
+  scroll-behavior: auto;
+}
+
+.image-gallery:active {
+  cursor: grabbing;
+}
+
+.image-gallery.active {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+
+  cursor: grabbing;
+}
+
+
+/* ==========================================
+   IMAGE GALLERY SCROLLBAR
+========================================== */
+
+.image-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+  background: #edf2f7;
+  border-radius: 50px;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    #4a90e2,
+    #8c52ff
+  );
+
+  border-radius: 50px;
+}
+
+.image-gallery::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    90deg,
+    #357abd,
+    #6f39e8
+  );
+}
+
+.image-gallery {
+  scrollbar-width: thin;
+  scrollbar-color: #4a90e2 #edf2f7;
+}
+
+
+/* ==========================================
+   GALLERY IMAGES
+========================================== */
+
+.image-gallery img {
+  flex: 0 0 auto;
+
+  width: 350px;
+  height: 720px;
+
+  max-width: none;
+
+  object-fit: cover;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  scroll-snap-align: center;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.08);
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+.image-gallery img:hover {
+  transform: translateY(-8px) scale(1.03);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.16);
+}
+
+.image-gallery.active img:hover {
+  transform: none;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+.image-gallery img:first-child {
+  margin-left: 10px;
+}
+
+.image-gallery img:last-child {
+  margin-right: 10px;
+}
+
+
+/* ==========================================
+   PROBLEM IMAGE
+========================================== */
+
+.problem-gallery {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 35px;
+
+  overflow: hidden;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: #f5f7fa;
+}
+
+.image-container img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  transition: transform 0.4s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.02);
+}
+
+
+/* ==========================================
+   TECHNOLOGY BOX
+========================================== */
+
+.hero-tech-row {
+  width: 100%;
+  max-width: 1000px;
+
+  min-height: 260px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 45px;
+
+  background: linear-gradient(
+    to top,
+    #a9cdf0 0%,
+    #d8eafb 45%,
+    #ffffff 100%
+  );
+
+  border-radius: 32px;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   TECHNOLOGY CONTENT
+========================================== */
+
+.hero-tech-col {
+  width: 100%;
+  max-width: 800px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.tech-heading {
+  width: 100%;
+
+  margin: 0;
+
+  color: #16181d;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  line-height: 1.3;
+
+  text-align: center;
+}
+
+.tech-list {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(120px, 1fr));
+
+  justify-content: center;
+
+  gap: 30px;
+
+  margin-top: 40px;
+}
+
+.tech {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  text-align: center;
+}
+
+.tech img {
+  width: 75px;
+  height: 75px;
+
+  object-fit: contain;
+}
+
+.tech span {
+  display: block;
+
+  max-width: 160px;
+
+  color: #16181d;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  text-align: center;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ==========================================
+   PHONES
+========================================== */
+
+.hero-phones {
+  position: relative;
+
+  width: 100%;
+  max-width: 430px;
+
+  height: 500px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  position: absolute;
+
+  width: min(100%, 430px);
+
+  max-width: 100%;
+}
+
+.phone img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.phone.back {
+  top: -80px;
+  right: -60px;
+
+  transform: rotate(8deg);
+
+  z-index: 2;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.project-container {
+  width: 100%;
+  max-width: 100%;
+
+  padding: 80px 40px;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f6f8f8
+  );
+}
+
+.description {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 70px;
+
+  text-align: left;
+}
+
+.box {
+  width: 100%;
+  max-width: 100%;
+}
+
+.box h2 {
+  margin: 0 0 20px;
+
+  color: #16181d;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  text-align: left;
+}
+
+.box p,
+.box li {
+  color: #16181d;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  text-align: left;
+
+  overflow-wrap: break-word;
+}
+
+.box p {
+  width: 100%;
+  max-width: 800px;
+
+  margin-top: 0;
+}
+
+.box ul {
+  width: 100%;
+
+  margin: 15px 0 0;
+
+  padding-left: 25px;
+}
+
+.box li {
+  margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    padding: 90px 30px 60px;
+  }
+
+  .hero-intro {
+    max-width: 800px;
+  }
+
+  .hero-meta {
+    max-width: 800px;
+
+    gap: 50px;
+  }
+
+  .hero-tech-row {
+    max-width: 850px;
+
+    padding: 40px 30px;
+  }
+
+  .hero-phones {
+    max-width: 450px;
+
+    height: 400px;
+  }
+
+  .phone {
+    width: 360px;
+  }
+
+  .phone.back {
+    top: -40px;
+    right: -20px;
+  }
+
+
+  /* GALLERY */
+
+  .image-gallery {
+    gap: 22px;
+  }
+
+  .image-gallery img {
+    width: 300px;
+    height: 620px;
+  }
+
+
+  /* CONTENT */
+
+  .project-container {
+    padding: 70px 30px;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 65px 20px 40px;
+  }
+
+
+  /* HERO */
+
+  .hero-intro {
+    margin-bottom: 35px;
+  }
+
+  .hero-intro h1 {
+    margin: 0 0 20px;
+
+    font-size: clamp(
+      27px,
+      7vw,
+      34px
+    );
+
+    line-height: 1.2;
+
+    letter-spacing: -0.6px;
+
+    text-align: left;
+  }
+
+  .hero-intro p {
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    text-align: left;
+  }
+
+
+  /* META */
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 40px;
+  }
+
+  .hero-meta h3 {
+    margin-bottom: 7px;
+  }
+
+  .hero-meta p,
+  .hero-meta span {
+    font-size: 14px;
+  }
+
+
+  /* TECHNOLOGY */
+
+  .hero-tech-row {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 30px 20px;
+
+    border-radius: 22px;
+  }
+
+  .tech-heading {
+    font-size: 23px;
+
+    line-height: 1.3;
+  }
+
+  .tech-list {
+    grid-template-columns:
+      repeat(2, minmax(80px, 1fr));
+
+    gap: 28px 20px;
+
+    margin-top: 30px;
+  }
+
+  .tech img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .tech span {
+    max-width: 120px;
+
+    font-size: 12px;
+  }
+
+
+  /* PHONES */
+
+  .hero-phones {
+    width: 100%;
+    max-width: 320px;
+
+    height: 330px;
+
+    margin: 20px auto 0;
+  }
+
+  .phone {
+    width: 260px;
+  }
+
+  .phone.back {
+    top: -20px;
+    right: -10px;
+  }
+
+  .phone.front {
+    top: 60px;
+    left: -10px;
+  }
+
+
+  /* GALLERY */
+
+  .image-gallery {
+    gap: 16px;
+
+    margin-top: 30px;
+
+    padding: 10px 15px 20px;
+  }
+
+  .image-gallery img {
+    width: 220px;
+    height: 460px;
+
+    border-radius: 18px;
+  }
+
+
+  /* PROBLEM IMAGE */
+
+  .problem-gallery {
+    margin-top: 25px;
+  }
+
+  .image-container {
+    border-radius: 14px;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 14px;
+  }
+
+
+  /* CONTENT */
+
+  .project-container {
+    padding: 50px 20px;
+  }
+
+  .description {
+    gap: 45px;
+  }
+
+  .box h2 {
+    margin-bottom: 15px;
+
+    font-size: 27px;
+  }
+
+  .box p,
+  .box li {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .box p {
+    margin-left: 0;
+  }
+
+  .box li {
+    margin-left: 0;
+  }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 50px 15px 35px;
+  }
+
+
+  /* HERO */
+
+  .hero-intro h1 {
+    font-size: 27px;
+
+    line-height: 1.2;
+  }
+
+  .hero-intro p {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  /* META */
+
+  .hero-meta {
+    gap: 22px;
+  }
+
+
+  /* TECHNOLOGY */
+
+  .hero-tech-row {
+    padding: 25px 15px;
+
+    border-radius: 18px;
+  }
+
+  .tech-heading {
+    font-size: 21px;
+  }
+
+  .tech-list {
+    grid-template-columns:
+      repeat(2, minmax(70px, 1fr));
+
+    gap: 25px 15px;
+  }
+
+  .tech img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tech span {
+    max-width: 100px;
+
+    font-size: 11px;
+  }
+
+
+  /* PHONES */
+
+  .hero-phones {
+    height: 280px;
+  }
+
+  .phone {
+    width: 220px;
+  }
+
+  .phone.back {
+    right: -5px;
+  }
+
+  .phone.front {
+    left: -5px;
+
+    top: 50px;
+  }
+
+
+  /* GALLERY */
+
+  .image-gallery {
+    gap: 12px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .image-gallery img {
+    width: 190px;
+    height: 390px;
+
+    border-radius: 16px;
+  }
+
+
+  /* PROBLEM IMAGE */
+
+  .problem-gallery {
+    margin-top: 20px;
+  }
+
+  .image-container {
+    border-radius: 10px;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 10px;
+  }
+
+
+  /* CONTENT */
+
+  .project-container {
+    padding: 40px 15px;
+  }
+
+  .description {
+    gap: 40px;
+  }
+
+  .box h2 {
+    font-size: 24px;
+  }
+
+  .box p,
+  .box li {
+    font-size: 14px;
+  }
+
+  .box ul {
+    padding-left: 20px;
+  }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 360px) {
+
+  .hero {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-intro h1 {
+    font-size: 24px;
+  }
+
+  .hero-intro p {
+    font-size: 13px;
+  }
+
+  .hero-tech-row {
+    padding: 22px 12px;
+  }
+
+  .tech-list {
+    gap: 22px 10px;
+  }
+
+  .tech span {
+    font-size: 10px;
+  }
+
+  .project-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .box h2 {
+    font-size: 22px;
+  }
+
+  .box p,
+  .box li {
+    font-size: 13px;
+  }
+
+}

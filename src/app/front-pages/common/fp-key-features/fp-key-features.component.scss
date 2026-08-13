@@ -1,0 +1,242 @@
+.qode-services-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+/* ===============================
+   BACKGROUND BUBBLES
+================================ */
+.qode-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+.qode-bubble--1 {
+  background: #99D5C6;
+  opacity: 0.48;
+  width: 487px;
+  height: 424px;
+  top: -100px;
+  left: -243px;
+  transform: rotate(0deg);
+}
+
+.qode-bubble--2 {
+  background: #8C52FF;
+  opacity: 0.20;
+  width: 270px;
+  height: 293px;
+  top: 75%;
+  right: -100px;
+  transform: rotate(0deg);
+}
+
+
+/* ===============================
+   SERVICE ROW
+================================ */
+.qode-service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(25px, 4vw, 60px);
+  padding: clamp(25px, 3vw, 40px) 0;
+  border-top: 1px solid #e0e0e0;
+  text-decoration: none;
+  width: 100%;
+}
+
+.qode-service-row:last-child {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Image gauche / texte droite */
+.qode-service-row--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* ===============================
+   TEXT AREA
+================================ */
+.qode-service-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: min(35%, 360px);
+  flex-shrink: 0;
+}
+
+.qode-service-label--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+
+/* ===============================
+   ARROW (agrandie)
+================================ */
+.qode-service-arrow {
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1;
+  display: inline-block;
+}
+
+
+/* ===============================
+   TITLE
+================================ */
+.card__title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+
+/* ===============================
+   IMAGE
+================================ */
+.qode-service-img-wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+
+.qode-service-img {
+  width: 100%;
+  height: clamp(180px, 20vw, 260px);
+  object-fit: cover;
+  display: block;
+  border-radius: 40px;
+}
+
+
+/* ===============================
+   LARGE SCREEN 1200px - 1400px
+   Optimisé zoom 90%
+================================ */
+@media (max-width: 1400px) {
+
+  .qode-service-label {
+    width: 320px;
+  }
+
+  .qode-service-img-wrap {
+    max-width: 480px;
+  }
+
+  .card__title {
+    font-size: 48px;
+  }
+
+  .qode-service-arrow {
+    font-size: 52px;
+  }
+
+}
+
+
+/* ===============================
+   TABLET
+================================ */
+@media (max-width: 991px) {
+
+  .qode-service-row {
+    gap: 30px;
+  }
+
+  .qode-service-label {
+    width: 250px;
+  }
+
+  .qode-service-img-wrap {
+    max-width: 420px;
+  }
+
+  .card__title {
+    font-size: 38px;
+  }
+
+  .qode-service-arrow {
+    font-size: 44px;
+  }
+
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+
+  .qode-service-row,
+  .qode-service-row--reverse {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px 0;
+  }
+
+  .qode-service-label,
+  .qode-service-label--right {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .qode-service-img-wrap {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 25px;
+  }
+
+  .qode-service-img {
+    height: 180px;
+    border-radius: 25px;
+  }
+
+  .card__title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .qode-service-arrow {
+    font-size: 38px;
+  }
+
+}
+
+
+/* ===============================
+   SMALL MOBILE
+================================ */
+@media (max-width: 480px) {
+
+  .card__title {
+    font-size: 26px;
+  }
+
+  .qode-service-img {
+    height: 150px;
+  }
+
+  .qode-service-arrow {
+    font-size: 32px;
+  }
+
+}

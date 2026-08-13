@@ -1,0 +1,134 @@
+<div *ngIf="isLoginMode" class="py-[20px] md:py-[30px] px-[15px]">
+    <div class="mx-auto w-full max-w-[400px] sm:max-w-[450px] md:max-w-[520px] lg:max-w-[600px]">
+        <div class="flex justify-center mb-[15px] md:mb-[20px]">
+            <img src="images/logo-big.png" alt="logo" class="h-[50px] sm:h-[60px] md:h-[70px] dark:hidden">
+            <img src="images/white-logo-big.png" alt="logo" class="h-[50px] sm:h-[60px] md:h-[70px] hidden dark:inline-block">
+        </div>     
+        <h2 class="text-center text-lg sm:text-xl md:text-2xl font-medium text-black dark:text-white mb-[15px] sm:mb-[20px]">
+            Sign In
+        </h2>
+        <div class="text-left text-black dark:text-white">
+            <div class="relative my-[12px] sm:my-[15px]">
+            </div>
+            <div class="mb-[10px] sm:mb-[12px]">
+                <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+                    Email Address
+                </label>
+                <input type="text"
+                    class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white"
+                    placeholder="example@gmail.com">
+            </div>
+            <div class="mb-[10px] sm:mb-[12px] relative">
+                <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+                    Password
+                </label>
+                <input [type]="isPasswordVisible ? 'text' : 'password'" [value]="password"
+                    (input)="onPasswordInput($event)"
+                    class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white"
+                    placeholder="Type password">
+                <button
+                    class="absolute text-base sm:text-lg ltr:right-[10px] rtl:left-[10px] bottom-[8px] sm:bottom-[10px] transition-all hover:text-[#99d5c6] dark:text-white"
+                    (click)="togglePasswordVisibility()" type="button">
+                    <i [ngClass]="isPasswordVisible ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+                </button>
+            </div>
+            <div class="mb-[12px] sm:mb-[15px] text-right">
+                <a routerLink="/authentication/forgot-password"
+                    class="text-xs sm:text-sm text-[#644a9e] dark:text-[#99d5c6] font-medium hover:underline">
+                    Forgot Password?
+                </a>
+            </div>
+            <button type="submit" class="coolBeans w-full text-center transition-all rounded-full font-medium py-[8px] sm:py-[10px] px-[18px] sm:px-[22px] text-sm sm:text-base text-white">
+  <span class="flex items-center justify-center gap-[4px]">
+    <i class="material-symbols-outlined !text-[16px] sm:!text-[18px]">login</i>
+    Sign In
+  </span>
+</button>
+            <p class="mt-[12px] sm:mt-[15px] text-center text-xs sm:text-sm dark:text-white">
+                Don't have an account?
+                <button (click)="toggleAuthMode()" class="text-[#644a9e] dark:text-[#99d5c6] font-medium hover:underline">
+                    Sign Up
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Sign Up Form -->
+<div *ngIf="!isLoginMode" class="py-[20px] md:py-[30px] px-[15px]">
+  <div class="mx-auto w-full max-w-[400px] sm:max-w-[450px] md:max-w-[520px] lg:max-w-[600px]">
+    
+    <div class="flex justify-center mb-[15px] md:mb-[20px]">
+      <img src="images/logo-big.png" alt="logo" class="h-[50px] sm:h-[60px] md:h-[70px] dark:hidden">
+      <img src="images/white-logo-big.png" alt="logo" class="h-[50px] sm:h-[60px] md:h-[70px] hidden dark:inline-block">
+    </div>     
+
+    <h2 class="text-center text-lg sm:text-xl md:text-2xl font-medium text-black dark:text-white mb-[15px] sm:mb-[20px]">
+      Sign Up
+    </h2>
+    <div class="text-left text-black dark:text-white">
+        <div class="relative my-[12px] sm:my-[15px]">
+        </div>
+        <div class="mb-[10px] sm:mb-[12px]">
+            <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+                Full Name
+            </label>
+            <input type="text"
+                class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white"
+                placeholder="Enter your full name">
+        </div>
+
+        <div class="mb-[10px] sm:mb-[12px]">
+            <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+                Email Address
+            </label>
+            <input type="text"
+                class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white"
+                placeholder="example@gmail.com">
+        </div>
+
+      <div class="mb-[12px] sm:mb-[15px] relative">
+        <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+            Password
+        </label>
+        <input [type]="isPasswordVisible ? 'text' : 'password'" [value]="password"
+            (input)="onPasswordInput($event)"
+            class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white"
+            placeholder="Type password">
+        <button
+            class="absolute text-base sm:text-lg ltr:right-[10px] rtl:left-[10px] bottom-[8px] sm:bottom-[10px] transition-all hover:text-[#99d5c6] dark:text-white"
+            (click)="togglePasswordVisibility()" type="button">
+            <i [ngClass]="isPasswordVisible ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+        </button>
+    </div>
+    <div class="mb-[12px] sm:mb-[15px] relative">
+        <label class="mb-[5px] sm:mb-[6px] block text-sm sm:text-base font-medium">
+            Verify Password
+        </label>
+        <input [type]="isPasswordVisible ? 'text' : 'password'" [value]="password"
+            (input)="onPasswordInput($event)"
+            class="w-full h-[40px] sm:h-[44px] md:h-[48px] rounded-md text-sm sm:text-base text-black dark:text-white border border-[#484546] dark:border-white bg-[#eef2f4] dark:bg-[#1a1a1a] px-[10px] sm:px-[12px] outline-0 transition-all placeholder:text-gray-500 dark:placeholder:text-white "
+            placeholder="Type password">
+        <button
+            class="absolute text-base sm:text-lg ltr:right-[10px] rtl:left-[10px] bottom-[8px] sm:bottom-[10px] transition-all hover:text-[#99d5c6] dark:text-white"
+            (click)="togglePasswordVisibility()" type="button">
+            <i [ngClass]="isPasswordVisible ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+        </button>
+    </div>
+
+       <button type="submit" class="coolBeans w-full text-center transition-all rounded-full font-medium py-[8px] sm:py-[10px] px-[18px] sm:px-[22px] text-sm sm:text-base text-white">
+  <span class="flex items-center justify-center gap-[4px]">
+    Sign Up
+  </span>
+</button>
+
+      <p class="mt-[12px] text-center text-xs sm:text-sm">
+        Already have an account?
+        <button (click)="toggleAuthMode()" class="text-[#644a9e] dark:text-[#99d5c6] font-medium hover:underline">
+          Sign In
+        </button>
+      </p>
+    </div>
+
+  </div>
+</div>

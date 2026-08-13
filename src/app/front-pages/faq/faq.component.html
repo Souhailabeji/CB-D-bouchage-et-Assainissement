@@ -1,0 +1,52 @@
+<!-- Page Banner -->
+<div class="pt-[25px] md:pt-[45px] lg:pt-[85px] xl:pt-[95px] text-center">
+  <div class="container 2xl:max-w-[1320px] mx-auto px-[12px] relative z-[1]">
+    <h1
+      class="mb-0 leading-[1.2] text-[32px] md:text-[40px] lg:text-[50px] xl:text-[60px] -tracking-[.5px] md:-tracking-[1px] xl:-tracking-[1.5px] text-gray-900 dark:text-white">
+      Frequently Asked Questions
+    </h1>
+  </div>
+</div>
+<div class="pt-[30px] md:pt-[40px] lg:pt-[50px] xl:pt-[75px] mb-[60px]">
+  <div class="container 2xl:max-w-[1320px] mx-auto px-[12px] relative z-[1]">
+    <div class="md:max-w-[500px] lg:max-w-[630px] mb-[35px] md:mb-[50px] lg:mb-[65px] xl:mb-[90px]">
+      <div class="inline-block relative mt-[10px] mb-[20px]">
+        <span
+          class="absolute top-[4.5px] w-[5px] h-[5px] ltr:-left-[3.6px] rtl:-right-[3.6px] bg-[#644a9e] -rotate-[6.536deg]"></span>
+        <span
+          class="absolute -top-[9.5px] w-[5px] h-[5px] ltr:right-0 rtl:left-0 bg-[#644a9e] -rotate-[6.536deg]"></span>
+        <span
+          class="inline-block relative text-[#644a9e] border border-[#644a9e] py-[5.5px] px-[17.2px] -rotate-[6.536deg]">
+          FAQ
+          <span
+            class="absolute -bottom-[2.5px] w-[5px] h-[5px] ltr:-left-[3.5px] rtl:-right-[3.5px] bg-[#644a9e] -rotate-[6.536deg]"></span>
+          <span
+            class="absolute -bottom-[2.5px] w-[5px] h-[5px] ltr:-right-[3.5px] rtl:-left-[3.5px] bg-[#644a9e] -rotate-[6.536deg]"></span>
+        </span>
+      </div>
+      <h2
+        class="mb-0 text-[24px] md:text-[28px] lg:text-[34px] xl:text-[36px] -tracking-[.5px] md:-tracking-[.6px] lg:-tracking-[.8px] xl:-tracking-[1px] leading-[1.2] text-gray-900 dark:text-white">
+        Find Answers to Your Most Common Questions.
+      </h2>
+    </div>
+        <div class="mt-[40px] toc-accordion mx-auto md:max-w-[738px] grid grid-cols-1 md:grid-cols-2 gap-4">
+     <div *ngFor="let item of faqItems; let i = index" 
+          class="toc-accordion-item rounded-md text-black dark:text-white bg-white/25 dark:bg-black/40 border border-white/20 dark:border-white/10 backdrop-blur-md p-4">
+       
+       <button type="button"
+               class="w-full text-left font-medium flex items-center gap-2"
+               (click)="toggleSection(i)">
+         <span class="text-xl text-[#0d8ed6]">
+           {{ isSectionOpen(i) ? '-' : '+' }}
+         </span>
+         <span class="text-md md:text-[15px]">{{ item.question }}</span>
+       </button>
+   
+       <div *ngIf="isSectionOpen(i)" class="mt-2">
+         <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.answer }}</p>
+       </div>
+       
+     </div>
+   </div>
+  </div>
+</div>

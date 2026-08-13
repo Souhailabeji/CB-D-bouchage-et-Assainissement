@@ -1,0 +1,321 @@
+<div class="bg-white min-h-screen overflow-hidden">
+
+  <!-- ==========================================
+       BACKGROUND BUBBLES
+  =========================================== -->
+
+  <div class="qode-project-bubble qode-project-bubble--top-blue"></div>
+  <div class="qode-project-bubble qode-project-bubble--top-violet"></div>
+  <div class="qode-project-bubble qode-project-bubble--bottom-blue"></div>
+  <div class="qode-project-bubble qode-project-bubble--bottom-violet"></div>
+
+
+  <!-- ==========================================
+       HEADER
+  =========================================== -->
+
+  <section class="projects-header">
+
+    <div
+      class="container 2xl:max-w-[1320px]
+      mx-auto px-[12px]">
+
+      <!-- BADGE -->
+
+      <span class="projects-badge">
+
+        <i class="material-symbols-outlined">
+          location_on
+        </i>
+
+        Intervention partout en France
+
+      </span>
+
+
+      <!-- TITRE -->
+
+      <h1>
+
+        Nos réalisations
+        <br>
+
+        dans les régions
+        <br>
+
+        de France
+
+      </h1>
+
+
+      <!-- DESCRIPTION -->
+
+      <p>
+
+        Découvrez nos interventions de débouchage réalisées
+        dans différentes régions françaises.
+
+        <br class="hidden md:block">
+
+        Une expertise adaptée à chaque situation.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==========================================
+       LISTE DES RÉGIONS
+  =========================================== -->
+
+  <section
+    class="container 2xl:max-w-[1320px]
+    mx-auto px-[12px]
+    mt-[40px] md:mt-[60px]
+    pb-[80px]">
+
+    <div
+      class="grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-3
+      xl:grid-cols-4
+      gap-[24px]">
+
+
+      <!-- ======================================
+           BOUCLE DES 12 RÉGIONS
+      ======================================= -->
+
+      @for (project of projects; track project.id) {
+
+
+        <!-- ====================================
+             CARTE RÉGION
+        ===================================== -->
+
+        <article
+          class="region-card"
+          [class.is-open]="selectedProject === project.id">
+
+
+          <!-- ==================================
+               IMAGE
+          =================================== -->
+
+          <div class="region-image-wrapper">
+
+
+            <!-- IMAGE DE LA RÉGION -->
+
+            <img
+              [src]="project.image"
+              [alt]="project.alt"
+              class="region-image">
+
+
+            <!-- DÉGRADÉ -->
+
+            <div class="region-gradient"></div>
+
+
+            <!-- ==================================
+                 NUMÉRO
+            =================================== -->
+
+            <span class="region-number">
+
+              {{ project.id < 10 ? '0' + project.id : project.id }}
+
+            </span>
+
+
+            <!-- ==================================
+                 NOM SUR L'IMAGE
+            =================================== -->
+
+            <div class="region-image-title">
+
+              <h3>
+
+                {{ project.title }}
+
+              </h3>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 PETITE FENÊTRE SERVICES
+            =================================== -->
+
+            <div
+              class="region-services-panel"
+              [class.show]="selectedProject === project.id">
+
+
+              <div class="services-panel-inner">
+
+
+                <!-- =================================
+                     BOUTON FERMER
+                ================================== -->
+
+                <button
+                  type="button"
+                  class="services-close"
+                  aria-label="Fermer"
+                  (click)="closeServices($event)">
+
+                  <i class="material-symbols-outlined">
+
+                    close
+
+                  </i>
+
+                </button>
+
+
+
+                <!-- =================================
+                     LABEL
+                ================================== -->
+
+                <span class="services-label">
+
+                  Nos services
+
+                </span>
+
+
+
+                <!-- =================================
+                     TITRE
+                ================================== -->
+
+                <h4>
+
+                  Débouchage en {{ project.title }}
+
+                </h4>
+
+
+
+                <!-- =================================
+                     PARAGRAPHE
+                ================================== -->
+
+                <p class="services-description">
+
+                  {{ project.description }}
+
+                </p>
+
+
+
+                <!-- =================================
+                     LISTE DES SERVICES
+                ================================== -->
+
+                <div class="services-list">
+
+
+                  @for (
+                    service of project.services;
+                    track service.title
+                  ) {
+
+
+                    <span>
+
+                      <!-- ICÔNE -->
+
+                      <i class="material-symbols-outlined">
+
+                        {{ service.icon }}
+
+                      </i>
+
+
+                      <!-- NOM SERVICE -->
+
+                      {{ service.title }}
+
+                    </span>
+
+
+                  }
+
+                </div>
+
+
+
+                <!-- =================================
+                     BOUTON PAGE COMPLÈTE
+                ================================== -->
+
+                
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- ==================================
+               INFORMATIONS SOUS L'IMAGE
+          =================================== -->
+
+          <div class="region-info">
+
+
+            <!-- NOM -->
+
+            <div>
+
+              <span class="region-small-title">
+
+                Région
+
+              </span>
+
+
+              <h2>
+
+                {{ project.title }}
+
+              </h2>
+
+            </div>
+
+
+
+            <!-- =================================
+                 BOUTON VOIR SERVICES
+            ================================== -->
+
+            
+
+
+          </div>
+
+
+        </article>
+
+
+      }
+
+
+    </div>
+
+  </section>
+
+</div>

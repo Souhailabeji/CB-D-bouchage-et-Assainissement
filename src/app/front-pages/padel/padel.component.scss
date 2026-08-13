@@ -1,0 +1,1025 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.project-details {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BACKGROUND BUBBLES
+========================================================= */
+
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.qode-about-bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.28;
+}
+
+.qode-about-bubble--top-blue {
+  width: 420px;
+  height: 420px;
+  top: -180px;
+  left: -180px;
+  background: #53a7ff;
+}
+
+.qode-about-bubble--top-violet {
+  width: 360px;
+  height: 360px;
+  top: 80px;
+  right: -140px;
+  background: #8c52ff;
+}
+
+.qode-about-bubble--bottom-blue {
+  width: 480px;
+  height: 480px;
+  bottom: -220px;
+  left: -220px;
+  background: #6bbeff;
+}
+
+.qode-about-bubble--bottom-violet {
+  width: 400px;
+  height: 400px;
+  bottom: -180px;
+  right: -180px;
+  background: #a65eff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 120px 40px 70px;
+  background: #ffffff;
+}
+
+.hero-intro {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.hero-intro h1 {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.15;
+  font-weight: 300;
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+  color: #16181d;
+}
+
+.hero-intro h1 span {
+  display: block;
+}
+
+.hero-intro h1 br {
+  display: block;
+}
+
+.hero-intro p {
+  width: 100%;
+  max-width: 720px;
+  margin: 25px auto 0;
+
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   META
+========================================================= */
+
+.hero-meta {
+  width: 100%;
+  max-width: 900px;
+  margin: 60px auto 55px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 140px;
+
+  /* Suppression du translateX(-130px) */
+  transform: none;
+}
+
+.hero-meta-col {
+  min-width: 0;
+  text-align: left;
+}
+
+.hero-meta h3 {
+  margin: 0 0 10px;
+
+  color: #16181d;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hero-meta span,
+.hero-meta p {
+  margin: 0;
+
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  display: inline-block;
+  padding: 7px 12px;
+
+  border-radius: 30px;
+  background: #f4f7fb;
+
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   TECHNOLOGY BOX
+========================================================= */
+
+.hero-tech-row {
+  position: relative;
+
+  width: 100%;
+  max-width: 1000px;
+  min-height: 500px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  gap: 30px;
+
+  align-items: stretch;
+
+  padding: 60px 45px 80px;
+
+  background: linear-gradient(
+    to top,
+    #a9cdf0 0%,
+    #d8eafb 45%,
+    #ffffff 100%
+  );
+
+  border-radius: 32px;
+}
+
+.hero-tech-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.tech-heading {
+  margin: 0;
+
+  color: #16181d;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.tech-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 120px));
+
+  justify-content: center;
+
+  gap: 40px 70px;
+
+  margin-top: auto;
+  padding-top: 50px;
+}
+
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  gap: 8px;
+}
+
+.tech img {
+  width: 75px;
+  height: 75px;
+
+  object-fit: contain;
+}
+
+.tech span {
+  display: block;
+
+  color: #16181d;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   PHONE IMAGE
+========================================================= */
+
+.hero-phones {
+  position: relative;
+
+  width: 100%;
+  height: 420px;
+
+  margin-left: auto;
+  margin-top: -60px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  overflow: visible;
+}
+
+.phone {
+  position: absolute;
+  width: 520px;
+  max-width: none;
+}
+
+.phone img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.phone.back {
+  top: -180px;
+  right: -60px;
+
+  margin-top: -40px;
+
+  transform: rotate(8deg);
+
+  z-index: 2;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.project-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 80px 40px;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f6f8f8
+  );
+}
+
+.description {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 70px;
+
+  text-align: left;
+}
+
+.box {
+  width: 100%;
+}
+
+.box h2 {
+  margin: 0 0 20px;
+
+  color: #16181d;
+
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.box p,
+.box li {
+  color: #16181d;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.box p {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 0;
+}
+
+.box ul {
+  width: 100%;
+
+  margin: 15px 0 0;
+  padding-left: 25px;
+}
+
+.box li {
+  margin-bottom: 8px;
+}
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.problem-gallery {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.carousel-window {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+}
+
+.carousel-track {
+  display: flex;
+
+  gap: 25px;
+
+  width: max-content;
+
+  transition: transform 0.45s ease;
+}
+
+.carousel-track img {
+  display: block;
+
+  width: 320px;
+  height: 620px;
+
+  flex: 0 0 320px;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  transition: transform 0.35s ease;
+}
+
+.carousel-track img:hover {
+  transform: translateY(-8px);
+}
+
+/* =========================================================
+   CAROUSEL BUTTONS
+========================================================= */
+
+.carousel-btn {
+  position: absolute;
+
+  top: 50%;
+
+  width: 52px;
+  height: 52px;
+
+  transform: translateY(-50%);
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #2f7de1;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background: #2f7de1;
+  color: #ffffff;
+
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn.prev {
+  left: -25px;
+}
+
+.carousel-btn.next {
+  right: -25px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    padding: 90px 30px 60px;
+  }
+
+  .hero-intro h1 {
+    margin-left: 0;
+  }
+
+  .hero-meta {
+    gap: 80px;
+    transform: none;
+  }
+
+  .hero-tech-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+
+    padding: 50px 35px 60px;
+  }
+
+  .hero-tech-col {
+    min-height: 350px;
+  }
+
+  .hero-phones {
+    width: 100%;
+    height: 380px;
+
+    margin-top: 30px;
+  }
+
+  .phone {
+    width: 420px;
+  }
+
+  .phone.back {
+    top: -80px;
+    right: 0;
+  }
+
+  .carousel-track img {
+    width: 280px;
+    height: 540px;
+    flex-basis: 280px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .hero {
+    padding: 65px 18px 40px;
+  }
+
+  .hero-intro {
+    width: 100%;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+  }
+
+  .hero-intro h1 {
+    width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+
+    text-align: center;
+  }
+
+  .hero-intro h1 span {
+    display: block;
+  }
+
+  .hero-intro p {
+    width: 100%;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    text-align: center;
+  }
+
+  /* -------------------------------------------------------
+     META
+  ------------------------------------------------------- */
+
+  .hero-meta {
+    width: 100%;
+
+    margin: 35px auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+    transform: none;
+  }
+
+  .hero-meta-col {
+    width: 100%;
+  }
+
+  .hero-meta h3 {
+    font-size: 14px;
+  }
+
+  .hero-meta span,
+  .hero-meta p {
+    font-size: 13px;
+  }
+
+  .tags {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+  }
+
+  .tags span {
+    padding: 7px 10px;
+
+    font-size: 12px;
+  }
+
+  /* -------------------------------------------------------
+     TECHNOLOGY
+  ------------------------------------------------------- */
+
+  .hero-tech-row {
+    width: 100%;
+
+    min-height: auto;
+
+    margin: 0;
+
+    padding: 35px 18px 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+
+    border-radius: 24px;
+  }
+
+  .hero-tech-col {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .tech-heading {
+    width: 100%;
+
+    font-size: 22px;
+    line-height: 1.3;
+
+    text-align: center;
+  }
+
+  .tech-list {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    justify-items: center;
+
+    gap: 25px 15px;
+
+    margin-top: 30px;
+    padding-top: 0;
+  }
+
+  .tech {
+    width: 100%;
+
+    max-width: 130px;
+  }
+
+  .tech img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .tech span {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* -------------------------------------------------------
+     PHONE
+  ------------------------------------------------------- */
+
+  .hero-phones {
+    width: 100%;
+    height: 300px;
+
+    margin: 0;
+
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  .phone {
+    width: 320px;
+    max-width: 90%;
+  }
+
+  .phone.back {
+    top: -30px;
+    right: auto;
+  }
+
+  /* -------------------------------------------------------
+     CONTENT
+  ------------------------------------------------------- */
+
+  .project-container {
+    width: 100%;
+
+    padding: 50px 18px;
+  }
+
+  .description {
+    width: 100%;
+
+    gap: 45px;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .box h2 {
+    margin: 0 0 15px;
+
+    font-size: 26px;
+
+    line-height: 1.25;
+  }
+
+  .box p,
+  .box li {
+    margin-left: 0;
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .box p {
+    max-width: none;
+  }
+
+  .box ul {
+    padding-left: 20px;
+  }
+
+  /* -------------------------------------------------------
+     CAROUSEL
+  ------------------------------------------------------- */
+
+  .problem-gallery {
+    width: 100%;
+
+    margin-top: 30px;
+
+    gap: 6px;
+  }
+
+  .carousel-window {
+    width: 100%;
+
+    border-radius: 16px;
+  }
+
+  .carousel-track {
+    gap: 12px;
+  }
+
+  .carousel-track img {
+    width: calc(100vw - 90px);
+
+    height: 430px;
+
+    flex: 0 0 calc(100vw - 90px);
+
+    border-radius: 16px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+  }
+
+  .carousel-btn.prev {
+    left: 5px;
+  }
+
+  .carousel-btn.next {
+    right: 5px;
+  }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 50px 15px 30px;
+  }
+
+  .hero-intro h1 {
+    font-size: 25px;
+  }
+
+  .hero-intro p {
+    font-size: 13px;
+  }
+
+  /* Meta */
+
+  .hero-meta {
+    margin-top: 30px;
+  }
+
+  /* Technology */
+
+  .hero-tech-row {
+    padding: 30px 15px 35px;
+
+    border-radius: 20px;
+  }
+
+  .tech-heading {
+    font-size: 20px;
+  }
+
+  .tech-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px 10px;
+  }
+
+  .tech {
+    max-width: 120px;
+  }
+
+  .tech img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tech span {
+    font-size: 11px;
+  }
+
+  /* Content */
+
+  .project-container {
+    padding: 40px 15px;
+  }
+
+  .box h2 {
+    font-size: 24px;
+  }
+
+  .box p,
+  .box li {
+    font-size: 14px;
+  }
+
+  /* Carousel */
+
+  .carousel-track {
+    gap: 10px;
+  }
+
+  .carousel-track img {
+    width: calc(100vw - 80px);
+
+    height: 370px;
+
+    flex-basis: calc(100vw - 80px);
+
+    border-radius: 14px;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+
+    font-size: 20px;
+  }
+
+  .carousel-btn.prev {
+    left: 3px;
+  }
+
+  .carousel-btn.next {
+    right: 3px;
+  }
+
+  /* Bubbles */
+
+  .qode-about-bubble {
+    filter: blur(70px);
+    opacity: 0.20;
+  }
+
+  .qode-about-bubble--top-blue {
+    width: 240px;
+    height: 240px;
+
+    top: -100px;
+    left: -100px;
+  }
+
+  .qode-about-bubble--top-violet {
+    width: 200px;
+    height: 200px;
+
+    top: 40px;
+    right: -80px;
+  }
+
+  .qode-about-bubble--bottom-blue {
+    width: 260px;
+    height: 260px;
+
+    bottom: -120px;
+    left: -120px;
+  }
+
+  .qode-about-bubble--bottom-violet {
+    width: 220px;
+    height: 220px;
+
+    bottom: -100px;
+    right: -100px;
+  }
+
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .hero-intro h1 {
+    font-size: 23px;
+  }
+
+  .hero-intro p {
+    font-size: 12.5px;
+  }
+
+  .hero-tech-row {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .tech-heading {
+    font-size: 18px;
+  }
+
+  .tech span {
+    font-size: 10.5px;
+  }
+
+  .box h2 {
+    font-size: 22px;
+  }
+
+  .box p,
+  .box li {
+    font-size: 13.5px;
+  }
+
+  .carousel-track img {
+    height: 330px;
+  }
+
+}

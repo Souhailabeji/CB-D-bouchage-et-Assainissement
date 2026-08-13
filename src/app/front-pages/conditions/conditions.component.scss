@@ -1,0 +1,12 @@
+ .card {
+  border-radius: 1.5rem;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 8px 20px 40px rgba(0,0,0,0.1);
+  }}

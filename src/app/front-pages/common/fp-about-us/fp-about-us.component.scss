@@ -1,0 +1,338 @@
+// ============================
+// Bulles décoratives "glass"
+// Responsive
+// ============================
+
+.hex-glass {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 4px 20px rgba(232, 222, 222, 0.05);
+  will-change: transform;
+}
+/* ===============================
+   WORK SECTION - BACKGROUND BUBBLES
+================================ */
+
+.qode-work-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(90px);
+}
+
+/* Bulle bleue en haut à gauche */
+
+.qode-work-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(40px);
+}
+
+/* Bulle bleue - à gauche */
+.qode-work-bubble--blue {
+  background: #4A90E2;
+  opacity: 0.4;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+}
+
+/* Bulle violette - à droite */
+.qode-work-bubble--violet {
+  background: #8C52FF;
+  opacity: 0.35;
+  width: 180px;
+  height: 160px;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+}
+// ============================
+// Bulle 1
+// ============================
+
+.bubble-decor-1 {
+
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  left: 50%;
+  top: 120px;
+
+  border-radius: 50%;
+
+  background: #644A9E26;
+
+  opacity: 1;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  animation: bubble-float-1 6s ease-in-out infinite;
+
+
+
+  // tablette
+
+  @media (min-width: 640px) {
+
+    width: 120px;
+    height: 120px;
+
+    top: 180px;
+
+  }
+
+
+
+  // desktop
+
+  @media (min-width: 1024px) {
+
+    width: 150px;
+    height: 150px;
+
+    left: calc(50% - 110px);
+
+    top: 30px;
+
+  }
+
+
+}
+
+
+
+// ============================
+// Bulle 2
+// ============================
+
+
+.bubble-decor-2 {
+
+
+  position: absolute;
+
+
+  width: 100px;
+  height: 100px;
+
+
+  left: 50%;
+
+  top: 650px;
+
+
+  border-radius: 50%;
+
+
+  background: #99D5C642;
+
+
+  opacity: 1;
+
+
+  transform: translateX(-50%) rotate(47.72deg);
+
+
+  z-index:20;
+
+
+  pointer-events:none;
+
+
+  animation: bubble-float-2 7s ease-in-out infinite;
+
+  animation-delay:1s;
+
+
+
+  // tablette
+
+  @media (min-width:640px){
+
+    width:130px;
+    height:130px;
+
+    top:850px;
+
+  }
+
+
+
+
+  // desktop
+
+  @media (min-width:1024px){
+
+
+    width:160px;
+    height:160px;
+
+
+    left:calc(50% + 110px);
+
+
+    top:500px;
+
+
+  }
+
+
+}
+
+
+
+
+
+// ============================
+// Animations
+// ============================
+
+
+@keyframes bubble-float-1 {
+
+
+0% {
+
+transform:
+translate(-50%,0)
+translate(0,0)
+scale(1);
+
+}
+
+
+25% {
+
+transform:
+translate(-50%,0)
+translate(8px,-14px)
+scale(1.08);
+
+}
+
+
+50% {
+
+transform:
+translate(-50%,0)
+translate(-6px,-22px)
+scale(.95);
+
+}
+
+
+75% {
+
+transform:
+translate(-50%,0)
+translate(-10px,-8px)
+scale(1.05);
+
+}
+
+
+100% {
+
+transform:
+translate(-50%,0)
+translate(0,0)
+scale(1);
+
+}
+
+
+}
+
+
+
+
+@keyframes bubble-float-2 {
+
+
+0% {
+
+transform:
+translate(-50%,0)
+rotate(47.72deg)
+translate(0,0)
+scale(1);
+
+}
+
+
+
+30% {
+
+
+transform:
+translate(-50%,0)
+rotate(47.72deg)
+translate(-10px,12px)
+scale(1.1);
+
+
+}
+
+
+
+60% {
+
+
+transform:
+translate(-50%,0)
+rotate(47.72deg)
+translate(6px,20px)
+scale(.9);
+
+
+}
+
+
+
+100% {
+
+
+transform:
+translate(-50%,0)
+rotate(47.72deg)
+translate(0,0)
+scale(1);
+
+
+}
+
+
+}
+
+
+
+
+// ============================
+// Petit écran
+// éviter débordement horizontal
+// ============================
+
+
+@media(max-width:480px){
+
+
+.hex-glass{
+
+display:none;
+
+}
+
+
+}

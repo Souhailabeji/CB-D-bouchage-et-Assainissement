@@ -1,0 +1,249 @@
+<div class="relative overflow-hidden bg-white">
+
+  <!-- Floating Shadow -->
+  <img
+    src="/images/CB_logo_principal_2000px (2).png"
+    alt=""
+    aria-hidden="true"
+    class="shadow-float absolute pointer-events-none blur-3xl z-0
+    w-[416px] h-[361px] top-[279px] left-[-234px]
+    opacity-[0.48] object-cover rounded-full"
+  />
+<div class="qode-about-bubble qode-about-bubble--top-blue"></div>
+  <div class="qode-about-bubble qode-about-bubble--top-violet"></div>
+  <div class="qode-about-bubble qode-about-bubble--bottom-blue"></div>
+  <div class="qode-about-bubble qode-about-bubble--bottom-violet"></div>
+
+  <!-- Banner -->
+<div class="mt-[40px]
+pt-[10px] md:pt-[30px] lg:pt-[50px] xl:pt-[60px]
+text-center cursor-default relative z-[1]">
+
+
+    <div class="container 2xl:max-w-[1320px] mx-auto px-[12px]">
+
+
+     <h1
+class="mb-4 text-[#484546] leading-[1.2]
+text-[32px] md:text-[40px] lg:text-[44px]
+xl:text-[48px]
+font-poppins font-medium text-center"
+[innerHTML]="'ABOUT.TITLE' | translate">
+</h1>
+
+
+
+      <!-- Statistics -->
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10
+      max-w-[1273px] mx-auto mt-14">
+
+
+        <div>
+
+          <p class="font-poppins font-bold text-xl md:text-2xl xl:text-[28px]
+          text-[#0a0a23] mb-2">
+
+            + 10 Années d'expérience
+
+          </p>
+
+
+          <h5 class="font-poppins text-sm text-[#252525CC]
+          max-w-[220px] mx-auto leading-relaxed">
+
+            {{ 'ABOUT.STAT1' | translate }}
+
+          </h5>
+
+        </div>
+
+
+
+        <div>
+
+          <p class="font-poppins font-bold text-xl md:text-2xl xl:text-[28px]
+          text-[#0a0a23] mb-2">
+
+            24/7 Une intervention à votre service
+
+          </p>
+
+
+          <h5 class="font-poppins text-sm text-[#252525CC]
+          max-w-[220px] mx-auto leading-relaxed">
+
+            {{ 'ABOUT.STAT2' | translate }}
+
+          </h5>
+
+        </div>
+
+
+
+
+        <div>
+
+          <p class="font-poppins font-bold text-xl md:text-2xl xl:text-[28px]
+          text-[#0a0a23] mb-2">
+
+            4.9/5.0 La satisfaction de nos clients
+
+          </p>
+
+
+          <h5 class="font-poppins text-sm text-[#252525CC]
+          max-w-[220px] mx-auto leading-relaxed">
+
+            {{ 'ABOUT.STAT3' | translate }}
+
+          </h5>
+
+        </div>
+
+
+      </div>
+
+
+
+    <button
+  routerLink="/contact"
+  class="font-poppins font-medium text-white bg-black
+  text-lg rounded-[16px]
+  w-[233px] h-[66px]
+  flex items-center justify-center
+  mx-auto mt-10
+  hover:bg-gray-800 transition-colors">
+
+  {{ 'ABOUT.CONTACT' | translate }}
+
+</button>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- About Sections -->
+
+
+  <div class="pt-[30px] md:pt-[40px] lg:pt-[50px]
+  xl:pt-[75px] mb-[60px] relative z-[1]">
+
+
+    <div class="container 2xl:max-w-[1320px]
+    mx-auto px-[12px]">
+
+
+
+      <!-- WHO WE ARE -->
+
+      <div class="flex flex-col md:flex-row items-center
+      mb-[60px] gap-[30px] md:gap-[50px]">
+
+
+        <div class="md:w-1/2">
+
+          <p class="text-gray-700 text-[25px]
+          sm:text-[26px] lg:text-[27px]
+          xl:text-[24px] leading-[1.6]">
+
+
+            {{ 'ABOUT.WHO_TEXT' | translate }}
+
+
+          </p>
+
+        </div>
+
+
+
+        <div class="md:w-1/2">
+
+
+          <img
+          src="/images/CB_logo_principal_2000px (2).png"
+          [alt]="'ABOUT.WHO_ALT' | translate"
+          class="w-full h-[180px]
+          md:h-[180px] xl:h-[250px]
+          object-cover rounded-2xl shadow-md">
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <!-- OUR MISSION -->
+
+
+      <div class="flex flex-col md:flex-row items-center
+      mb-[60px] gap-[30px] md:gap-[60px]">
+
+
+        <div class="md:w-1/2">
+
+
+          <img
+          src="/images/canal3.png"
+          [alt]="'ABOUT.MISSION_ALT' | translate"
+          class="w-full max-w-[400px]
+          h-[380px]
+          object-cover rounded-2xl shadow-md mx-auto">
+
+
+        </div>
+
+
+
+        <div class="md:w-1/2">
+
+
+          <div class="w-[130px] h-[4px]
+          bg-[#7fa9a8] mb-6"></div>
+
+
+
+          <div class="mb-8" *ngFor="let item of missionItems">
+
+
+            <h4 class="text-[24px] font-bold text-gray-900 mb-2">
+
+              {{item.number}}
+
+            </h4>
+
+
+            <p class="text-gray-700 text-[15px]
+            sm:text-[16px] lg:text-[17px]
+            leading-[1.6]">
+
+              {{ item.text | translate }}
+
+            </p>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>

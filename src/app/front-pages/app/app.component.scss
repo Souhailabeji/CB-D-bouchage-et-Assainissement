@@ -1,0 +1,750 @@
+:root {
+  --ink: #16181d;
+  --muted: #64748b;
+  --line: #e7e9ee;
+  --accent: #2f7de1;
+  --bg: #ffffff;
+  --radius-lg: 32px;
+}
+
+/* ==================================
+   GLOBAL
+================================== */
+
+.qode-about-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+
+/* Haut - violet (droite) */
+.qode-about-bubble--top-violet {
+  background: #8C52FF;
+  opacity: 0.25;
+  width: 260px;
+  height: 240px;
+  top: 130px;
+  right: -80px;
+
+  @media (max-width: 768px) {
+    width: 160px;
+    height: 150px;
+    top: 90px;
+    right: -50px;
+  }
+}
+
+/* Bas - bleu (gauche) */
+.qode-about-bubble--bottom-blue {
+  background: #4A90E2;
+  opacity: 0.25;
+  width: 250px;
+  height: 250px;
+  bottom: 60px;
+  left: -70px;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+    bottom: 40px;
+    left: -45px;
+  }
+}
+
+/* Bas - violet (droite) */
+.qode-about-bubble--bottom-violet {
+  background: #8C52FF;
+  opacity: 0.2;
+  width: 220px;
+  height: 200px;
+
+  bottom: -100px; /* Descend la bulle */
+  right: -60px;
+
+  @media (max-width: 768px) {
+    width: 140px;
+    height: 130px;
+
+    bottom: -20px;
+    right: -40px;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+/* ==================================
+   PAGE
+================================== */
+
+.project-details {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ==================================
+   HERO
+================================== */
+
+.hero {
+  width: 100%;
+  padding: 120px 40px 70px;
+  background: #ffffff;
+}
+
+.hero-intro {
+  max-width: 850px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.hero-intro h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.hero-intro p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ==================================
+   META
+================================== */
+.hero-meta {
+  max-width: 1100px;
+  margin: 0 auto 55px;
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.hero-meta-col {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.hero-meta-col h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.hero-meta-col .tags,
+.hero-meta-col .date {
+  margin-left: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ==================================
+   TECHNOLOGY HERO BOX
+================================== */
+
+.hero-tech-row {
+  width: 100%;
+  max-width: 820px;
+  min-height: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 24px 32px;
+  background: linear-gradient(
+    to top,
+    #a9cdf0 0%,
+    #d6e8fb 45%,
+    #ffffff 100%
+  );
+  border-radius: 24px;
+}
+
+/* ==================================
+   TECHNOLOGY CONTENT
+================================== */
+
+.hero-tech-col {
+  position: relative;
+  z-index: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.tech-heading {
+  margin: 0 0 -10px;
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.tech-list {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 32px 70px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 8px;
+}
+
+.tech img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Icônes matériel (SVG en ligne, même gabarit que .tech img) */
+.tech-icon {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.tech-icon svg {
+  width: 60%;
+  height: 60%;
+  display: block;
+}
+
+.tech span {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ==================================
+   PHONES
+================================== */
+
+.hero-phones {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 480px;
+  pointer-events: none;
+}
+
+.phone {
+  position: absolute;
+  width: 560px;
+}
+
+.phone img {
+  width: 100%;
+  display: block;
+}
+
+.phone.back {
+  top: -320px;
+  right: -60px;
+  transform: rotate(12deg);
+  z-index: 1;
+}
+
+.phone.front {
+  top: -230px;
+  left: 20px;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+/* ==================================
+   PROJECT CONTAINER
+================================== */
+
+.project-container {
+  padding: 70px 40px;
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f6f8f8
+  );
+}
+
+/* ==================================
+   PROJECT SECTIONS
+================================== */
+
+.project-section {
+  max-width: 1100px;
+  margin: 0 auto 70px;
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================================
+   CONTENT TEXT
+================================== */
+
+.content-text h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 18px;
+  color: #000000;
+}
+
+.content-text p {
+  max-width: 800px;
+  color: #000000;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+.content-text p:last-child {
+  margin-bottom: 0;
+}
+/* ==================================
+   PROBLEM CAROUSEL
+================================== */
+
+.problem-carousel {
+  width: 100%;
+  max-width: 1010px;
+  margin: 40px auto 0;
+  position: relative;
+}
+
+.carousel-window {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: transform .4s ease;
+}
+
+.carousel-track img {
+  width: 320px;
+  height: 620px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background: #ffffff;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.carousel-track img:hover {
+  transform: translateY(-8px);
+}
+
+/* ==================================
+   CAROUSEL BUTTONS
+================================== */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+}
+
+.carousel-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn.prev {
+  left: -28px;
+}
+
+.carousel-btn.next {
+  right: -28px;
+}
+
+/* ==================================
+   SOLUTION
+================================== */
+.solution-section ul {
+  margin-left: 0;
+  padding: 0 0 0 20px;
+}
+
+.solution-section li {
+  color: #000;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 2px; /* espace entre les lignes */
+}
+/* ==================================
+   TABLET RESPONSIVE
+================================== */
+
+@media (max-width: 1100px) {
+  .hero {
+    padding: 100px 30px 60px;
+  }
+
+  .hero-meta {
+    gap: 50px;
+  }
+
+  .hero-tech-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .hero-tech-col {
+    width: 100%;
+  }
+
+  .tech-list {
+    margin: 20px auto 0;
+  }
+
+  .hero-phones {
+    width: 100%;
+    height: 420px;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .phone {
+    width: 340px;
+  }
+
+  .phone.back {
+    top: -20px;
+    right: 30px;
+  }
+
+  .phone.front {
+    top: 80px;
+    left: 40px;
+  }
+
+  .project-container {
+    padding: 60px 30px;
+  }
+
+  .carousel-track img {
+    width: 270px;
+    height: 520px;
+  }
+
+  .carousel-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px 40px;
+  }
+
+  .hero-intro h1 {
+    font-size: 32px;
+  }
+
+  .hero-intro p {
+    font-size: 15px;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .hero-meta-col {
+    width: 100%;
+  }
+
+  .hero-tech-row {
+    padding: 30px 20px;
+    border-radius: 24px;
+  }
+
+  .tech-heading {
+    font-size: 22px;
+  }
+
+  .tech-list {
+    grid-template-columns: repeat(2, 90px);
+    gap: 25px;
+  }
+
+  .tech img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tech-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-phones {
+    height: 320px;
+    margin-top: 20px;
+  }
+
+  .phone {
+    width: 250px;
+  }
+
+  .phone.back {
+    top: 0;
+    right: -10px;
+  }
+
+  .phone.front {
+    top: 70px;
+    left: -10px;
+  }
+
+  .project-container {
+    padding: 45px 20px;
+  }
+
+  .content-text h2 {
+    font-size: 26px;
+  }
+
+  .content-text p {
+    font-size: 15px;
+  }
+
+  .carousel-track {
+    gap: 15px;
+  }
+
+  .carousel-track img {
+    width: 210px;
+    height: 420px;
+    border-radius: 18px;
+  }
+
+  .carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .carousel-btn.prev {
+    left: 5px;
+  }
+
+  .carousel-btn.next {
+    right: 5px;
+  }
+
+  .solution-section li {
+    font-size: 15px;
+  }
+}
+
+/* ==================================
+   FINAL POLISH
+================================== */
+
+/* Empêche les débordements horizontaux */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Images toujours adaptatives */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Transition générale */
+button {
+  font-family: inherit;
+}
+
+/* ==================================
+   CAROUSEL FINISH
+================================== */
+
+.problem-section {
+  position: relative;
+}
+
+.carousel-window {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Empêche la sélection des images */
+.carousel-track img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Animation légère au chargement */
+.problem-carousel {
+  animation: fadeCarousel .6s ease forwards;
+}
+
+/* Animation sans conflit avec le slider */
+@keyframes fadeCarousel {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==================================
+   HERO PHONE EFFECT
+================================== */
+
+.phone img {
+  transition: transform .4s ease;
+}
+
+.phone:hover img {
+  transform: scale(1.03);
+}
+
+/* ==================================
+   SMALL MOBILE
+================================== */
+
+@media (max-width: 480px) {
+  .hero-intro h1 {
+    font-size: 28px;
+  }
+
+  .hero-tech-row {
+    padding: 25px 15px;
+  }
+
+  .tech-list {
+    grid-template-columns: repeat(2, 80px);
+    gap: 20px;
+  }
+
+  .tech span {
+    font-size: 12px;
+  }
+
+  .tech-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-phones {
+    height: 280px;
+  }
+
+  .phone {
+    width: 210px;
+  }
+
+  .phone.back {
+    right: -20px;
+  }
+
+  .phone.front {
+    left: -20px;
+  }
+
+  .carousel-track img {
+    width: 180px;
+    height: 360px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* ==================================
+   ACCESSIBILITY
+================================== */
+
+.carousel-btn:focus {
+  outline: 3px solid rgba(47, 125, 225, .35);
+  outline-offset: 3px;
+}
+
+/* ==================================
+   SMOOTH SCROLL
+================================== */
+
+* {
+  scroll-behavior: smooth;
+}

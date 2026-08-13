@@ -1,0 +1,45 @@
+<div
+    class="relative z-[1] pb-[60px] md:pb-[80px] lg:pb-[100px] xl:pb-[150px] text-center relative from-gray-100 to-transparent dark:from-gray-800 dark:to-transparent">
+    <div class="container 2xl:max-w-[1320px] mx-auto px-[12px]">
+        <div class="absolute bottom-0 -z-[1] ltr:-right-[50px] rtl:-left-[50px] blur-[250px] animate-pulse-slow">
+            <img src="images/front-pages/shape3.png" alt="shape3" class="opacity-70">
+        </div>
+        <div class="absolute -top-[250px] -z-[1] ltr:-left-[70px] rtl:-right-[70px] blur-[150px] animate-spin-slow">
+            <img src="images/front-pages/shape5.png" alt="shape5" class="opacity-60">
+        </div>
+        <section class="relative flex flex-col items-center justify-center py-28 text-center overflow-hidden">
+            <!-- Background "FAQ" word -->
+            <div class="absolute inset-0 flex justify-center items-center pointer-events-none z-0">
+              <h2 class="project-stroke">FAQ</h2>
+            </div>
+            <div class="relative z-10 max-w-3xl px-4">
+              <h5 class="text-[16px] sm:text-[18px] font-semibold text-gray-900 dark:text-white mb-2 inline-block border-b-4 border-primary-600">
+                FAQ
+              </h5>
+              <h1 class="mt-4 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[46px] xl:text-[52px] font-bold text-gray-900 dark:text-white leading-tight">
+                Frequently Aksed Questions
+              </h1>
+            </div>
+          </section>
+          <div class="toc-accordion mx-auto md:max-w-[738px] grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div *ngFor="let item of faqItems; let i = index" 
+       class="toc-accordion-item rounded-md text-black dark:text-white bg-white/25 dark:bg-black/40 border border-white/20 dark:border-white/10 backdrop-blur-md p-4">
+    
+    <button type="button"
+            class="w-full text-left font-medium flex items-center gap-2"
+            (click)="toggleSection(i)">
+      <span class="text-xl text-primary-500">
+        {{ isSectionOpen(i) ? '-' : '+' }}
+      </span>
+      <span class="text-md md:text-[15px]">{{ item.question }}</span>
+    </button>
+
+    <div *ngIf="isSectionOpen(i)" class="mt-2">
+      <p class="text-sm text-gray-600 dark:text-gray-300">{{ item.answer }}</p>
+    </div>
+    
+  </div>
+</div>
+        
+    </div>
+</div>

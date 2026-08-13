@@ -1,0 +1,58 @@
+<div
+  class="pt-[40px] md:pt-[60px] lg:pt-[80px] xl:pt-[100px] pb-[60px] text-center relative overflow-hidden gradient-bg dark:bg-[#061e2f]">
+  <div class="container 2xl:max-w-[1320px] mx-auto px-[12px] relative z-[1]">
+    <section class="relative flex flex-col items-center justify-center py-32 text-center overflow-hidden">
+      <!-- Background "Project" word -->
+      <div class="absolute inset-0 flex justify-center items-center pointer-events-none z-0 translate-y-8">
+        <h2 class="project-stroke">Company</h2>
+      </div>
+
+      <!-- Foreground content -->
+      <div class="relative z-10 max-w-3xl px-4">
+        <h1
+          class="text-[26px] sm:text-[32px] md:text-[40px] font-semibold text-gray-900 dark:text-white mb-2 inline-block border-b-4">
+          Welcome to Qode Technologies
+        </h1>
+        <h5
+  class="text-[16px] sm:text-[18px] lg:text-[46px] xl:text-[52px] text-gray-900 dark:text-white leading-tight whitespace-nowrap">
+  The future of tech starts here.
+</h5>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="container mx-auto px-[12px] pt-[125px] md:pt-[145px] lg:pt-[185px] xl:pt-[195px] pb-[60px] md:pb-[80px] lg:pb-[100px] xl:pb-[150px] text-center relative z-[1] animate__animated animate__fadeIn">
+    <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 text-gradient leading-[1.2] -tracking-[0.5px] md:-tracking-[0.6px] lg:-tracking-[0.8px] xl:-tracking-[1px]">
+        Our Contact
+    </h1>
+    <div class="info-card max-w-[600px] mx-auto p-6 bg-white/[.54] dark:bg-black/[.54] border border-white/[.10] dark:border-black/[.10] backdrop-blur-[5.4px] rounded-xl shadow-lg transform hover:scale-105 transition-all duration-500">
+        <ul class="ltr:pl-[18px] rtl:pr-[18px]">
+            
+            <li class="relative ltr:pl-[30px] rtl:pr-[30px] mb-[25px] xl:mb-[32px] last:mb-0">
+                <i class="material-symbols-outlined absolute text-purple-600 !text-[20px] ltr:left-0 rtl:right-0 top-0">business</i>
+                <h3 class="text-lg font-semibold mb-[10px] leading-[1.2]"><strong>Company :</strong></h3>
+                <p class="leading-[1.6]">{{ contactInfo.company }}</p>
+            </li>
+            
+            <li class="relative ltr:pl-[30px] rtl:pr-[30px] mb-[25px] xl:mb-[32px] last:mb-0">
+                <i class="material-symbols-outlined absolute text-purple-600 !text-[20px] ltr:left-0 rtl:right-0 top-0">email</i>
+                <h3 class="text-lg font-semibold mb-[10px] leading-[1.2]"><strong>Email :</strong></h3>
+                <p class="leading-[1.6]">{{ contactInfo.email }}</p>
+            </li>
+            
+            <li class="relative ltr:pl-[30px] rtl:pr-[30px] mb-[25px] xl:mb-[32px] last:mb-0">
+                <i class="material-symbols-outlined absolute text-purple-600 !text-[20px] ltr:left-0 rtl:right-0 top-0">phone</i>
+                <h3 class="text-lg font-semibold mb-[10px] leading-[1.2]"><strong>Phone :</strong></h3>
+                <p class="leading-[1.6]">{{ contactInfo.phone }}</p>
+            </li>
+            
+            <li class="relative ltr:pl-[30px] rtl:pr-[30px] mb-[25px] xl:mb-[32px] last:mb-0">
+                <i class="material-symbols-outlined absolute text-purple-600 !text-[20px] ltr:left-0 rtl:right-0 top-0">location_on</i>
+                <h3 class="text-lg font-semibold mb-[10px] leading-[1.2]"><strong>Adress :</strong></h3>
+                <p class="leading-[1.6]">{{ contactInfo.address }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

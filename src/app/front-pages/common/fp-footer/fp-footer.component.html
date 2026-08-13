@@ -1,0 +1,205 @@
+<div class="pt-[60px] md:pt-[80px] lg:pt-[100px] pb-[10px]
+            border-t border-gray-100 bg-[#8EB8BE]
+            dark:bg-dark dark:border-[#484546]">
+
+
+  <div class="container 2xl:max-w-[1320px] mx-auto px-[12px]">
+
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-[25px] gap-y-[35px]">
+
+
+      <!-- Logo + Description -->
+      <div class="xl:pr-[35px]">
+
+
+        <a routerLink="/" class="inline-block max-w-[132px] mb-[20px] md:mb-[23px]">
+
+          <img src="/images/CB_logo_principal_2000px (2).png"
+               [alt]="'FOOTER.logoAlt' | translate"
+               class="inline-block dark:hidden">
+
+
+          <img src="/images/CB_logo_principal_2000px (2).png"
+               [alt]="'FOOTER.logoAlt' | translate"
+               class="hidden dark:inline-block">
+
+        </a>
+
+
+
+        <p class="leading-[1.7] text-[15px] md:text-[16px]
+                  text-white dark:text-[#eef2f4]">
+
+          {{ 'FOOTER.description1' | translate }}
+
+          <br><br>
+
+          {{ 'FOOTER.description2' | translate }}
+
+        </p>
+
+
+      </div>
+
+
+
+
+
+
+      <!-- Company -->
+      <div>
+
+
+        <h5 class="text-white font-semibold text-[19px] md:text-[20px] mb-[20px]">
+
+          {{ 'FOOTER.company' | translate }}
+
+        </h5>
+
+
+        <ul class="flex flex-col gap-[12px]">
+
+
+          <li *ngFor="let link of companyLinks">
+            <a [routerLink]="link.url"
+               class="text-white text-[15px] md:text-[16px] hover:underline">
+
+              {{ link.text | translate }}
+
+            </a>
+          </li>
+
+
+        </ul>
+
+
+      </div>
+
+
+
+
+
+
+
+      <!-- Services (en boutons) -->
+      <div>
+
+
+        <h5 class="text-white font-semibold text-[19px] md:text-[20px] mb-[20px]">
+
+          {{ 'FOOTER.services' | translate }}
+
+        </h5>
+
+
+
+        <ul class="flex flex-col gap-[12px]">
+
+
+          <li *ngFor="let service of servicesLinks">
+            <button
+              type="button"
+              (click)="navigateTo(service.url)"
+              class="text-white text-[15px] md:text-[16px] hover:underline
+                     bg-transparent border-none p-0 cursor-pointer text-left">
+
+              {{ service.text | translate }}
+
+            </button>
+          </li>
+
+
+        </ul>
+
+
+
+
+        <!-- Social Media -->
+        <div class="flex items-center justify-start gap-[18px] mt-[22px]">
+
+
+          <a *ngFor="let social of socialLinks"
+             [href]="social.url"
+             class="text-white hover:opacity-80 transition-all text-[22px]">
+
+            <i [class]="social.icon"></i>
+
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+      <!-- Quick Links -->
+      <div>
+
+
+        <h5 class="text-white font-semibold text-[19px] md:text-[20px] mb-[20px]">
+
+          {{ 'FOOTER.quickLinks' | translate }}
+
+        </h5>
+
+
+
+        <ul class="flex flex-col gap-[12px]">
+
+
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.url"
+               class="text-white text-[15px] md:text-[16px] hover:underline">
+
+              {{ link.text | translate }}
+
+            </a>
+          </li>
+
+
+        </ul>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <!-- Copyright -->
+  <div class="py-[15px] md:py-[20px]
+              mt-[60px] md:mt-[80px] lg:mt-[100px]
+              text-center">
+
+
+    <div class="container 2xl:max-w-[1320px] mx-auto px-[12px]">
+
+
+      <p class="text-[14px] md:text-[15px] text-white">
+
+        {{ 'FOOTER.copyright' | translate }}
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>

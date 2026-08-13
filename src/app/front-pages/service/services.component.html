@@ -1,0 +1,129 @@
+<div class="services-section">
+
+  <!-- BUBBLES BACKGROUND -->
+  <div class="qode-project-bubble qode-project-bubble--top-violet"></div>
+  <div class="qode-project-bubble qode-project-bubble--bottom-blue"></div>
+  <div class="qode-project-bubble qode-project-bubble--bottom-violet"></div>
+
+  <!-- Section Header -->
+  <div class="services-header">
+    <div class="services-header__inner">
+
+      <h1 class="services-title">
+        {{ 'WHAT_WE_DO.TITLE_LINE1' | translate }}<br>
+        {{ 'WHAT_WE_DO.TITLE_LINE2' | translate }}
+      </h1>
+
+      <p class="services-subtitle">
+        {{ 'WHAT_WE_DO.DESCRIPTION' | translate }}
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Services List -->
+  <div class="services-list">
+
+    <!-- Web Development -->
+    <button
+      type="button"
+      routerLink="/webdevelopment"
+      routerLinkActive="active"
+      class="services-item">
+
+      <div class="services-item__label">
+        <span class="services-item__arrow">↘</span>
+        <p class="services-item__title">
+          <strong>{{ 'WHAT_WE_DO.SERVICES.WEB_DEV' | translate }}</strong>
+        </p>
+      </div>
+
+      <div class="services-item__image">
+        <img
+          src="/images/camera.png"
+          [alt]="'WHAT_WE_DO.SERVICES.WEB_DEV_ALT' | translate"
+          loading="lazy">
+      </div>
+
+    </button>
+
+    <div class="services-divider"></div>
+
+    <!-- Mobile Development -->
+    <button
+      type="button"
+      routerLink="/mobileapps"
+      routerLinkActive="active"
+      class="services-item">
+
+      <div class="services-item__label">
+        <span class="services-item__arrow">↘</span>
+        <p class="services-item__title">
+          <strong>{{ 'WHAT_WE_DO.SERVICES.MOBILE_DEV' | translate }}</strong>
+        </p>
+      </div>
+
+      <div class="services-item__image">
+        <img
+          src="/images/camera2.png"
+          [alt]="'WHAT_WE_DO.SERVICES.MOBILE_DEV_ALT' | translate"
+          loading="lazy">
+      </div>
+
+    </button>
+
+    <div class="services-divider"></div>
+
+    <!-- IT Consulting -->
+    <button
+      type="button"
+      routerLink="/itconsulting"
+      routerLinkActive="active"
+      class="services-item">
+
+      <div class="services-item__label">
+        <span class="services-item__arrow">↘</span>
+        <p class="services-item__title">
+          <strong>{{ 'WHAT_WE_DO.SERVICES.IT_CONSULTING' | translate }}</strong>
+        </p>
+      </div>
+
+      <div class="services-item__image">
+        <img
+          src="/images/camera3.png"
+          [alt]="'WHAT_WE_DO.SERVICES.IT_CONSULTING_ALT' | translate"
+          loading="lazy">
+      </div>
+
+    </button>
+
+    <div class="services-divider"></div>
+
+    <!-- UI/UX Design -->
+    <button
+      type="button"
+      routerLink="/uixdesign"
+      routerLinkActive="active"
+      class="services-item">
+
+      <div class="services-item__label">
+        <span class="services-item__arrow">↘</span>
+        <p class="services-item__title">
+          <strong>{{ 'WHAT_WE_DO.SERVICES.UIUX_DESIGN' | translate }}</strong>
+        </p>
+      </div>
+
+      <div class="services-item__image">
+        <img
+          src="/images/camera4.png"
+          [alt]="'WHAT_WE_DO.SERVICES.UIUX_DESIGN_ALT' | translate"
+          loading="lazy">
+      </div>
+
+    </button>
+
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

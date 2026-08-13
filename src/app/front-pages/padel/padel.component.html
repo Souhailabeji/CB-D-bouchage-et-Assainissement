@@ -1,0 +1,164 @@
+<section class="project-details">
+
+  <!-- BACKGROUND BUBBLES -->
+  <div class="bubble-layer">
+    <div class="qode-about-bubble qode-about-bubble--top-blue"></div>
+    <div class="qode-about-bubble qode-about-bubble--top-violet"></div>
+    <div class="qode-about-bubble qode-about-bubble--bottom-blue"></div>
+    <div class="qode-about-bubble qode-about-bubble--bottom-violet"></div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="hero-intro">
+
+      <h1>
+        <span>
+          4. Débouchage d'Urgence Nocturne
+          <br class="desktop-break">
+          Local Commercial
+        </span>
+      </h1>
+
+      <p>
+        Intervention rapide de nuit pour déboucher vos canalisations
+        et permettre à votre commerce de reprendre son activité sans attendre.
+      </p>
+
+    </div>
+
+    <!-- META -->
+    <div class="hero-meta">
+
+      <div class="hero-meta-col">
+
+        <h3>Catégorie</h3>
+
+        <div class="tags">
+          <span>Débouchage d'Urgence</span>
+          <span>Intervention Commerciale</span>
+          <span>Service 24h/24</span>
+        </div>
+
+      </div>
+
+      <div class="hero-meta-col">
+
+        <h3>Date</h3>
+
+        <p class="date">Jun 2026</p>
+
+      </div>
+
+    </div>
+
+    <!-- TECHNOLOGY -->
+    <div class="hero-tech-row">
+
+      <div class="hero-tech-col">
+
+        <h3 class="tech-heading">
+          Techniques / Matériel utilisés
+        </h3>
+
+        <div class="tech-list">
+
+          <div class="tech">
+            <span>Furet électrique portable</span>
+          </div>
+
+          <div class="tech">
+            <span>Caméra d'inspection compacte</span>
+          </div>
+
+          <div class="tech">
+            <span>Pompe d'évacuation</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="project-container">
+
+    <div class="description">
+
+      <!-- PROBLEM -->
+      <div class="box">
+
+        <h2>Problème</h2>
+
+        <p>
+          Un commerce a contacté notre service d'urgence en pleine nuit
+          suite à un débordement d'eaux usées dans sa réserve, menaçant
+          d'endommager le stock de marchandises avant l'ouverture du lendemain.
+        </p>
+
+        <!-- CAROUSEL -->
+        <div class="problem-gallery">
+
+          <button
+            type="button"
+            class="carousel-btn prev"
+            (click)="prevSlide()"
+            aria-label="Image précédente">
+            &#8249;
+          </button>
+
+          <div class="carousel-window">
+
+            <div
+              class="carousel-track"
+              [style.transform]="trackTransform"
+              [style.transition]="transition ? 'transform .45s ease' : 'none'">
+
+              <img
+                *ngFor="let img of loopImages"
+                [src]="img.src"
+                [alt]="img.alt"
+                loading="lazy">
+
+            </div>
+
+          </div>
+
+          <button
+            type="button"
+            class="carousel-btn next"
+            (click)="nextSlide()"
+            aria-label="Image suivante">
+            &#8250;
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- SOLUTION -->
+      <div class="box">
+
+        <h2>Solution</h2>
+
+        <ul>
+          <li>Intervention en moins d'une heure grâce à notre astreinte 24h/24.</li>
+          <li>Pompage immédiat de l'eau stagnante.</li>
+          <li>Débouchage rapide au furet électrique.</li>
+          <li>
+            Vérification caméra pour s'assurer qu'aucun autre point
+            de blocage ne subsiste.
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,336 @@
+/* STATIC BOT CONTAINER */
+.bot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  //width: 80px;
+  //height: 80px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.bot-image {
+  width: 150px;
+  max-width: 150px !important;
+  height: 120px;
+  max-height: 150px !important;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  outline: none;
+  transform: scaleX(-1);
+}
+
+/* THINKING DOTS */
+.thinking-dots {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  outline: none;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: #484546;
+    border-radius: 0; /* Square pixels instead of circles */
+    animation: thinking 1.4s infinite;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
+  }
+}
+
+@keyframes thinking {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* MESSAGE BUBBLE */
+.message-bubble {
+  position: absolute;
+  bottom: 120px;
+  right: 0;
+  background: #484546;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 0; 
+  max-width: 250px; 
+  min-width: 120px; 
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Courier New', monospace; 
+box-shadow: 
+  0 4px 10px rgba(72, 69, 70, 0.3),
+  0 8px 20px rgba(72, 69, 70, 0.2),
+  0 12px 30px rgba(72, 69, 70, 0.1);
+  animation: bubbleAppear 0.5s ease-out;
+  border-radius: 8px;
+  white-space: normal; 
+  word-wrap: break-word; 
+  line-height: 1.4;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  
+  .bubble-tail {
+    position: absolute;
+    bottom: -8px;
+    right: 90px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #484546;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}
+
+@keyframes bubbleAppear {
+  0% {
+    transform: translateY(10px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* CHATBOX STYLES */
+.chatbox-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 2000;
+  animation: floatUp 0.8s ease-out;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #484546, #5c5a5b);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  animation: bounceIn 0.4s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.chat-header:hover {
+  background: linear-gradient(135deg, #484546, #5c5a5b);
+}
+
+.chat-logo {
+  height: 30px;
+  margin-right: 10px;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.chat-body {
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+  border-radius: 0 0 8px 8px;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.messages {
+  min-height: 250px;
+  //overflow-y: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bot, .user {
+  padding: 10px 12px;
+  border-radius: 8px;
+  max-width: 90%;
+  animation: messagePop 0.3s ease-in;
+}
+
+@keyframes messagePop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bot {
+  background: #f8f8f8;
+  border-left: 4px solid #484546;
+  position: relative;
+}
+
+.user {
+  background: #d4fcd3;
+  border-right: 4px solid #58c472;
+  align-self: flex-end;
+  text-align: right;
+  position: relative;
+}
+
+.bot::after, .user::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4px;
+  animation: blink 1.5s infinite;
+}
+
+.bot::after {
+  left: -6px;
+  // background: #4e54c8;
+}
+
+.user::after {
+  right: -6px;
+  background: #58c472;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  animation: fadeInInput 0.3s ease-out;
+}
+
+input:focus {
+  border-color: #484546;
+  box-shadow: 0 0 0 3px rgba(63, 63, 64, 0.2);
+}
+
+@keyframes fadeInInput {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+}
+.floating {
+    animation: float 2s ease-in-out infinite;
+}
+  

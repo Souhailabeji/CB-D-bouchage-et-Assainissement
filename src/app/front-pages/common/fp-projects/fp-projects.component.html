@@ -1,0 +1,57 @@
+<div class="relative z-[1] pb-[60px] md:pb-[80px] lg:pb-[100px] xl:pb-[150px] text-center from-gray-100 to-transparent dark:from-gray-800 dark:to-transparent">
+  <div class="container 2xl:max-w-[1320px] mx-auto px-[12px]">
+    <div class="absolute bottom-0 -z-[1] ltr:-right-[50px] rtl:-left-[50px] blur-[250px] animate-pulse-slow">
+      <img src="images/front-pages/shape3.png" alt="shape3" class="opacity-70">
+    </div>
+    <div class="absolute -top-[250px] -z-[1] ltr:-left-[70px] rtl:-right-[70px] blur-[150px] animate-spin-slow">
+      <img src="images/front-pages/shape5.png" alt="shape5" class="opacity-60">
+    </div>
+    <section class="relative flex flex-col items-center justify-center py-16 sm:py-20 lg:py-28 text-center overflow-hidden">
+            <div class="absolute inset-0 flex justify-center items-center pointer-events-none z-0"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h2 class="project-stroke">
+          Project</h2>
+      </div>
+      <div class="relative z-10 max-w-3xl px-4">
+          <h5 class="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 inline-block border-b-4 border-primary-600"
+          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">          
+          See our portfolio
+        </h5>
+        <h1 class="mt-4 text-[26px] sm:text-[32px] md:text-[40px] lg:text-[46px] xl:text-[52px] font-bold text-gray-900 dark:text-white leading-tight">
+          Explore the projects we rought to life
+        </h1>
+      </div>
+    </section>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Dynamic Projects -->
+      <div *ngFor="let project of projects" class="relative group cursor-pointer w-[250px] h-[250px] md:w-[300px] md:h-[300px] mx-auto">
+        <div class="w-full h-full rounded-[15px] overflow-hidden shadow-md group-hover:shadow-xl relative">
+          <img [src]="project.image" [alt]="project.title" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-300">
+        </div>
+        <!-- Project Overlay Content -->
+        <div class="absolute bottom-0 left-0 right-0 bg-[#0d8ed6] text-gray-900 dark:text-white dark:bg-[#061e2f] rounded-b-[15px] overflow-hidden transition-all duration-300 ease-in-out h-[40px] group-hover:h-[160px] flex flex-col px-4 pt-2"
+             (mouseenter)="project.isHovered = true"
+             (mouseleave)="project.isHovered = false"
+             (focus)="project.isHovered = true"
+             (blur)="project.isHovered = false">
+          <!-- Project Title -->
+          <div class="font-semibold text-center text-sm md:text-base">
+            {{ project.title }}
+          </div>
+          <!-- Project Description -->
+          <div class="text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 text-center"
+               [ngClass]="{'opacity-100': project.isHovered}">
+            {{ project.description }}
+          </div>
+          <!-- Technologies -->
+          <div class="flex flex-wrap justify-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300"
+               [ngClass]="{'opacity-100': project.isHovered}">
+            <span *ngFor="let tech of project.technologies" class="text-xs bg-white text-gray-900 px-2 py-1 rounded-full">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
