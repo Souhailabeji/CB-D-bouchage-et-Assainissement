@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface CarouselImage {
@@ -17,19 +17,19 @@ export class AppComponent {
 
   problemImages: CarouselImage[] = [
     {
-      src: '/images/app.png',
+      src: '/images/app.webp',
       alt: 'Application screenshot'
     },
     {
-      src: '/images/app2.png',
+      src: '/images/app2.webp',
       alt: 'Navigation screenshot'
     },
     {
-      src: '/images/app3.png',
+      src: '/images/app3.webp',
       alt: 'Home screen'
     },
     {
-      src: '/images/app4.png',
+      src: '/images/app4.webp',
       alt: 'User home'
     }
   ];

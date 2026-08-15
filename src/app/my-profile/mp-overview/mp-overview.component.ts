@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+﻿import { NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { MpOverviewService } from './mp-overview.service';
 

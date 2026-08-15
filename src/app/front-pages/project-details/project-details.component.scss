@@ -1,5 +1,5 @@
-/* ========================= */
-/* Host (le composant lui-même) */
+﻿/* ========================= */
+/* Host (le composant lui-mÃªme) */
 /* ========================= */
 
 :host {
@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 100%;
   background: #ffffff;
-  overflow-x: hidden; // empêche les bulles de créer un scroll horizontal
+  overflow-x: hidden; // empÃªche les bulles de crÃ©er un scroll horizontal
 }
 
 .qode-about-bubble {
@@ -104,7 +104,7 @@
 .project-section {
   background: #ffffff;
   position: relative;
-  z-index: 1; // pour rester au-dessus des bulles floutées
+  z-index: 1; // pour rester au-dessus des bulles floutÃ©es
 }
 
 /* ========================= */

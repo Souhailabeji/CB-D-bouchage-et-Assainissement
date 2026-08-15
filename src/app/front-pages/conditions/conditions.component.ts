@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-conditions',
@@ -10,3 +10,4 @@ import { Component } from '@angular/core';
 export class ConditionsComponent {
 
 }
+

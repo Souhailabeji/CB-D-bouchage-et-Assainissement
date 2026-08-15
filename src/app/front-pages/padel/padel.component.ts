@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface CarouselImage {
@@ -17,19 +17,19 @@ export class PadelComponent {
 
   problemImages: CarouselImage[] = [
     {
-      src: '/images/ca1.png',
+      src: '/images/ca1.webp',
       alt: 'Padel court booking screen'
     },
     {
-      src: '/images/ca2.png',
+      src: '/images/ca2.webp',
       alt: 'Padel AI match analysis screen'
     },
     {
-      src: '/images/ca3.png',
+      src: '/images/ca3.webp',
       alt: 'Padel court information'
     },
     {
-      src: '/images/ca4.png',
+      src: '/images/ca4.webp',
       alt: 'Padel court booked'
     }
   ];

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+﻿import { Component, HostListener } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { TicketsStatusService } from './tickets-status.service';
 

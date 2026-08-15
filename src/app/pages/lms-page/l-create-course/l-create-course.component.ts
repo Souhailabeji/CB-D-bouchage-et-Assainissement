@@ -1,4 +1,4 @@
-import { isPlatformBrowser, NgIf } from '@angular/common';
+﻿import { isPlatformBrowser, NgIf } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FileUploadModule } from '@iplab/ngx-file-upload';

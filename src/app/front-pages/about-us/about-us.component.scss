@@ -1,4 +1,4 @@
-body,
+﻿body,
 .page-bg,
 .section {
   background-color: #ffffff;
@@ -6,7 +6,7 @@ body,
 
 :host {
   display: block;
-  overflow-x: hidden; // empêche les bulles de créer un scroll horizontal
+  overflow-x: hidden; // empÃªche les bulles de crÃ©er un scroll horizontal
 }
 
 .qode-about-bubble {
@@ -185,7 +185,7 @@ body,
 .contact-btn {
   box-sizing: border-box;
   width: 233px;
-  max-width: 100%; // évite le débordement sur très petits écrans
+  max-width: 100%; // Ã©vite le dÃ©bordement sur trÃ¨s petits Ã©crans
   height: 66px;
   border-radius: 16px;
   padding: 24px 48px;

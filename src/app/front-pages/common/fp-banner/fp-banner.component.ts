@@ -1,4 +1,4 @@
-import {
+﻿import {
   AfterViewInit,
   Component,
   DestroyRef,
@@ -40,7 +40,7 @@ export class FpBannerComponent implements AfterViewInit {
 
   images: string[] = [
 
-    '/images/browsers/image01.jpg'
+    '/images/browsers/image01.webp'
 
   ];
 

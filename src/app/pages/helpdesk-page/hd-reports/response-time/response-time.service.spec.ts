@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+﻿import { TestBed } from '@angular/core/testing';
 
 import { ResponseTimeService } from './response-time.service';
 
@@ -14,3 +14,4 @@ describe('ResponseTimeService', () => {
     expect(service).toBeTruthy();
   });
 });
+

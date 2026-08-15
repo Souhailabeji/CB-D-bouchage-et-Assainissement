@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { FpCostumersComponent } from '../common/fp-costumers/fp-costumers.component';
@@ -50,3 +50,4 @@ export class InternshipBookComponent implements AfterViewInit{
     });
   }
 }
+

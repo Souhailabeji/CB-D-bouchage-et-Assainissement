@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MpWelcomeComponent } from './mp-welcome/mp-welcome.component';
 import { MpTotalProjectsComponent } from './mp-total-projects/mp-total-projects.component';

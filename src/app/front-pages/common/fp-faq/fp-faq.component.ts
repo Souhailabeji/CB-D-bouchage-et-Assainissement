@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { NgClass, CommonModule } from '@angular/common';
 
 @Component({

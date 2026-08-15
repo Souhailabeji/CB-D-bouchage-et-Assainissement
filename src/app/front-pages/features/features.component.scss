@@ -1,4 +1,4 @@
-.card {
+﻿.card {
   perspective: 200rem;
   position: relative;
   // height: 100%;
@@ -34,4 +34,5 @@
 .card:hover .card__side--back {
   transform: rotateY(0);
 }
+
 

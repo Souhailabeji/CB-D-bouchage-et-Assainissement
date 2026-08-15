@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --ink: #16181d;
   --muted: #64748b;
   --line: #e7e9ee;
@@ -233,7 +233,7 @@ body {
   display: block;
 }
 
-/* Icônes matériel (SVG en ligne, même gabarit que .tech img) */
+/* IcÃ´nes matÃ©riel (SVG en ligne, mÃªme gabarit que .tech img) */
 .tech-icon {
   width: 90px;
   height: 90px;
@@ -612,7 +612,7 @@ body {
    FINAL POLISH
 ================================== */
 
-/* Empêche les débordements horizontaux */
+/* EmpÃªche les dÃ©bordements horizontaux */
 html,
 body {
   max-width: 100%;
@@ -625,7 +625,7 @@ img {
   height: auto;
 }
 
-/* Transition générale */
+/* Transition gÃ©nÃ©rale */
 button {
   font-family: inherit;
 }
@@ -643,13 +643,13 @@ button {
   overflow: hidden;
 }
 
-/* Empêche la sélection des images */
+/* EmpÃªche la sÃ©lection des images */
 .carousel-track img {
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* Animation légère au chargement */
+/* Animation lÃ©gÃ¨re au chargement */
 .problem-carousel {
   animation: fadeCarousel .6s ease forwards;
 }

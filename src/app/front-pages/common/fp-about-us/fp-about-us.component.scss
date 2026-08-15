@@ -1,5 +1,5 @@
-// ============================
-// Bulles décoratives "glass"
+﻿// ============================
+// Bulles dÃ©coratives "glass"
 // Responsive
 // ============================
 
@@ -21,7 +21,7 @@
   filter: blur(90px);
 }
 
-/* Bulle bleue en haut à gauche */
+/* Bulle bleue en haut Ã  gauche */
 
 .qode-work-bubble {
   position: absolute;
@@ -31,7 +31,7 @@
   filter: blur(40px);
 }
 
-/* Bulle bleue - à gauche */
+/* Bulle bleue - Ã  gauche */
 .qode-work-bubble--blue {
   background: #4A90E2;
   opacity: 0.4;
@@ -42,7 +42,7 @@
   transform: translateY(-50%);
 }
 
-/* Bulle violette - à droite */
+/* Bulle violette - Ã  droite */
 .qode-work-bubble--violet {
   background: #8C52FF;
   opacity: 0.35;
@@ -320,8 +320,8 @@ scale(1);
 
 
 // ============================
-// Petit écran
-// éviter débordement horizontal
+// Petit Ã©cran
+// Ã©viter dÃ©bordement horizontal
 // ============================
 
 

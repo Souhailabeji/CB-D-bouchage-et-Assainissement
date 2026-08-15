@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component,
   ElementRef,
   HostListener,
@@ -20,7 +20,7 @@ export class CarsComponent implements AfterViewInit {
   // ==============================
   // VIDEO HERO
   // ==============================
-  heroVideo = 'images/camera2.png';
+  heroVideo = 'images/camera2.webp';
 
 
 
@@ -29,7 +29,7 @@ export class CarsComponent implements AfterViewInit {
   // ==============================
   problemImages = [
     {
-      src: 'images/projet.png',
+      src: 'images/projet.webp',
       alt: 'Custom car modification design preview'
     }
   ];

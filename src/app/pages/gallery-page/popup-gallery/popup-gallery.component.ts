@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+﻿import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
@@ -14,9 +14,9 @@ export class PopupGalleryComponent {
     public _album: { src: string, caption: string, thumb: string }[] = [];
     constructor(public _lightbox: Lightbox) {
         for (let i = 1; i <= 9; i++) {
-            const src = 'images/gallery/gallery' + i + '.jpg';
+            const src = 'images/gallery/gallery' + i + '.webp';
             const caption = 'Image ' + i;
-            const thumb = 'images/gallery/gallery' + i + '.jpg';
+            const thumb = 'images/gallery/gallery' + i + '.webp';
             const album = {
                 src: src,
                 caption: caption,

@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+﻿import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -34,3 +34,4 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class FpCostumersComponent {
 
 }
+

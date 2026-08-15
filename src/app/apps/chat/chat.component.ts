@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+﻿import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 

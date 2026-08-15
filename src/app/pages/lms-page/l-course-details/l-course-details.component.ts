@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { TablesOfContentComponent } from './tables-of-content/tables-of-content.component';

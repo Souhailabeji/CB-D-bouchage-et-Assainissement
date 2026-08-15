@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 
 import { FrontPagesComponent } from './front-pages/front-pages.component';
 import { HomeComponent } from './front-pages/home/home.component';

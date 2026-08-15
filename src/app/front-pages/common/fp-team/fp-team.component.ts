@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -13,22 +13,22 @@ export class FpTeamComponent {
 
     teamMembers = [
         {
-          image: 'images/front-pages/team1.jpg',
+          image: 'images/front-pages/team1.webp',
           name: 'Michael Johnson',
           role: 'CEO',
         },
         {
-          image: 'images/front-pages/team2.jpg',
+          image: 'images/front-pages/team2.webp',
           name: 'Emily Davis',
           role: 'Project Manager',
         },
         {
-          image: 'images/front-pages/team3.jpg',
+          image: 'images/front-pages/team3.webp',
           name: 'Daniel Lee',
           role: 'Sales Team Lead',
         },
         {
-          image: 'images/front-pages/team4.jpg',
+          image: 'images/front-pages/team4.webp',
           name: 'Olivia John',
           role: 'Frontend Lead',
         },

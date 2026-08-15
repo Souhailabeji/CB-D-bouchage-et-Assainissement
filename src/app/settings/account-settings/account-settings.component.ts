@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { FileUploadModule } from '@iplab/ngx-file-upload';
 
 @Component({

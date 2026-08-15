@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { FpKeyFeaturesComponent } from '../common/fp-key-features/fp-key-features.component';
 import { FpWidgetsComponent } from '../common/fp-widgets/fp-widgets.component';
 import { FpTestimonialsComponent } from '../common/fp-testimonials/fp-testimonials.component';

@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+﻿import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { ToggleService } from '../../common/header/toggle.service';
 import { CommonModule, NgClass, isPlatformBrowser } from '@angular/common';

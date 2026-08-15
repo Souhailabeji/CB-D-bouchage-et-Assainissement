@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+﻿import { NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { NewTicketsSolvedTicketsService } from './new-tickets-solved-tickets.service';
 

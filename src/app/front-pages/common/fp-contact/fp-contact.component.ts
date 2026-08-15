@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+﻿import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -37,7 +37,7 @@ export class FpContactComponent {
   errors: ContactErrors = {};
 
   // Regex de validation
-  private readonly namePattern = /^[A-Za-zÀ-ÿ\s'-]{2,}$/;
+private readonly namePattern = /^[A-Za-zÀ-ÿ\s'-]{2,}$/;
   private readonly emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/;
   private readonly phonePattern = /^[0-9]{8}$/;
 

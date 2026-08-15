@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Style1Component } from './style-1/style-1.component';
 import { Style2Component } from './style-2/style-2.component';

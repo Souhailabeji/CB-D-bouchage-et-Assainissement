@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+﻿import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FpFooterComponent } from './common/fp-footer/fp-footer.component';
 import { FpNavbarComponent } from './common/fp-navbar/fp-navbar.component';

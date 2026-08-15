@@ -1,4 +1,4 @@
-.services-section {
+﻿.services-section {
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
@@ -8,7 +8,7 @@
   }
 }
 
-/* ---------- Bubbles background (décoratif, réutilise les classes existantes) ---------- */
+/* ---------- Bubbles background (dÃ©coratif, rÃ©utilise les classes existantes) ---------- */
 .qode-project-bubble {
   position: absolute;
   border-radius: 50%;
@@ -122,7 +122,7 @@
 }
 
 .services-item {
-  /* --- Reset du <button> natif (nécessaire car on utilise <button> au lieu de <div>) --- */
+  /* --- Reset du <button> natif (nÃ©cessaire car on utilise <button> au lieu de <div>) --- */
   appearance: none;
   border: none;
   background: none;
@@ -168,7 +168,7 @@
   }
 }
 
-/* Flèche agrandie */
+/* FlÃ¨che agrandie */
 .services-item__arrow {
   display: block;
   color: #1a1a1a;
@@ -214,14 +214,14 @@
   }
 }
 
-/* Image au ratio 793 / 233 (≈ 3.4:1) */
+/* Image au ratio 793 / 233 (â‰ˆ 3.4:1) */
 .services-item__image {
   flex: 1;
   border-radius: 24px;
   overflow: hidden;
   aspect-ratio: 793 / 233;
   background-color: #f2f2f2;
-  pointer-events: none; /* évite que l'image capte le clic à la place du bouton */
+  pointer-events: none; /* Ã©vite que l'image capte le clic Ã  la place du bouton */
 
   @media (min-width: 768px) {
     border-radius: 28px;
