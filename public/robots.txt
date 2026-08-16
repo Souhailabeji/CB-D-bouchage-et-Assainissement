@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://debouchage-assainissemen-26aa4.web.app/sitemap.xml
