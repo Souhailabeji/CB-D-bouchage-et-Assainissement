@@ -90,7 +90,7 @@
            BOUCLE DES 12 RÉGIONS
       ======================================= -->
 
-      @for (project of projects; track project.id) {
+      @for (region of regions; track region.id) {
 
 
         <!-- ====================================
@@ -99,7 +99,7 @@
 
         <article
           class="region-card"
-          [class.is-open]="selectedProject === project.id">
+          [class.is-open]="selectedRegion === region.id">
 
 
           <!-- ==================================
@@ -112,8 +112,8 @@
             <!-- IMAGE DE LA RÉGION -->
 
             <img
-              [src]="project.image"
-              [alt]="project.alt"
+              [src]="region.image"
+              [alt]="region.alt"
               class="region-image">
 
 
@@ -128,7 +128,7 @@
 
             <span class="region-number">
 
-              {{ project.id < 10 ? '0' + project.id : project.id }}
+              {{ region.id < 10 ? '0' + region.id : region.id }}
 
             </span>
 
@@ -141,7 +141,7 @@
 
               <h3>
 
-                {{ project.title }}
+                {{ region.title }}
 
               </h3>
 
@@ -155,7 +155,7 @@
 
             <div
               class="region-services-panel"
-              [class.show]="selectedProject === project.id">
+              [class.show]="selectedRegion === region.id">
 
 
               <div class="services-panel-inner">
@@ -199,7 +199,7 @@
 
                 <h4>
 
-                  Débouchage en {{ project.title }}
+                  Débouchage en {{ region.title }}
 
                 </h4>
 
@@ -211,7 +211,7 @@
 
                 <p class="services-description">
 
-                  {{ project.description }}
+                  {{ region.description }}
 
                 </p>
 
@@ -225,7 +225,7 @@
 
 
                   @for (
-                    service of project.services;
+                    service of region.services;
                     track service.title
                   ) {
 
@@ -290,7 +290,7 @@
 
               <h2>
 
-                {{ project.title }}
+                {{ region.title }}
 
               </h2>
 

@@ -3,22 +3,22 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-fp-projects',
+  selector: 'app-fp-region',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule
   ],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  templateUrl: './region.component.html',
+  styleUrl: './region.component.scss'
 })
-export class ProjectsComponent {
+export class RegionComponent {
 
   // ==========================================
   // RÉGION ACTUELLEMENT OUVERTE
   // ==========================================
 
-  selectedProject: number | null = null;
+  selectedRegion: number | null = null;
 
 
   // ==========================================
@@ -27,15 +27,15 @@ export class ProjectsComponent {
 
   toggleServices(id: number): void {
 
-    if (this.selectedProject === id) {
+    if (this.selectedRegion === id) {
 
       // Fermer si la même région est déjà ouverte
-      this.selectedProject = null;
+      this.selectedRegion = null;
 
     } else {
 
       // Ouvrir la nouvelle région
-      this.selectedProject = id;
+      this.selectedRegion = id;
 
     }
 
@@ -50,7 +50,7 @@ export class ProjectsComponent {
 
     event.stopPropagation();
 
-    this.selectedProject = null;
+    this.selectedRegion = null;
 
   }
 
@@ -59,7 +59,7 @@ export class ProjectsComponent {
   // LES 12 RÉGIONS
   // ==========================================
 
-  projects = [
+  regions = [
 
     // ========================================
     // 01 - ÎLE-DE-FRANCE

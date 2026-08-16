@@ -48,7 +48,6 @@
     "qrcode": "^1.5.3",
     "remixicon": "^4.5.0",
     "rxjs": "~7.8.0",
-    "sharp": "^0.35.3",
     "tslib": "^2.3.0",
     "turn.js": "^1.0.5",
     "xlsx": "^0.18.5",
@@ -75,6 +74,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.47",
+    "sharp": "^0.35.3",
     "tailwindcss": "^3.4.14",
     "typescript": "~5.5.2"
   }

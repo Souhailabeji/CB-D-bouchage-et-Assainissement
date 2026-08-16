@@ -4,7 +4,7 @@ import { FrontPagesComponent } from './front-pages/front-pages.component';
 import { HomeComponent } from './front-pages/home/home.component';
 import { AboutUsComponent } from './front-pages/about-us/about-us.component';
 import { FpServicesComponent } from './front-pages/service/services.component';
-import { ProjectsComponent } from './front-pages/projects/projects.component';
+import { RegionComponent } from './front-pages/region/region.component';
 import { FpContactComponent } from './front-pages/common/fp-contact/fp-contact.component';
 import { ProjectdetailsComponent } from './front-pages/project-details/project-details.component';
 
@@ -68,12 +68,12 @@ export const routes: Routes = [
 
 
       // ==============================
-      // PROJECTS / RÉGIONS
+      // REGIONS
       // ==============================
 
       {
-        path: 'projects',
-        component: ProjectsComponent
+        path: 'region',
+        component: RegionComponent
       },
 
 
@@ -144,7 +144,6 @@ export const routes: Routes = [
   // DEUXIÈME PAGE RÉGION
   // ==============================
 
-  
 
 
   // ==============================
