@@ -68,7 +68,7 @@ export class RegionComponent {
     {
       id: 1,
 
-      image: '/images/fr1.webp',
+      image: 'images/fr1.webp',
 
       title: 'Île-de-France',
 
@@ -122,7 +122,7 @@ export class RegionComponent {
     {
       id: 2,
 
-      image: '/images/fr2.webp',
+      image: 'images/fr2.webp',
 
       title: 'Hauts-de-France',
 
@@ -176,7 +176,7 @@ export class RegionComponent {
     {
       id: 3,
 
-      image: '/images/fr3.webp',
+      image: 'images/fr3.webp',
 
       title: 'Normandie',
 
@@ -230,7 +230,7 @@ export class RegionComponent {
     {
       id: 4,
 
-      image: '/images/fr4.webp',
+      image: 'images/fr4.webp',
 
       title: 'Bretagne',
 
@@ -284,7 +284,7 @@ export class RegionComponent {
     {
       id: 5,
 
-      image: '/images/fr5.webp',
+      image: 'images/fr5.webp',
 
       title: 'Pays de la Loire',
 
@@ -338,7 +338,7 @@ export class RegionComponent {
     {
       id: 6,
 
-      image: '/images/fr6.webp',
+      image: 'images/fr6.webp',
 
       title: 'Centre-Val de Loire',
 
@@ -392,7 +392,7 @@ export class RegionComponent {
     {
       id: 7,
 
-      image: '/images/fr7.webp',
+      image: 'images/fr7.webp',
 
       title: 'Grand Est',
 
@@ -446,7 +446,7 @@ export class RegionComponent {
     {
       id: 8,
 
-      image: '/images/fr8.webp',
+      image: 'images/fr8.webp',
 
       title: 'Bourgogne-Franche-Comté',
 
@@ -500,7 +500,7 @@ export class RegionComponent {
     {
       id: 9,
 
-      image: '/images/fr9.webp',
+      image: 'images/fr9.webp',
 
       title: 'Auvergne-Rhône-Alpes',
 
@@ -554,7 +554,7 @@ export class RegionComponent {
     {
       id: 10,
 
-      image: '/images/fr10.webp',
+      image: 'images/fr10.webp',
 
       title: 'Nouvelle-Aquitaine',
 
@@ -608,7 +608,7 @@ export class RegionComponent {
     {
       id: 11,
 
-      image: '/images/fr11.webp',
+      image: 'images/fr11.webp',
 
       title: 'Occitanie',
 
@@ -662,7 +662,7 @@ export class RegionComponent {
     {
       id: 12,
 
-      image: '/images/fr12.webp',
+      image: 'images/fr12.webp',
 
       title: 'Provence-Alpes-Côte d’Azur',
 

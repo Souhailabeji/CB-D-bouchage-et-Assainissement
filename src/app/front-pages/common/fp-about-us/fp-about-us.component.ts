@@ -59,7 +59,7 @@ export class FpAboutUsComponent {
 
       alt: 'WORK.parcelAlt',
 
-      image: '/images/rayenhome.webp',
+      image: 'images/rayenhome.webp',
 
       link: '#'
 
@@ -72,7 +72,7 @@ export class FpAboutUsComponent {
 
       alt: 'WORK.restaurantAlt',
 
-      image: '/images/rayenhome2.webp',
+      image: 'images/rayenhome2.webp',
 
       link: '#'
 
@@ -96,7 +96,7 @@ export class FpAboutUsComponent {
 
       alt: 'WORK.carsAlt',
 
-      image: '/images/rayenhome3.webp',
+      image: 'images/rayenhome3.webp',
 
       link: '#'
 
@@ -109,7 +109,7 @@ export class FpAboutUsComponent {
 
       alt: 'WORK.padelAlt',
 
-      image: '/images/rayenhome4.webp',
+      image: 'images/rayenhome4.webp',
 
       link: '#',
 

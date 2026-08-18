@@ -40,7 +40,7 @@ export class FpBannerComponent implements AfterViewInit {
 
   images: string[] = [
 
-    '/images/browsers/image01.webp'
+    'images/browsers/image01.webp'
 
   ];
 

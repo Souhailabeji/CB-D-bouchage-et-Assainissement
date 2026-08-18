@@ -40,7 +40,7 @@ export class FpNavbarComponent implements OnInit, OnDestroy {
   // true uniquement sur la page d'accueil
   isHomePage = true;
 
-  logoSrc = '/images/CB_logo_principal_2000px (2).webp';
+  logoSrc = 'images/CB_logo_principal_2000px (2).webp';
   currentLang = 'en';
 
   private routerSubscription!: Subscription;
@@ -80,8 +80,8 @@ export class FpNavbarComponent implements OnInit, OnDestroy {
 
     if (this.isHomePage) {
       this.logoSrc = window.scrollY > 100
-        ? '/images/CB_logo_principal_2000px (2).webp'
-        : '/images/CB_logo_principal_2000px (2).webp';
+        ? 'images/CB_logo_principal_2000px (2).webp'
+        : 'images/CB_logo_principal_2000px (2).webp';
     }
   }
 
@@ -127,10 +127,10 @@ export class FpNavbarComponent implements OnInit, OnDestroy {
 
     if (isHome) {
       this.logoSrc = window.scrollY > 100
-        ? '/images/CB_logo_principal_2000px (2).webp'
-        : '/images/CB_logo_principal_2000px (2).webp';
+        ? 'images/CB_logo_principal_2000px (2).webp'
+        : 'images/CB_logo_principal_2000px (2).webp';
     } else {
-      this.logoSrc = '/images/CB_logo_principal_2000px (2).webp';
+      this.logoSrc = 'images/CB_logo_principal_2000px (2).webp';
     }
   }
 
