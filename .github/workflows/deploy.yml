@@ -36,24 +36,25 @@ jobs:
         run: npm ci
 
       - name: Build Angular application
-        run: npm run build -- --base-href /CB-D-bouchage-et-Assainissement/
+        run: npm run build -- --base-href /
 
-      - name: Find Angular build output
-        id: find-dist
+      - name: Verify Angular build
         shell: bash
         run: |
-          echo "Contenu de dist :"
-          find dist -maxdepth 3 -type f | head -50
+          echo "===== Contenu de dist/trezo ====="
+          find dist/trezo -maxdepth 3 -type f | head -100
 
-          if [ -f "dist/index.html" ]; then
-            echo "path=dist" >> "$GITHUB_OUTPUT"
-          elif find dist -mindepth 2 -maxdepth 3 -name index.html | grep -q .; then
-            BUILD_PATH=$(dirname "$(find dist -mindepth 2 -maxdepth 3 -name index.html | head -1)")
-            echo "path=$BUILD_PATH" >> "$GITHUB_OUTPUT"
+          echo "===== Vérification index.html ====="
+
+          if [ -f "dist/trezo/browser/index.html" ]; then
+            echo "index.html trouvé dans dist/trezo/browser/"
           else
-            echo "ERREUR : index.html introuvable dans dist/"
+            echo "ERREUR : dist/trezo/browser/index.html introuvable"
             exit 1
           fi
+
+          echo "===== Vérification base href ====="
+          grep '<base href=' dist/trezo/browser/index.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -61,8 +62,7 @@ jobs:
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ${{ steps.find-dist.outputs.path }}
-
+          path: dist/trezo/browser
 
   deploy:
     name: Deploy to GitHub Pages
