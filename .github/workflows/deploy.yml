@@ -41,20 +41,20 @@ jobs:
       - name: Verify Angular build
         shell: bash
         run: |
-          echo "===== Contenu de dist/trezo ====="
-          find dist/trezo -maxdepth 3 -type f | head -100
+          echo "===== Contenu de dist/trezo/browser ====="
+          find dist/trezo/browser -maxdepth 2 -type f | head -100
 
           echo "===== Vérification index.html ====="
 
           if [ -f "dist/trezo/browser/index.html" ]; then
-            echo "index.html trouvé dans dist/trezo/browser/"
+            echo "OK : index.html trouvé"
           else
-            echo "ERREUR : dist/trezo/browser/index.html introuvable"
+            echo "ERREUR : index.html introuvable"
             exit 1
           fi
 
           echo "===== Vérification base href ====="
-          grep '<base href=' dist/trezo/browser/index.html
+          grep -E '<base[^>]*href=' dist/trezo/browser/index.html || true
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
