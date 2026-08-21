@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://debouchage-assainissemen-26aa4.web.app/sitemap.xml
+Sitemap: https://www.cb-debouchage-assainissement.fr/sitemap.xml
