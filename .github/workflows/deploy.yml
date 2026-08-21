@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           echo "===== Contenu de dist/trezo/browser ====="
-          find dist/trezo/browser -maxdepth 2 -type f | head -100
+          find dist/trezo/browser -maxdepth 2 -type f | head -100 || true
 
           echo "===== Vérification index.html ====="
 
