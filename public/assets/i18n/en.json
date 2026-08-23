@@ -33,7 +33,7 @@
     "uiUxLine2": "",
     "uiUxAlt": "Design UI/UX",
 
-    "itConsultingLine1": "Débouchage évier bouché",
+    "itConsultingLine1": "Pompage Rapide & Fiable — Fosses Septiques, Bacs à Graisse, Postes de Relevage",
     "itConsultingLine2": "",
     "itConsultingAlt": "Conseil technologique"
   },
@@ -330,33 +330,33 @@
   },
   
   "itConsulting": {
-    "title": "Débouchage évier bouché",
+    "title": "Pompage Rapide & Fiable — Fosses Septiques, Bacs à Graisse, Postes de Relevage",
 
     "services": {
 
       "research": {
-        "title": "Débouchage manuel",
-        "description": "Le débouchage manuel est souvent la première étape pour éliminer un bouchon. Nos techniciens utilisent des outils comme la ventouse ou le furet manuel pour déloger les bouchons situés près de l’entrée de la canalisation. Cette méthode est rapide, économique, et adaptée aux bouchons peu profonds."
+        "title": "Pompage fosse septique",
+        "description": "Nous assurons la vidange et le pompage complet de votre fosse septique dans le respect des normes en vigueur. Nos camions hydrocureurs permettent d'extraire les boues et résidus accumulés, garantissant le bon fonctionnement de votre système d'assainissement individuel et évitant tout risque de débordement ou de mauvaises odeurs."
       },
 
       "wireframe": {
-        "title": "Débouchage mécanique",
-        "description": "Pour les bouchons plus résistants ou situés plus loin dans la canalisation, nous utilisons des furets motorisés. Ces appareils permettent d’atteindre et de briser les obstructions profondes, comme les amas de graisse ou les amas solides, sans abîmer vos tuyaux. Le débouchage mécanique est très efficace pour un nettoyage complet."
+        "title": "Pompage bac à graisse",
+        "description": "Le bac à graisse doit être vidangé régulièrement pour rester efficace. Nous intervenons chez les particuliers, restaurants et professionnels pour un pompage complet des graisses accumulées, évitant ainsi les mauvaises odeurs, les bouchons et les problèmes de conformité sanitaire."
       },
 
       "interface": {
-        "title": "Débouchage haute pression",
-        "description": "Nous employons également des techniques de nettoyage à haute pression d’eau. Cette méthode utilise un jet puissant qui nettoie en profondeur les parois des canalisations tout en éliminant les bouchons. Le débouchage haute pression permet aussi de prévenir les futurs engorgements en délogeant les dépôts accumulés."
+        "title": "Pompage poste de relevage",
+        "description": "Nos techniciens réalisent le pompage et le nettoyage complet de votre poste de relevage. Cette intervention permet d'évacuer les boues et dépôts qui s'accumulent dans la cuve, assurant ainsi le bon fonctionnement du système de refoulement des eaux usées."
       },
 
       "testing": {
-        "title": "Inspection par caméra",
-        "description": "Pour diagnostiquer précisément la cause et l’emplacement du bouchon, nous réalisons des inspections vidéo à l’aide de caméras spécifiques. Cette technologie nous aide à cibler l’intervention, éviter les dommages inutiles, et garantir un débouchage efficace."
+        "title": "Remplacement des pompes",
+        "description": "Lorsqu'une pompe de relevage est défaillante ou en fin de vie, nous procédons à son remplacement complet. Nous diagnostiquons la panne, choisissons une pompe adaptée à votre installation, et assurons une remise en service rapide pour éviter tout désagrément."
       },
 
       "interaction": {
         "title": "Entretien et prévention",
-        "description": " Au-delà du débouchage, nous proposons des solutions d’entretien régulier pour éviter la formation de bouchons. Nous conseillons sur les bonnes pratiques et pouvons effectuer un nettoyage périodique des canalisations afin d’assurer leur bon fonctionnement durablement."
+        "description": "Au-delà des interventions ponctuelles, nous proposons des contrats d'entretien régulier pour vos fosses septiques, bacs à graisse et postes de relevage. Un suivi périodique permet de prévenir les pannes, respecter les obligations réglementaires et prolonger la durée de vie de vos installations."
       }
 
     }
