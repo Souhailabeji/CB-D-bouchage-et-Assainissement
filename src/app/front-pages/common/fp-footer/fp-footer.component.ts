@@ -21,7 +21,6 @@ export class FpFooterComponent {
 
   socialLinks = [
     { icon: 'ri-facebook-fill', url: '#' },
-    { icon: 'ri-linkedin-fill', url: 'https://www.linkedin.com/company/qode-technologiesqr/' },
     { icon: 'ri-dribbble-fill', url: '#' }
   ];
 

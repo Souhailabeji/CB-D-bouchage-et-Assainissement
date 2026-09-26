@@ -221,7 +221,7 @@
   overflow: hidden;
   aspect-ratio: 793 / 233;
   background-color: #f2f2f2;
-  pointer-events: none; /* Ã©vite que l'image capte le clic Ã  la place du bouton */
+  pointer-events: none; /* Ã©vite que l'image capte le clic Ã  la place du bouton */
 
   @media (min-width: 768px) {
     border-radius: 28px;
@@ -259,5 +259,62 @@
   .services-item__arrow {
     display: inline-block;
     transform: scaleX(-1);
+  }
+}
+
+/* ---------- Contact Button (fixe pendant le scroll) ---------- */
+.services-contact-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  text-decoration: none;
+
+  padding: 14px 28px;
+  font-size: 16px;
+
+  border-radius: 9999px;
+  border: 2px solid #fb923c; /* orange-400 */
+  background-color: #f97316; /* orange-500 */
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #ea580c; /* orange-600 */
+    border-color: #fdba74; /* orange-300 */
+    box-shadow: 0 10px 40px rgba(249, 115, 22, 0.7);
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 640px) {
+    padding: 18px 40px;
+    font-size: 20px;
+    bottom: 32px;
+    right: 32px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 20px 48px;
+    font-size: 24px;
+  }
+
+  /* RTL (arabe) : passe le bouton Ã  gauche */
+  :host-context([dir='rtl']) & {
+    right: auto;
+    left: 24px;
+
+    @media (min-width: 640px) {
+      left: 32px;
+    }
   }
 }

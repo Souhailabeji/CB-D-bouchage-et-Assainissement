@@ -17,6 +17,8 @@ import {
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
+declare let gtag: Function;
+
 
 @Component({
   selector: 'app-fp-banner',
@@ -284,6 +286,34 @@ export class FpBannerComponent implements AfterViewInit {
     this.currentLang = newLang;
 
     this.translate.use(newLang);
+
+  }
+
+
+
+  // --- PHONE TRACKING ---
+
+  trackPhoneClick(location: string): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+
+      return;
+
+    }
+
+    if (typeof gtag === 'function') {
+
+      gtag('event', 'phone_click', {
+        'event_category': 'contact',
+        'event_label': '+33602791208',
+        'phone_location': location
+      });
+
+    } else {
+
+      console.warn('gtag non disponible');
+
+    }
 
   }
 
