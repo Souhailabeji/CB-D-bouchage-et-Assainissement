@@ -2,13 +2,13 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 
 const PORT = process.env.PORT || 3000;
-const API_KEY = process.env.ANTHROPIC_API_KEY;
-const MODEL = process.env.CHAT_MODEL || 'claude-haiku-5-5';
+const API_KEY = process.env.GEMINI_API_KEY;
+const MODEL = process.env.CHAT_MODEL || 'gemini-2.5-flash';
 const MAX_HISTORY = 16;
 const MAX_CHARS = 1000;
 
 if (!API_KEY) {
-  console.error('ANTHROPIC_API_KEY manquante.');
+  console.error('GEMINI_API_KEY manquante.');
   process.exit(1);
 }
 
@@ -60,7 +60,7 @@ app.use(
 function sanitize(messages) {
   if (!Array.isArray(messages)) return null;
 
-  let clean = messages
+  const clean = messages
     .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
     .map((m) => ({ role: m.role, content: m.content.trim().slice(0, MAX_CHARS) }))
     .filter((m) => m.content.length > 0)
@@ -76,21 +76,28 @@ app.post('/api/chat', async (req, res) => {
   if (!messages) return res.status(400).json({ error: 'bad_request' });
 
   try {
-    const upstream = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': API_KEY,
-        'anthropic-version': '2023-06-01',
+    const upstream = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-goog-api-key': API_KEY,
+        },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: messages.map((m) => ({
+            role: m.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: m.content }],
+          })),
+          generationConfig: {
+            maxOutputTokens: 800,
+            thinkingConfig: { thinkingBudget: 0 },
+          },
+        }),
+        signal: AbortSignal.timeout(30_000),
       },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 500,
-        system: SYSTEM_PROMPT,
-        messages,
-      }),
-      signal: AbortSignal.timeout(30_000),
-    });
+    );
 
     if (!upstream.ok) {
       console.error('Erreur API', upstream.status, await upstream.text());
@@ -98,11 +105,12 @@ app.post('/api/chat', async (req, res) => {
     }
 
     const data = await upstream.json();
-    const reply = (data.content || [])
-      .filter((b) => b.type === 'text')
-      .map((b) => b.text)
+    const reply = (data.candidates?.[0]?.content?.parts || [])
+      .map((p) => p.text || '')
       .join('\n')
       .trim();
+
+    if (!reply) console.error('Réponse vide', JSON.stringify(data));
 
     res.json({ reply });
   } catch (err) {
