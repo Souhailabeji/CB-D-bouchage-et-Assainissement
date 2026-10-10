@@ -1,320 +1,493 @@
-﻿.services-section {
-  position: relative;
-  overflow: hidden;
-  background-color: #ffffff;
+﻿/* ==========================================================================
+   Services section : version « animations mobile »
+   --------------------------------------------------------------------------
+   Principes :
+   • On n'anime que opacity, translate, scale, clip-path (compositeur / GPU).
+   • Les propriétés individuelles `translate` et `scale` sont utilisées pour la
+     révélation ; `transform` reste libre pour le survol, le tap et le flip RTL.
+     Les deux se cumulent sans s'écraser.
+   • Pas d'animation en boucle (batterie) : seulement des mouvements déclenchés
+     par le scroll ou par le doigt.
+   ========================================================================== */
 
-  :host-context(.dark) & {
-    background-color: #0f0f0f;
+/* ---------- Tokens ---------- */
+:host {
+  --svc-bg: #ffffff;
+  --svc-title: #2d2d2d;
+  --svc-item-title: #252525;
+  --svc-text: #7a7a7a;
+  --svc-arrow: #1a1a1a;
+  --svc-divider: #e5e5e5;
+  --svc-image-bg: #f2f2f2;
+  --svc-bubble-opacity: 0.5;
+  --svc-focus: #f97316;
+
+  --svc-font: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --svc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --svc-cta-bg: #f97316;
+  --svc-cta-bg-hover: #ea580c;
+  --svc-cta-border: #fb923c;
+  --svc-cta-border-hover: #fdba74;
+  --svc-cta-shadow: rgba(249, 115, 22, 0.5);
+  --svc-cta-shadow-hover: rgba(249, 115, 22, 0.7);
+
+  /* Révélation au scroll */
+  --reveal-distance: 24px;
+  --reveal-duration: 0.7s;
+  --reveal-stagger: 90ms;
+
+  --img-radius: clamp(24px, 0.5vw + 20px, 28px);
+
+  display: block;
+}
+
+/* Sur mobile : mouvements plus courts et plus rapides (écran petit, lecture rapide) */
+@media (max-width: 639px) {
+  :host {
+    --reveal-distance: 14px;
+    --reveal-duration: 0.5s;
+    --reveal-stagger: 60ms;
   }
 }
 
-/* ---------- Bubbles background (dÃ©coratif, rÃ©utilise les classes existantes) ---------- */
+:host-context(.dark) {
+  --svc-bg: #0f0f0f;
+  --svc-title: #ffffff;
+  --svc-item-title: #ffffff;
+  --svc-text: #d1d5db;
+  --svc-arrow: #ffffff;
+  --svc-divider: rgba(255, 255, 255, 0.1);
+  --svc-image-bg: #1c1c1c;
+  --svc-bubble-opacity: 0.35;
+}
+
+.services-section {
+  position: relative;
+  /* `clip` et non `hidden` : hidden transforme la section en conteneur de scroll,
+     ce qui empêcherait les animations liées au scroll (parallaxe) de se calculer
+     par rapport à la page. */
+  overflow: clip;
+  background-color: var(--svc-bg);
+  isolation: isolate;
+}
+
+/* ---------- Bulles décoratives ----------
+   `filter: blur(60px)` sur 4 grandes couches est l'un des effets les plus
+   coûteux sur un téléphone d'entrée de gamme. Un dégradé radial donne le même
+   halo doux sans aucun filtre. `scale` agrandit autour du centre, donc les
+   positions d'origine restent valables. */
 .qode-project-bubble {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.5;
-  pointer-events: none;
   z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--bubble-color), transparent);
+  opacity: var(--svc-bubble-opacity);
+  scale: 1.6;
+  pointer-events: none;
 
   &--top-blue {
+    --bubble-color: #4f7fff;
     width: 220px;
     height: 220px;
     top: -60px;
-    left: -60px;
-    background: #4f7fff;
+    inset-inline-start: -60px;
   }
 
   &--top-violet {
+    --bubble-color: #b98aff;
     width: 220px;
     height: 220px;
     top: -40px;
-    right: -80px;
-    background: #b98aff;
+    inset-inline-end: -80px;
   }
 
   &--bottom-blue {
+    --bubble-color: #4fd1c5;
     width: 260px;
     height: 260px;
     bottom: -100px;
-    left: -100px;
-    background: #4fd1c5;
+    inset-inline-start: -100px;
   }
 
   &--bottom-violet {
+    --bubble-color: #b98aff;
     width: 260px;
     height: 260px;
     bottom: -80px;
-    right: -60px;
-    background: #b98aff;
+    inset-inline-end: -60px;
   }
 }
 
-/* ---------- Header ---------- */
+/* ---------- En-tête ---------- */
 .services-header {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   text-align: center;
-  padding-top: 90px;
-
-  @media (min-width: 768px) {
-    padding-top: 110px;
-  }
-
-  @media (min-width: 1024px) {
-    padding-top: 130px;
-  }
+  padding-top: clamp(90px, 8vw + 50px, 130px);
 }
 
 .services-header__inner {
   max-width: 64rem;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-inline: auto;
+  padding-inline: 24px;
 }
 
 .services-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--svc-font);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  color: #2d2d2d;
-  font-size: 30px;
-  margin-bottom: 24px;
-
-  :host-context(.dark) & {
-    color: #ffffff;
-  }
-
-  @media (min-width: 640px) { font-size: 38px; }
-  @media (min-width: 768px) { font-size: 46px; margin-bottom: 32px; }
-  @media (min-width: 1024px) { font-size: 54px; }
-  @media (min-width: 1280px) { font-size: 58px; }
+  color: var(--svc-title);
+  font-size: clamp(30px, 2.2vw + 22px, 58px);
+  margin: 0 0 clamp(24px, 1.5vw + 16px, 32px);
+  text-wrap: balance;
 }
 
 .services-subtitle {
-  font-family: 'Poppins', sans-serif;
-  color: #7a7a7a;
-  font-size: 16px;
-  line-height: 1.9;
+  font-family: var(--svc-font);
+  color: var(--svc-text);
+  font-size: clamp(16px, 0.3vw + 15px, 18px);
+  line-height: 1.8;
   max-width: 42rem;
   margin: 0 auto;
-
-  :host-context(.dark) & {
-    color: #d1d5db;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
+  text-wrap: pretty;
 }
 
-/* ---------- List ---------- */
+/* ---------- Liste ---------- */
 .services-list {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   max-width: 1163px;
-  margin: 60px auto 0;
+  margin: clamp(60px, 4vw + 40px, 80px) auto 0;
   padding: 0 12px 80px;
-
-  @media (min-width: 768px) {
-    margin-top: 80px;
-  }
 }
 
 .services-item {
-  /* --- Reset du <button> natif (nÃ©cessaire car on utilise <button> au lieu de <div>) --- */
+  /* Reset du <button> natif */
   appearance: none;
-  border: none;
+  border: 0;
   background: none;
   font: inherit;
   color: inherit;
-  text-align: left;
+  text-align: start;
   width: 100%;
   cursor: pointer;
-  position: relative;
-  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* supprime le délai de tap et le zoom au double-tap */
 
-  /* --- Layout d'origine --- */
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 28px 0;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  gap: clamp(20px, 1.5vw + 12px, 32px);
+  padding-block: clamp(28px, 0.5vw + 26px, 32px);
 
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* La ligne ne glisse plus d'un bloc : ce sont ses éléments qui apparaissent
+     en cascade (voir plus bas). `transform` ne sert qu'au retour tactile. */
+  transition: transform 0.25s var(--svc-ease);
+
+  &:focus-visible {
+    outline: 3px solid var(--svc-focus);
+    outline-offset: 4px;
+    border-radius: 16px;
   }
 
-  @media (min-width: 768px) {
-    gap: 32px;
-    padding: 32px 0;
+  @media (max-width: 639px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
   }
 }
 
 .services-item__label {
   flex-shrink: 0;
-  width: 160px;
-  text-align: left;
+  width: clamp(160px, 10vw + 100px, 260px);
+  text-align: start;
 
-  @media (min-width: 768px) {
-    width: 220px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 260px;
+  @media (max-width: 639px) {
+    width: auto;
   }
 }
 
-/* FlÃ¨che agrandie */
+/* ---------- Révélation en cascade ----------
+   Flèche (0) → titre (1) → image (2), décalés de --reveal-stagger.
+   La classe .is-visible est posée sur .services-item par l'IntersectionObserver. */
+.services-item__arrow,
+.services-item__title,
+.services-item__image {
+  --delay: calc(var(--i, 0) * var(--reveal-stagger));
+
+  opacity: 0;
+  translate: 0 var(--reveal-distance);
+  transition:
+    opacity calc(var(--reveal-duration) * 0.8) ease-out var(--delay),
+    translate var(--reveal-duration) var(--svc-ease) var(--delay);
+}
+
+.services-item__arrow { --i: 0; }
+.services-item__title { --i: 1; }
+.services-item__image { --i: 2; }
+
+.services-item.is-visible {
+  .services-item__arrow,
+  .services-item__title,
+  .services-item__image {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 .services-item__arrow {
   display: block;
-  color: #1a1a1a;
-  font-size: 28px;
+  width: fit-content;
+  color: var(--svc-arrow);
+  font-size: clamp(28px, 1.5vw + 20px, 44px);
   font-weight: 400;
-  margin-bottom: 10px;
   line-height: 1;
+  margin-bottom: clamp(10px, 0.5vw + 6px, 14px);
 
-  :host-context(.dark) & {
-    color: #ffffff;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 36px;
-    margin-bottom: 14px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 44px;
-  }
+  /* Reprend la transition de révélation + celle du survol (transform sans délai) */
+  transition:
+    opacity calc(var(--reveal-duration) * 0.8) ease-out var(--delay),
+    translate var(--reveal-duration) var(--svc-ease) var(--delay),
+    transform 0.4s var(--svc-ease);
 }
 
-/* Titre agrandi */
 .services-item__title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--svc-font);
   font-weight: 500;
-  color: #252525;
-  font-size: 24px;
+  color: var(--svc-item-title);
+  font-size: clamp(24px, 1vw + 18px, 34px);
   line-height: 1.3;
   white-space: pre-line;
   margin: 0;
-
-  :host-context(.dark) & {
-    color: #ffffff;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 34px;
-  }
 }
 
-/* Image au ratio 793 / 233 (â‰ˆ 3.4:1) */
+/* Image au ratio 793 / 233 : se « dévoile » de haut en bas, puis se pose (zoom 1.1 → 1) */
 .services-item__image {
+  position: relative;
   flex: 1;
-  border-radius: 24px;
+  min-width: 0;
+  border-radius: var(--img-radius);
   overflow: hidden;
   aspect-ratio: 793 / 233;
-  background-color: #f2f2f2;
-  pointer-events: none; /* Ã©vite que l'image capte le clic Ã  la place du bouton */
+  background-color: var(--svc-image-bg);
+  pointer-events: none;
 
-  @media (min-width: 768px) {
-    border-radius: 28px;
-  }
+  clip-path: inset(0 0 100% 0 round var(--img-radius));
+  transition:
+    opacity calc(var(--reveal-duration) * 0.6) ease-out var(--delay),
+    translate var(--reveal-duration) var(--svc-ease) var(--delay),
+    clip-path calc(var(--reveal-duration) * 1.3) var(--svc-ease) var(--delay);
 
   img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease-out;
+    scale: 1.1;
+    transition:
+      transform 0.6s ease-out,
+      scale calc(var(--reveal-duration) * 1.6) var(--svc-ease) var(--delay);
   }
 }
 
-.services-item:hover .services-item__image img {
-  transform: scale(1.04);
+.services-item.is-visible .services-item__image {
+  clip-path: inset(0 0 0 0 round var(--img-radius));
+
+  img {
+    scale: 1;
+  }
+}
+
+/* ---------- Survol (souris) ---------- */
+@media (hover: hover) {
+  .services-item:hover {
+    .services-item__image img {
+      transform: scale(1.04);
+    }
+
+    .services-item__arrow {
+      transform: translateX(6px);
+    }
+  }
+}
+
+/* ---------- Retour tactile (écrans sans survol) ----------
+   Sur téléphone il n'y a pas de :hover fiable : le doigt reçoit un retour
+   immédiat (la ligne s'enfonce légèrement, la flèche avance, l'image zoome). */
+@media (hover: none) {
+  .services-item:active {
+    transform: scale(0.985);
+
+    .services-item__image img {
+      transform: scale(1.03);
+    }
+
+    .services-item__arrow {
+      transform: translateX(6px);
+    }
+  }
 }
 
 .services-divider {
   height: 1px;
   width: 100%;
-  background-color: #e5e5e5;
-
-  :host-context(.dark) & {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  background-color: var(--svc-divider);
 }
 
 /* ---------- RTL (arabe) ---------- */
 :host-context([dir='rtl']) {
-
-  .services-item__label {
-    text-align: right;
+  .services-item__arrow {
+    transform: scaleX(-1);
   }
 
-  .services-item__arrow {
-    display: inline-block;
-    transform: scaleX(-1);
+  @media (hover: hover) {
+    .services-item:hover .services-item__arrow {
+      transform: scaleX(-1) translateX(6px);
+    }
+  }
+
+  @media (hover: none) {
+    .services-item:active .services-item__arrow {
+      transform: scaleX(-1) translateX(6px);
+    }
   }
 }
 
-/* ---------- Contact Button (fixe pendant le scroll) ---------- */
+/* ---------- Parallaxe de l'image au scroll (CSS pur, sans JavaScript) ----------
+   L'image est un peu plus haute que son cadre et glisse de ±8 % pendant que la
+   ligne traverse l'écran. Uniquement sur appareils tactiles, dans les navigateurs
+   qui gèrent les animations liées au scroll ; ailleurs, l'image reste fixe. */
+@supports (animation-timeline: scroll()) {
+  @media (hover: none) and (prefers-reduced-motion: no-preference) {
+    .services-item__image {
+      view-timeline: --svc-img;
+
+      img {
+        position: absolute;
+        inset-block: -10%;
+        inset-inline: 0;
+        height: 120%;
+        animation: services-parallax linear both;
+        animation-timeline: --svc-img;
+      }
+    }
+  }
+}
+
+@keyframes services-parallax {
+  from {
+    translate: 0 -8%;
+  }
+
+  to {
+    translate: 0 8%;
+  }
+}
+
+/* ---------- Bouton Contact (fixe pendant le scroll) ---------- */
 .services-contact-button {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  inset-block-end: calc(clamp(24px, 1vw + 16px, 32px) + env(safe-area-inset-bottom, 0px));
+  inset-inline-end: clamp(24px, 1vw + 16px, 32px);
   z-index: 999;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--svc-font);
   font-weight: 600;
+  font-size: clamp(16px, 1vw + 12px, 24px);
   color: #ffffff;
   white-space: nowrap;
   text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 
-  padding: 14px 28px;
-  font-size: 16px;
+  padding: clamp(14px, 0.8vw + 10px, 20px) clamp(28px, 2vw + 16px, 48px);
 
   border-radius: 9999px;
-  border: 2px solid #fb923c; /* orange-400 */
-  background-color: #f97316; /* orange-500 */
-  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
+  border: 2px solid var(--svc-cta-border);
+  background-color: var(--svc-cta-bg);
+  box-shadow: 0 8px 30px var(--svc-cta-shadow);
 
-  transition: all 0.3s ease;
+  /* Entrée unique : le bouton monte et grossit 0,8 s après le chargement,
+     sans attirer l'œil pendant la lecture du titre. `translate` et `scale`
+     ne se mélangent pas avec le `transform` du survol. */
+  animation: services-cta-in 0.6s var(--svc-ease) 0.8s backwards;
 
-  &:hover {
-    background-color: #ea580c; /* orange-600 */
-    border-color: #fdba74; /* orange-300 */
-    box-shadow: 0 10px 40px rgba(249, 115, 22, 0.7);
-    transform: scale(1.1);
-  }
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s var(--svc-ease);
 
-  @media (min-width: 640px) {
-    padding: 18px 40px;
-    font-size: 20px;
-    bottom: 32px;
-    right: 32px;
-  }
-
-  @media (min-width: 768px) {
-    padding: 20px 48px;
-    font-size: 24px;
-  }
-
-  /* RTL (arabe) : passe le bouton Ã  gauche */
-  :host-context([dir='rtl']) & {
-    right: auto;
-    left: 24px;
-
-    @media (min-width: 640px) {
-      left: 32px;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--svc-cta-bg-hover);
+      border-color: var(--svc-cta-border-hover);
+      box-shadow: 0 10px 40px var(--svc-cta-shadow-hover);
+      transform: scale(1.06);
     }
+  }
+
+  &:active {
+    transform: scale(0.96);
+    transition-duration: 0.12s; /* le tap répond plus vite qu'il ne se relâche */
+  }
+
+  &:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 6px var(--svc-cta-bg-hover),
+      0 10px 40px var(--svc-cta-shadow-hover);
+  }
+}
+
+@keyframes services-cta-in {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+    scale: 0.9;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+/* ---------- Accessibilité : réduction des animations ----------
+   Tout est visible immédiatement, sans mouvement. */
+@media (prefers-reduced-motion: reduce) {
+  .services-item,
+  .services-item__arrow,
+  .services-item__title,
+  .services-item__image,
+  .services-item__image img,
+  .services-contact-button {
+    transition: none;
+    animation: none;
+  }
+
+  .services-item__arrow,
+  .services-item__title,
+  .services-item__image {
+    opacity: 1;
+    translate: none;
+    clip-path: none;
+  }
+
+  .services-item__image img {
+    scale: 1;
+  }
+
+  .services-item:active,
+  .services-item:hover .services-item__image img {
+    transform: none;
   }
 }

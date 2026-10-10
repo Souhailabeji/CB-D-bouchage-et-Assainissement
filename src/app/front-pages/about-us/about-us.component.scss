@@ -1,213 +1,424 @@
-﻿body,
-.page-bg,
-.section {
-  background-color: #ffffff;
+﻿// ==========================================================================
+// Variables & mixins
+// ==========================================================================
+
+$bp-sm: 480px;
+$bp-md: 768px;
+
+@mixin below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
 }
 
 :host {
+  --about-bg: #ffffff;
+  --about-violet: #8c52ff;
+  --about-blue: #4a90e2;
+  --about-surface: #f5f5f5;
+  --about-ink: #000000;
+  --about-focus: #4a90e2;
+
+  --about-font: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  // Courbes d'animation
+  --about-ease: cubic-bezier(0.22, 1, 0.36, 1);          // sortie douce
+  --about-spring: cubic-bezier(0.34, 1.56, 0.64, 1);     // léger rebond
+
+  position: relative;
   display: block;
-  overflow-x: hidden; // empÃªche les bulles de crÃ©er un scroll horizontal
+  overflow-x: hidden; // fallback
+  overflow-x: clip;
 }
+
+.page-bg,
+.section {
+  background-color: var(--about-bg);
+}
+
+
+// ==========================================================================
+// Bulles décoratives (statiques : le mouvement est réservé à ce que
+// l'utilisateur touche ou découvre en scrollant)
+// ==========================================================================
 
 .qode-about-bubble {
   position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
   z-index: 0;
+  width: var(--w);
+  height: var(--h, var(--w));
+  border-radius: 50%;
+  background: var(--color);
+  opacity: var(--opacity, 0.25);
   filter: blur(60px);
-}
+  pointer-events: none;
 
+  &--top-violet {
+    --color: var(--about-violet);
+    --w: 260px;
+    --h: 240px;
+    top: 130px;
+    inset-inline-end: -80px;
 
-/* Haut - violet (droite) */
-.qode-about-bubble--top-violet {
-  background: #8C52FF;
-  opacity: 0.25;
-  width: 260px;
-  height: 240px;
-  top: 130px;
-  right: -80px;
-
-  @media (max-width: 768px) {
-    width: 160px;
-    height: 150px;
-    top: 90px;
-    right: -50px;
+    @include below($bp-md) {
+      --w: 160px;
+      --h: 150px;
+      top: 90px;
+      inset-inline-end: -50px;
+    }
   }
-}
 
-/* Bas - bleu (gauche) */
-.qode-about-bubble--bottom-blue {
-  background: #4A90E2;
-  opacity: 0.25;
-  width: 250px;
-  height: 250px;
-  bottom: 60px;
-  left: -70px;
+  &--bottom-blue {
+    --color: var(--about-blue);
+    --w: 250px;
+    bottom: 60px;
+    inset-inline-start: -70px;
 
-  @media (max-width: 768px) {
-    width: 150px;
-    height: 150px;
+    @include below($bp-md) {
+      --w: 150px;
+      bottom: 40px;
+      inset-inline-start: -45px;
+    }
+  }
+
+  &--bottom-violet {
+    --color: var(--about-violet);
+    --opacity: 0.2;
+    --w: 220px;
+    --h: 200px;
     bottom: 40px;
-    left: -45px;
+    inset-inline-end: -60px;
+
+    @include below($bp-md) {
+      --w: 140px;
+      --h: 130px;
+      bottom: 30px;
+      inset-inline-end: -40px;
+    }
   }
 }
 
-/* Bas - violet (droite) */
-.qode-about-bubble--bottom-violet {
-  background: #8C52FF;
-  opacity: 0.2;
-  width: 220px;
-  height: 200px;
-  bottom: 40px;
-  right: -60px;
 
-  @media (max-width: 768px) {
-    width: 140px;
-    height: 130px;
-    bottom: 30px;
-    right: -40px;
-  }
-}
-
+// ==========================================================================
+// Grand titre contouré
+// Le décalage mobile passe par une variable : `translate` peut ainsi
+// être animé sans écraser le décalage de départ.
+// ==========================================================================
 
 .project-stroke {
+  --stroke-y: 0px;
+
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   font-size: 12vw;
   font-weight: 900;
+  line-height: 1;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: transparent;
   -webkit-text-stroke: 1px #ffffff;
-  text-align: center;
-  line-height: 1;
   opacity: 0.7;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  text-shadow: 0px 2px 4px rgba(255, 255, 255, 0.05);
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+  translate: 0 var(--stroke-y);
 
-  @media (max-width: 640px) {
+  // Entrée : le contour se dessine en fondu, avec un léger flou qui se précise
+  animation: strokeIn 1.4s var(--about-ease) 0.1s backwards;
+
+  @include below(640px) {
+    --stroke-y: -80px;
     font-size: 18vw;
-    transform: translateY(-80px);
   }
 }
 
 .gradient-bg {
-  background: linear-gradient(to bottom, #ffffff, #000000);
+  background-color: #ffffff; // fallback
+  background-image: linear-gradient(to bottom, #ffffff, #000000);
 }
+
+
+// ==========================================================================
+// Pourquoi nous choisir
+// ==========================================================================
 
 .choose-icon {
   display: flex;
   align-items: center;
+  gap: 20px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
+  background-color: var(--about-surface);
+  transition:
+    translate 0.5s var(--about-ease),
+    box-shadow 0.5s var(--about-ease),
+    background-color 0.4s ease;
 
   img {
-    margin-right: 20px;
     flex-shrink: 0;
+    transition: scale 0.5s var(--about-spring), rotate 0.5s var(--about-spring);
   }
 
-  @media (max-width: 480px) {
-    flex-direction: column;
-    text-align: center;
+  @media (hover: hover) {
+    &:hover {
+      translate: 0 -3px;
+      background-color: #ffffff;
+      box-shadow: 0 12px 28px rgba(140, 82, 255, 0.16);
 
-    img {
-      margin-right: 0;
-      margin-bottom: 12px;
+      img {
+        scale: 1.1;
+        rotate: -4deg;
+      }
     }
+  }
+
+  @include below($bp-sm) {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+// Apparition au scroll, uniquement si le navigateur sait la gérer :
+// sinon les blocs restent simplement visibles (pas de contenu caché).
+@supports (animation-timeline: view()) {
+  .choose-icon {
+    animation: revealUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
   }
 }
 
 .choose-info {
   h5 {
-    font-size: 32px;
     margin-bottom: 2px;
-
-    @media (max-width: 768px) {
-      font-size: 26px;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 22px;
-    }
+    font-size: clamp(22px, 1.2vw + 16px, 32px);
+    text-wrap: balance;
   }
+
   p {
     margin-bottom: 0;
   }
 }
 
 
+// ==========================================================================
+// Carte
+// Levée + ombre qui s'agrandit au survol ET au focus clavier,
+// léger enfoncement au clic.
+// ==========================================================================
 
 .card {
+  --card-shadow: 15px 15px 30px #000000, -15px -15px 30px #ffffff;
+  --card-shadow-hover: 20px 24px 40px #000000, -15px -15px 30px #ffffff;
+
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 240px;
-  border-radius: 1.5rem;
-  box-shadow: 15px 15px 30px #000000, -15px -15px 30px #ffffff;
-  position: relative;
   overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: var(--card-shadow);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+  transition:
+    translate 0.5s var(--about-ease),
+    scale 0.4s var(--about-ease),
+    box-shadow 0.5s var(--about-ease);
 
-  .card__content {
-    padding: 1.5rem;
+  @media (hover: hover) {
+    &:hover {
+      translate: 0 -8px;
+      box-shadow: var(--card-shadow-hover);
+    }
+  }
+
+  &:focus-visible {
+    translate: 0 -8px;
+    box-shadow: var(--card-shadow-hover);
+    outline: 3px solid var(--about-focus);
+    outline-offset: 4px;
+  }
+
+  &:active {
+    scale: 0.98;
+    translate: 0 -2px;
+    transition-duration: 0.15s;
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: clamp(1rem, 2vw + 0.6rem, 1.5rem);
     text-align: center;
-    border-bottom-left-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-
-    @media (max-width: 480px) {
-      padding: 1rem;
-    }
   }
 
-  .card__title {
+  &__title {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 0.5vw + 1rem, 1.25rem);
     font-weight: 700;
-
-    @media (max-width: 480px) {
-      font-size: 1.1rem;
-    }
   }
 
-  .card__description {
+  &__description {
     margin-top: 0.75rem;
     font-size: 0.875rem;
     line-height: 1.4;
   }
 }
 
-// Bouton Contact Us
+@supports (animation-timeline: view()) {
+  .card {
+    animation: revealUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+
+// ==========================================================================
+// Bouton Contact
+// Le reflet qui traverse le bouton au survol est le seul effet « décoratif » :
+// il indique que l'élément est cliquable.
+// ==========================================================================
+
 .contact-btn {
   box-sizing: border-box;
-  width: 233px;
-  max-width: 100%; // Ã©vite le dÃ©bordement sur trÃ¨s petits Ã©crans
-  height: 66px;
-  border-radius: 16px;
-  padding: 24px 48px;
-  gap: 10px;
-  background: #000000;
-  color: #ffffff;
-  border: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  isolation: isolate;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  transition: background 0.2s ease;
-  position: relative;
-  z-index: 1;
+  gap: 10px;
 
-  @media (max-width: 480px) {
-    width: 100%;
-    max-width: 233px;
-    height: 56px;
+  width: min(100%, 233px);
+  min-height: 66px;
+  padding: 24px 48px;
+
+  appearance: none;
+  border: 0;
+  border-radius: 16px;
+  background: var(--about-ink);
+  color: #ffffff;
+  cursor: pointer;
+
+  font-family: var(--about-font);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  transition:
+    background-color 0.3s ease,
+    translate 0.4s var(--about-ease),
+    scale 0.2s var(--about-ease),
+    box-shadow 0.4s var(--about-ease);
+
+  // Reflet diagonal
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset-block: 0;
+    inset-inline-start: -60%;
+    width: 40%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: inset-inline-start 0.8s var(--about-ease);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: #262626;
+      translate: 0 -3px;
+      box-shadow: 0 14px 28px rgba(140, 82, 255, 0.35);
+
+      &::before {
+        inset-inline-start: 120%;
+      }
+    }
+  }
+
+  &:active {
+    scale: 0.96;
+    translate: 0 0;
+    box-shadow: none;
+    transition-duration: 0.12s;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--about-focus);
+    outline-offset: 3px;
+  }
+
+  @include below($bp-sm) {
+    min-height: 56px;
     padding: 16px 32px;
     font-size: 0.95rem;
+  }
+}
+
+
+// ==========================================================================
+// Keyframes
+// ==========================================================================
+
+@keyframes strokeIn {
+  from {
+    opacity: 0;
+    translate: 0 calc(var(--stroke-y) + 30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 0.7;
+    translate: 0 var(--stroke-y);
+    filter: blur(0);
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    translate: 0 36px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+
+// ==========================================================================
+// Accessibilité : réduction des animations
+// On enlève les déplacements, le flou et le reflet, mais on garde
+// des changements de couleur/ombre très courts pour le feedback.
+// ==========================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .project-stroke,
+  .choose-icon,
+  .card {
+    animation: none;
+  }
+
+  .choose-icon,
+  .choose-icon img,
+  .card,
+  .contact-btn {
+    translate: none !important;
+    scale: none !important;
+    rotate: none !important;
+    transition-duration: 0.15s !important;
+  }
+
+  .contact-btn::before {
+    display: none;
   }
 }

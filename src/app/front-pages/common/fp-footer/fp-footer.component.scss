@@ -1,50 +1,147 @@
-﻿
-$timing        : 265ms;
-$iconColor : #c1d9f6; // muted steel blue, fits gray base
-$accent    : #c1d9f6; // deep gray navy
-$bluefade  : #1261cf; // faded dusty blue
-$gradient  : #c1d9f6; // same as iconColor for smooth gradient stops
+﻿// ==========================================================================
+// Proposition B : pastilles contourées, remplissage aux couleurs du réseau,
+// infobulle alimentée par l'aria-label (aucun texte à dupliquer).
+// ==========================================================================
 
+$timing: 265ms;
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-@mixin transformScale($size: 1) {
-    transform: scale($size);
-    -ms-transform: scale($size);
-    -webkit-transform: scale($size);
+$brand-default: #1261cf; // utilisé si le lien n'a pas de data-network
+$ring: rgba(255, 255, 255, 0.4);
+$focus-color: #c1d9f6;
+
+// État « actif » partagé entre :hover (appareils avec souris) et :focus-visible (clavier)
+@mixin pill-active {
+  border-color: transparent;
+  transform: translateY(-3px);
+
+  &::before {
+    transform: scale(1);
+  }
+
+  &::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
+
 .social-container {
-    text-align: center;
+  text-align: center;
 }
 
 .social-icons {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1.2em;
+  --size: 2.75rem; // 44 px : zone tactile confortable
 
-    li {
-        display: inline-block;
-        position: relative;
-        font-size: 1.4em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+
+  a {
+    --brand: #{$brand-default};
+
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: var(--size);
+    height: var(--size);
+    border: 1px solid $ring;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition:
+      transform $timing $ease,
+      border-color $timing ease-out;
+
+    // Disque de couleur qui grandit depuis le centre
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: var(--brand);
+      transform: scale(0);
+      transition: transform $timing $ease;
     }
 
-    a {
-        display: inline-block;
-        color: #fff;
-        transition: all $timing ease-out;
-
-        &:hover {
-            color: rgba(255, 255, 255, 0.7);
-            transform: scale(1.15);
-        }
+    // Infobulle = texte de l'aria-label
+    &::after {
+      content: attr(aria-label);
+      position: absolute;
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.4rem;
+      background: #111111;
+      color: #ffffff;
+      font-size: 0.75rem;
+      line-height: 1.3;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, 4px);
+      transition:
+        opacity $timing ease-out,
+        transform $timing $ease;
     }
 
     i {
-        color: #fff;
-        transition: all $timing ease-out;
+      color: inherit;
     }
+
+    @media (hover: hover) {
+      &:hover {
+        @include pill-active;
+      }
+    }
+
+    &:focus-visible {
+      @include pill-active;
+      outline: 2px solid $focus-color;
+      outline-offset: 3px;
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.95);
+    }
+
+    // Couleurs de marque (via <a data-network="facebook">)
+    &[data-network='facebook']  { --brand: #1877f2; }
+    &[data-network='instagram'] { --brand: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+    &[data-network='linkedin']  { --brand: #0a66c2; }
+    &[data-network='x']         { --brand: #111111; }
+    &[data-network='youtube']   { --brand: #e00000; }
+    &[data-network='whatsapp']  { --brand: #1fa855; }
+    &[data-network='tiktok']    { --brand: #111111; }
+  }
 }
-.pageTop{
-    background: -webkit-linear-gradient(45deg, $iconColor, $accent);
+
+
+// Fond de page : vrai dégradé (l'original allait de #c1d9f6 vers #c1d9f6 = aplat)
+.pageTop {
+  background-color: #c1d9f6;
+  background-image: linear-gradient(45deg, #c1d9f6, #8fb8ee);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .social-icons a {
+    &,
+    &::before,
+    &::after {
+      transition: none;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      transform: none;
+    }
+  }
 }

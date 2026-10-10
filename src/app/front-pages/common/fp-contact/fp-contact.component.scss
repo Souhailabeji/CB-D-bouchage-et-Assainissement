@@ -1,258 +1,247 @@
-﻿/* ===============================
-   CONTACT WRAPPER
-================================ */
+﻿/* ==========================================================================
+   Tokens
+   ========================================================================== */
+
+:host {
+  --contact-accent: #644a9e;
+  --contact-border: #b9b9c3;
+  --contact-ease: ease-in-out;
+
+  /* Coche des radios en SVG : fonctionne dans tous les navigateurs, sans ::after */
+  --contact-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2.1 2.1L8 3' fill='none' stroke='%23644a9e' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  display: block;
+  overflow-x: clip; /* les bulles qui dépassent à droite ne créent plus de scroll horizontal */
+}
+
+
+/* ==========================================================================
+   Wrapper
+   ========================================================================== */
 
 .contact-wrapper {
-  position: relative;
+  position: relative; /* ancre les bulles */
   width: 100%;
   max-width: 1273px;
   min-height: 579px;
-  margin: auto;
-  overflow: visible;
+  margin-inline: auto;
 }
 
-/* ===============================
-   ANIMATIONS DES BULLES
-================================ */
 
-@keyframes bubbleFloat1 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(15px, -18px) scale(1.03);
-  }
-  50% {
-    transform: translate(0, -35px) scale(1.06);
-  }
-  75% {
-    transform: translate(-15px, -18px) scale(1.03);
-  }
+/* ==========================================================================
+   Animations des bulles
+   --------------------------------------------------------------------------
+   Une seule animation paramétrable remplace bubbleFloat1/2/3.
+   --ax : amplitude horizontale   --ay : amplitude verticale
+   --fs : variation d'échelle (positive = grossit, négative = rétrécit)
+   ========================================================================== */
+
+@keyframes bubbleFloat {
+  0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
-}
 
-@keyframes bubbleFloat2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
   25% {
-    transform: translate(-18px, 18px) scale(.98);
+    transform: translate(var(--ax), calc(var(--ay) * 0.5)) scale(calc(1 + var(--fs) * 0.5));
   }
-  50% {
-    transform: translate(0, 35px) scale(.95);
-  }
-  75% {
-    transform: translate(18px, 18px) scale(.98);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
 
-@keyframes bubbleFloat3 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(12px, -10px);
-  }
   50% {
-    transform: translate(25px, -25px);
+    transform: translate(0, var(--ay)) scale(calc(1 + var(--fs)));
   }
+
   75% {
-    transform: translate(10px, -40px);
-  }
-  100% {
-    transform: translate(0, 0);
+    transform: translate(calc(var(--ax) * -1), calc(var(--ay) * 0.5)) scale(calc(1 + var(--fs) * 0.5));
   }
 }
 
 @keyframes bubbleGlow {
   0%,
   100% {
-    opacity: .85;
+    opacity: 0.85;
   }
+
   50% {
     opacity: 1;
   }
 }
 
-/* ===============================
-   BULLES DE VERRE
-================================ */
+
+/* ==========================================================================
+   Bulles de verre
+   ========================================================================== */
 
 .hex-glass {
+  --ax: 15px;
+  --ay: -35px;
+  --fs: 0.06;
+  --float-time: 7s;
+  --glow-time: 5s;
+
   position: absolute;
-  border-radius: 50%;
   z-index: 1;
-  pointer-events: none;
-  filter: blur(2px);
-
-  background: linear-gradient(
-    135deg,
-    rgba(140, 180, 200, .45),
-    rgba(150, 130, 200, .35)
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(
+    --bg,
+    linear-gradient(135deg, rgba(140, 180, 200, 0.45), rgba(150, 130, 200, 0.35))
   );
-
-  border: 1px solid rgba(255,255,255,.35);
-
+  border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow:
-    inset 0 0 25px rgba(255,255,255,.7),
-    0 10px 40px rgba(120,120,180,.18);
+    inset 0 0 25px rgba(255, 255, 255, 0.7),
+    0 10px 40px rgba(120, 120, 180, 0.18);
+  filter: blur(2px);
+  pointer-events: none;
+  will-change: transform, opacity;
 
-  will-change: transform;
-  animation: bubbleGlow 5s ease-in-out infinite;
+  animation:
+    bubbleFloat var(--float-time) var(--contact-ease) infinite,
+    bubbleGlow var(--glow-time) var(--contact-ease) infinite;
 }
 
-/* ===============================
-   BULLE 1
-================================ */
-
+/* Petite bulle, haut gauche */
 .bubble-decor-1 {
+  --size: 90px;
+  --bg: rgba(150, 140, 210, 0.5);
   top: -40px;
-  left: 8%;
-  width: 90px;
-  height: 90px;
-
-  background: rgba(150,140,210,.5);
-
-  animation:
-    bubbleFloat1 7s ease-in-out infinite,
-    bubbleGlow 5s ease-in-out infinite;
+  inset-inline-start: 8%;
 }
 
-/* ===============================
-   BULLE 2
-================================ */
-
+/* Grande bulle, haut droite */
 .bubble-decor-2 {
+  --size: 180px;
+  --bg: linear-gradient(135deg, rgba(150, 210, 190, 0.5), rgba(160, 140, 210, 0.5));
+  --ax: -18px;
+  --ay: 35px;
+  --fs: -0.05;
+  --float-time: 10s;
+  --glow-time: 6s;
   top: -60px;
-  right: -40px;
-  width: 180px;
-  height: 180px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(150,210,190,.5),
-    rgba(160,140,210,.5)
-  );
-
-  animation:
-    bubbleFloat2 10s ease-in-out infinite,
-    bubbleGlow 6s ease-in-out infinite;
+  inset-inline-end: -40px;
 }
 
-/* ===============================
-   BULLE 3
-================================ */
-
+/* Grande bulle, bas gauche (ancien bubbleFloat3 : dérive diagonale remplacée par un arc) */
 .bubble-decor-3 {
+  --size: 180px;
+  --bg: linear-gradient(135deg, rgba(150, 200, 190, 0.5), rgba(150, 140, 210, 0.5));
+  --ax: 20px;
+  --ay: -40px;
+  --fs: 0;
+  --float-time: 8s;
+  --glow-time: 5.5s;
   bottom: -70px;
-  left: -50px;
-  width: 180px;
-  height: 180px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(150,200,190,.5),
-    rgba(150,140,210,.5)
-  );
-
-  animation:
-    bubbleFloat3 8s ease-in-out infinite,
-    bubbleGlow 5.5s ease-in-out infinite;
+  inset-inline-start: -50px;
 }
 
-/* ===============================
-   BULLE 4
-================================ */
-
+/* Petite bulle, bas droite (l'ancien `reverse` devient une amplitude négative) */
 .bubble-decor-4 {
+  --size: 90px;
+  --bg: rgba(150, 140, 210, 0.5);
+  --ax: -15px;
+  --float-time: 6s;
+  --glow-time: 4.5s;
   bottom: -30px;
-  right: 10%;
-  width: 90px;
-  height: 90px;
-
-  background: rgba(150,140,210,.5);
-
-  animation:
-    bubbleFloat1 6s ease-in-out infinite reverse,
-    bubbleGlow 4.5s ease-in-out infinite;
+  inset-inline-end: 10%;
 }
 
-/* ===============================
-   CONTACT CARD GLASS
-================================ */
+
+/* ==========================================================================
+   Carte en verre
+   ========================================================================== */
 
 .contact-card {
   position: relative;
   z-index: 10;
   width: 100%;
-  border-radius: 32px;
-
-  background: rgba(255,255,255,.85);
-
-  border: 1px solid rgba(255,255,255,.9);
-
-  backdrop-filter: blur(30px);
+  border-radius: clamp(22px, 3vw, 32px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(30px);
-
+  backdrop-filter: blur(30px);
   box-shadow:
-    0 25px 70px rgba(0,0,0,.06),
-    inset 0 1px 15px rgba(255,255,255,.8);
+    0 25px 70px rgba(0, 0, 0, 0.06),
+    inset 0 1px 15px rgba(255, 255, 255, 0.8);
 }
 
-/* ===============================
-   RADIOS
-================================ */
+/* Sans backdrop-filter, le fond 85 % laisserait voir les bulles à travers le texte */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .contact-card {
+    background: rgba(255, 255, 255, 0.97);
+  }
+}
 
-input[type="radio"][name="subject"] {
-  appearance: none;
+
+/* ==========================================================================
+   Radios « sujet »
+   --------------------------------------------------------------------------
+   Idéalement, donnez-leur une classe (ex. .subject-radio) pour remplacer ce
+   sélecteur d'attribut, et placez-les à l'intérieur de leur <label> pour
+   agrandir la zone de clic.
+   ========================================================================== */
+
+input[type='radio'][name='subject'] {
   -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
+  border: 1.5px solid var(--contact-border);
   border-radius: 50%;
-  border: 1.5px solid #b9b9c3;
-  position: relative;
+  background: transparent center / 10px no-repeat;
   cursor: pointer;
-  flex-shrink: 0;
-  transition: .3s;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 
-  &::after {
-    content: "âœ“";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    font-size: 10px;
-    color: transparent;
-    transition: .3s;
+  &:hover {
+    border-color: var(--contact-accent);
   }
 
   &:checked {
-    border-color: #644a9e;
-    background: rgba(100,74,158,.08);
+    border-color: var(--contact-accent);
+    background-color: rgba(100, 74, 158, 0.08);
+    background-image: var(--contact-check);
+  }
 
-    &::after {
-      color: #644a9e;
-    }
+  /* Absent d'origine : avec appearance: none, le focus clavier était peu visible */
+  &:focus-visible {
+    outline: 2px solid var(--contact-accent);
+    outline-offset: 3px;
   }
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
 @media (max-width: 768px) {
-
   .contact-card {
-    border-radius: 22px;
-    background: rgba(255,255,255,.92);
+    background: rgba(255, 255, 255, 0.92);
+    /* Les bulles sont masquées ici : le flou d'arrière-plan ne servait plus
+       à rien et coûtait cher en GPU sur mobile. */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .hex-glass {
     display: none;
+  }
+}
+
+
+/* ==========================================================================
+   Accessibilité : réduction des animations
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hex-glass {
+    animation: none;
+    will-change: auto;
+  }
+
+  input[type='radio'][name='subject'] {
+    transition: none;
   }
 }
