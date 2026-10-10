@@ -1,4 +1,3 @@
-
 name: Deploy Angular to GitHub Pages
 
 on:
@@ -66,9 +65,14 @@ jobs:
         run: |
           echo "www.cb-debouchage-assainissement.fr" > "${{ steps.find-dist.outputs.path }}/CNAME"
 
+      - name: Create 404.html for Angular routes
+        run: |
+          cp "${{ steps.find-dist.outputs.path }}/index.html" "${{ steps.find-dist.outputs.path }}/404.html"
+
       - name: Verify publication files
         run: |
           test -f "${{ steps.find-dist.outputs.path }}/index.html"
+          test -f "${{ steps.find-dist.outputs.path }}/404.html"
           test -f "${{ steps.find-dist.outputs.path }}/CNAME"
           echo "Fichiers de publication vérifiés."
 
