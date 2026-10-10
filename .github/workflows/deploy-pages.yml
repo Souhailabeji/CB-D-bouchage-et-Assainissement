@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -14,17 +13,15 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
-
   build:
     name: Build Angular
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -44,20 +41,36 @@ jobs:
         id: find-dist
         shell: bash
         run: |
-          echo "Contenu de dist :"
-          find dist -maxdepth 3 -type f | head -50
+          set -e
+
+          echo "Recherche de index.html dans dist/"
 
           if [ -f "dist/index.html" ]; then
-            echo "path=dist" >> "$GITHUB_OUTPUT"
-
-          elif find dist -mindepth 2 -maxdepth 3 -name index.html | grep -q .; then
-            BUILD_PATH=$(dirname "$(find dist -mindepth 2 -maxdepth 3 -name index.html | head -1)")
-            echo "path=$BUILD_PATH" >> "$GITHUB_OUTPUT"
-
+            BUILD_PATH="dist"
           else
-            echo "ERREUR : index.html introuvable dans dist/"
-            exit 1
+            INDEX_FILE=$(find dist -mindepth 2 -maxdepth 4 -type f -name index.html -print -quit)
+
+            if [ -z "$INDEX_FILE" ]; then
+              echo "ERREUR : index.html introuvable dans dist/"
+              find dist -maxdepth 4 -type f | head -100
+              exit 1
+            fi
+
+            BUILD_PATH=$(dirname "$INDEX_FILE")
           fi
+
+          echo "Dossier de publication : $BUILD_PATH"
+          echo "path=$BUILD_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Add custom domain
+        run: |
+          echo "www.cb-debouchage-assainissement.fr" > "${{ steps.find-dist.outputs.path }}/CNAME"
+
+      - name: Verify publication files
+        run: |
+          test -f "${{ steps.find-dist.outputs.path }}/index.html"
+          test -f "${{ steps.find-dist.outputs.path }}/CNAME"
+          echo "Fichiers de publication vérifiés."
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -70,7 +83,6 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-
     needs: build
 
     environment:
@@ -78,7 +90,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-
       - name: Deploy application
         id: deployment
         uses: actions/deploy-pages@v4
