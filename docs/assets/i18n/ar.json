@@ -1,0 +1,400 @@
+{
+  "NAVBAR": {
+    "LOGO_ALT": "Logo",
+    "MAIN_MENU": "Menu principal",
+    "HOME": "Accueil",
+    "SERVICES": "Services",
+    "PROJECTS": "Projets",
+    "ABOUT_US": "À propos",
+    "WEB_DEV": "Développement et conception de sites web",
+    "MOBILE_DEV": "Développement d'applications mobiles"
+  },
+
+  "hero": {
+    "title": "Qode le futur",
+    "contactButton": "Contactez-nous"
+  },
+
+  "whatWeDo": {
+    "titleLine1": "Ce que",
+    "titleLine2": "nous faisons chez Qode",
+    "description": "Des sites web exceptionnels et des applications mobiles intuitives au conseil technologique spécialisé et à un design UI/UX raffiné, nous offrons des solutions numériques complètes conçues sur mesure pour votre vision.",
+    "learnMore": "En savoir plus",
+
+    "webDevLine1": "Développement",
+    "webDevLine2": "web",
+    "webDevAlt": "Développement web",
+
+    "mobileDevLine1": "Développement",
+    "mobileDevLine2": "d'applications mobiles",
+    "mobileDevAlt": "Développement d'applications mobiles",
+
+    "uiUxLine1": "Design",
+    "uiUxLine2": "UI/UX",
+    "uiUxAlt": "Design UI/UX",
+
+    "itConsultingLine1": "Conseil",
+    "itConsultingLine2": "technologique",
+    "itConsultingAlt": "Conseil technologique"
+  },
+
+
+  "WORK": {
+    "title": "Aperçu de nos réalisations",
+
+    "parcel": "Application de livraison de colis",
+    "restaurant": "Système de gestion de restaurant",
+    "cars": "Boutique de personnalisation automobile",
+    "padel": "Application Padel IA",
+
+    "parcelAlt": "Application de livraison de colis",
+    "restaurantAlt": "Système de gestion de restaurant",
+    "carsAlt": "Boutique en ligne de personnalisation automobile",
+    "padelAlt": "Application d'intelligence artificielle pour le padel",
+
+    "stat1": "Clients visitent Qode chaque mois pour leurs services.",
+
+    "stat2": "de satisfaction client grâce à nos formidables clients.",
+
+    "stat3": "Note moyenne des avis clients obtenus en ligne."
+  },
+
+
+  "CONTACT": {
+    "titleLine1": "Informations",
+    "titleLine2": "de contact",
+
+    "address": "Doha, Qatar",
+
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "E-mail",
+    "phone": "Numéro de téléphone",
+
+    "subject": "Choisissez un sujet ?",
+
+    "general": "Demande générale",
+    "web": "Développement web",
+    "uiux": "Design UI/UX",
+    "other": "Autre",
+
+    "message": "Message",
+    "placeholder": "Écrivez votre message...",
+
+    "send": "Envoyer le message"
+  },
+
+
+  "FOOTER": {
+
+    "logoAlt": "Logo",
+
+    "description1": "Nous proposons des solutions technologiques innovantes pour répondre aux besoins croissants des entreprises modernes.",
+
+    "description2": "Nous aidons nos clients à tirer parti de la technologie pour améliorer leur efficacité et leurs performances.",
+
+
+    "company": "Entreprise",
+
+    "presentation": "Présentation de l'entreprise",
+
+    "team": "Équipe",
+
+    "projects": "Projets",
+
+
+    "services": "Nos services",
+
+    "webDevelopment": "Développement web",
+
+    "mobileDevelopment": "Développement d'applications mobiles",
+
+    "uiux": "Design UI/UX",
+
+    "itConsulting": "Conseil technologique",
+
+
+    "quickLinks": "Liens rapides",
+
+
+    "contact": "Contactez-nous",
+
+
+
+    "copyright": "Copyright © 2025 Qode Technologies"
+
+  },
+  "PORTFOLIO": {
+
+  "TITLE_LINE1": "Nous créons de la beauté",
+  "TITLE_LINE2": "numérique avec",
+  "TITLE_LINE3": "les technologies",
+  "TITLE_LINE4": "modernes",
+
+  "DESCRIPTION_LINE1": "Découvrez nos projets et",
+  "DESCRIPTION_LINE2": "profitez de la rencontre entre créativité et innovation",
+  "DESCRIPTION_LINE3": "pour façonner le monde numérique.",
+
+
+  "PADEL": "Application Padel",
+  "PLATTER": "Platter",
+  "MSG": "MSG",
+  "WASSEL": "Wassel",
+  "QASA": "Qasa",
+  "MDR": "MDR",
+  "PADEL_DATA": "Padel Data SaaS",
+  "CARRIO": "Carrio",
+  "PRINCESS": "Princess",
+  "VOUCHER": "Application Voucher",
+  "QODE": "Technologie Qode",
+  "FOR_GABES": "Pour Gabès",
+  "Qode": "Technologie Qode",
+  "ENTERPRISE": "Enterprise"
+
+},
+
+  "PROJECT_DETAILS": {
+
+    "TITLE": "Site e-commerce pour une boutique de personnalisation automobile",
+
+    "DESCRIPTION": "Une expérience d'achat numérique immersive avec des présentations de voitures animées, des designs cinématographiques et des aperçus instantanés des pièces. Le site a été optimisé pour maximiser les conversions tout en conservant une identité automobile haute performance.",
+
+    "IMAGE_ALT": "Site e-commerce de personnalisation automobile",
+
+
+    "TECHNOLOGIES": "Technologies utilisées",
+
+    "CATEGORY": "Catégorie",
+
+    "CATEGORIES": {
+      "AUTOMOTIVE": "Automobile",
+      "ECOMMERCE": "E-commerce",
+      "LIFESTYLE": "Style de vie"
+    },
+
+
+    "DATE": "Date",
+
+    "DATE_VALUE": "Avril 2025",
+
+
+
+    "PROBLEM_TITLE": "Le problème",
+
+    "PROBLEM_TEXT": "Nous avons conçu une expérience e-commerce interactive pour une boutique spécialisée dans la personnalisation de voitures de luxe. L'objectif était de créer un design vivant qui ne se contente pas de vendre des pièces, mais qui raconte une histoire visuelle de puissance, de personnalisation et d'élégance.",
+
+
+
+    "SOLUTION_TITLE": "La solution",
+
+    "SOLUTION": {
+
+      "ANIMATION_TITLE": "- Présentation interactive du véhicule :",
+"ANIMATION_TEXT": "Un modèle 3D de véhicule interactif au centre de la page qui répond aux actions de l'utilisateur, affichant en temps réel différentes pièces telles que les jantes, les pare-chocs et les modifications.",
+
+"EXPERIENCE_TITLE": "- Expérience immersive :",
+"EXPERIENCE_TEXT": "Designs cinématographiques avec de grandes images, des effets de défilement fluides et des animations interactives pour enrichir l'expérience utilisateur.",
+
+"RESPONSIVE_TITLE": "- Design responsive :",
+"RESPONSIVE_TEXT": "Le site a été optimisé pour fonctionner sur tous les appareils sans compromettre les éléments interactifs.",
+
+"DESIGN_TITLE": "- Système de design :",
+"DESIGN_TEXT": "Un ensemble d'icônes personnalisées, de couleurs et de polices reflétant une identité moderne et haute performance.",
+
+"CONVERSION_TITLE": "- Interface orientée conversion :",
+"CONVERSION_TEXT": "Des pages produits structurées, un parcours d'achat simplifié et des boutons d'appel à l'action clairs pour équilibrer esthétique et facilité d'utilisation."
+    }
+
+  },
+  "ABOUT": {
+
+  "TITLE": "Découvrez qui nous sommes",
+
+  "STAT1": "Clients visitent Qode chaque mois pour leurs services.",
+
+  "STAT2": "de satisfaction client grâce à nos formidables clients.",
+
+  "STAT3": "Note moyenne des avis clients obtenus en ligne.",
+
+  "CONTACT": "Contactez-nous",
+
+
+  "WHO_ALT": "Qui sommes-nous",
+
+  "WHO_TEXT": "Qode est une entreprise de solutions numériques fondée au Qatar, spécialisée dans le développement d'applications web et mobiles de haute qualité. Grâce à notre connaissance approfondie du marché local et à notre expertise internationale, nous comprenons vos besoins et proposons des solutions précises et efficaces. Nous transformons votre vision en réalité avec confiance, rapidité et excellence.",
+
+
+  "MISSION_ALT": "Notre mission",
+
+
+  "MISSION": {
+
+    "ONE": "Fournir des services technologiques intelligents, fiables et évolutifs.",
+
+    "TWO": "Simplifier la complexité des entreprises grâce à une technologie intelligente.",
+
+    "THREE": "Créer une réelle valeur en exploitant des solutions innovantes.",
+
+    "FOUR": "Créer de belles expériences numériques qui inspirent les utilisateurs et renforcent leur engagement."
+
+  }
+
+},
+
+  "WHAT_WE_DO": {
+    "TITLE_LINE1": "Ce que",
+    "TITLE_LINE2": "nous proposons",
+    "DESCRIPTION": "Découvrez notre gamme de services ci-dessous et voyez comment nous combinons technologie, créativité et innovation pour transformer vos idées en réalité",
+    "SERVICES": {
+      "WEB_DEV": "Développement\nweb",
+      "WEB_DEV_ALT": "Illustration du développement web",
+      "MOBILE_DEV": "Développement\nd'applications mobiles",
+      "MOBILE_DEV_ALT": "Illustration du développement d'applications mobiles",
+      "IT_CONSULTING": "Conseil\nen informatique",
+      "IT_CONSULTING_ALT": "Illustration du conseil technologique",
+      "UIUX_DESIGN": "Design\nUI/UX",
+      "UIUX_DESIGN_ALT": "Illustration du design UI/UX"
+    }
+  },
+  
+  
+  
+  
+  "CAR_MOD_SHOP": {
+    "TITLE": "Site e-commerce pour une boutique de personnalisation automobile",
+    "TAGLINE": "Une expérience d'achat visuellement immersive avec des présentations animées de voitures, des designs cinématographiques et des aperçus instantanés des pièces. Optimisée pour maximiser le taux de conversion tout en conservant une identité automobile haute performance.",
+    "TECH_USED": "Technologies utilisées :",
+    "CATEGORY_LABEL": "Catégorie",
+    "CATEGORY_1": "Automobile",
+    "CATEGORY_2": "E-commerce",
+    "CATEGORY_3": "Style de vie",
+    "DATE_LABEL": "Date :",
+    "DATE": "Avril 2025",
+    "PROBLEM_TITLE": "Le problème",
+    "PROBLEM_DESCRIPTION": "Nous avons conçu une expérience e-commerce interactive pour une boutique spécialisée dans la personnalisation de voitures de luxe. L'objectif était de créer un design vivant — un site qui ne se contente pas de vendre des pièces, mais qui raconte une histoire visuelle de puissance, de personnalisation et d'élégance.",
+    "SOLUTION_TITLE": "La solution",
+    "SOLUTION_1": "- Présentation animée du véhicule : un modèle 3D de voiture interactif au centre de la page qui répond aux actions de l'utilisateur, affichant instantanément différentes pièces telles que les jantes, l'aileron et le habillage.",
+    "SOLUTION_2": "- Expérience immersive : design cinématographique avec de grandes images, des effets de défilement fluides et des animations au survol pour enrichir le parcours utilisateur.",
+    "SOLUTION_3":  "- Design responsive : optimisé sur tous les appareils sans affecter les éléments animés.",
+    "SOLUTION_4": "- Système de design : un ensemble d'icônes personnalisées, de couleurs et de polices reflétant une identité élégante et haute performance.",
+    "SOLUTION_5": "- Interface orientée conversion : des pages produits claires, un parcours de paiement simplifié et des appels à l'action visibles pour équilibrer esthétique et facilité d'utilisation."
+  },
+  
+  "webDev": {
+    "title": "Développement de sites web",
+
+    "services": {
+      "showcase": {
+        "title": "Sites vitrines professionnels",
+        "description": "Nous créons des sites vitrines visuellement attrayants qui mettent en valeur l'identité de votre marque, avec une expérience utilisateur fluide et un design intégré."
+      },
+
+      "ecommerce": {
+        "title": "Solutions e-commerce",
+        "description": "Nous développons des plateformes e-commerce robustes, sécurisées et évolutives, conçues sur mesure pour votre activité, avec intégration des systèmes de paiement et une expérience utilisateur simple."
+      },
+
+      "customDesign": {
+        "title": "Design personnalisé",
+        "description": "Nous proposons des designs uniques et personnalisés en accord avec la vision de votre marque, pour garantir une présence numérique distinctive sur tous les appareils."
+      },
+
+      "maintenance": {
+        "title": "Maintenance de sites web",
+        "description": "Nous assurons le bon fonctionnement de votre site grâce à des mises à jour régulières, l'optimisation des performances et le renforcement de la sécurité."
+      }
+    }
+  },
+  
+  "mobileApps": {
+    "title": "Développement d'applications mobiles",
+    "services": {
+      "ios": {
+        "title": "Développement d'applications iOS",
+        "description": "Nous créons des applications iOS performantes et faciles à utiliser, conçues sur mesure pour votre marque et optimisées pour iPhone et iPad, avec une intégration fluide à l'App Store."
+      },
+      "android": {
+        "title": "Développement d'applications Android",
+        "description": "Création d'applications Android robustes dotées de fonctionnalités avancées, conçues pour séduire les utilisateurs sur une large gamme d'appareils Android et le Google Play Store."
+      },
+      "crossPlatform": {
+        "title": "Développement d'applications multiplateformes",
+        "description": "Développement d'applications flexibles fonctionnant sans faille sur iOS et Android grâce à des technologies telles que Flutter ou React Native, permettant de gagner du temps et de réduire les coûts."
+      },
+      "uiux": {
+        "title": "Design UI/UX pour applications mobiles",
+        "description": "Conception d'interfaces mobiles innovantes et visuellement attrayantes pour améliorer l'engagement des utilisateurs et garantir une expérience fluide sur tous les appareils."
+      },
+      "maintenance": {
+        "title": "Maintenance et mise à jour des applications",
+        "description": "Nous assurons le bon fonctionnement de votre application mobile grâce à des mises à jour régulières, la correction de bugs, l'optimisation des performances et la compatibilité."
+      }
+    }
+  },
+  
+  "itConsulting": {
+    "title": "Conseil technologique",
+
+    "services": {
+
+      "research": {
+        "title": "Recherche utilisateur",
+        "description": "Nous analysons en profondeur les besoins et comportements des utilisateurs grâce à des recherches complètes, afin de garantir des solutions numériques alignées sur les objectifs du projet et les attentes des utilisateurs."
+      },
+
+      "wireframe": {
+        "title": "Wireframing et prototypage",
+        "description": "Création de schémas détaillés et de prototypes interactifs permettant de visualiser, tester et optimiser les solutions numériques avant la phase de développement."
+      },
+
+      "interface": {
+        "title": "Design d'interfaces",
+        "description": "Conception d'interfaces modernes, faciles à utiliser et visuellement attrayantes pour améliorer l'expérience utilisateur et renforcer l'identité de marque."
+      },
+
+      "testing": {
+        "title": "Tests d'ergonomie",
+        "description": "Réalisation de tests d'utilisabilité pour détecter les problèmes, améliorer la navigation et garantir une expérience numérique fluide et efficace pour les utilisateurs."
+      },
+
+      "interaction": {
+        "title": "Design d'interaction",
+        "description": "Création d'interactions intelligentes et fluides rendant les applications et sites web plus intuitifs, réactifs et agréables à utiliser."
+      }
+
+    }
+  },
+  
+  "uiux": {
+    "title": "Design UI/UX",
+
+    "services": {
+
+      "strategy": {
+        "title": "Conseil en stratégie technologique",
+        "description": "Développement d'une stratégie technologique intégrée alignée sur les objectifs de votre entreprise, optimisant l'utilisation de la technologie pour accroître l'efficacité, la productivité et une croissance durable."
+      },
+
+      "transformation": {
+        "title": "Transformation numérique",
+        "description": "Transformer votre entreprise grâce à des solutions numériques innovantes qui améliorent les processus, renforcent l'expérience client et augmentent la performance opérationnelle."
+      },
+
+      "cloud": {
+        "title": "Conseil en solutions cloud",
+        "description": "Tirer parti de solutions cloud évolutives pour améliorer les performances, la sécurité et l'accessibilité, avec des stratégies de migration vers le cloud sur mesure."
+      },
+
+      "cybersecurity": {
+        "title": "Conseil en cybersécurité",
+        "description": "Protéger votre entreprise grâce à des stratégies de sécurité avancées incluant l'évaluation des risques, la protection contre les menaces et la conformité aux exigences de sécurité."
+      },
+
+      "integration": {
+        "title": "Intégration technologique",
+        "description": "Intégrer les technologies modernes de manière fluide avec les systèmes existants pour améliorer la compatibilité, l'efficacité et soutenir l'innovation numérique."
+      }
+
+    }
+  }
+}
