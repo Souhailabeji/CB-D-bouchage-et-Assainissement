@@ -6,9 +6,10 @@ const API_KEY = process.env.GEMINI_API_KEY;
 const MODEL = process.env.CHAT_MODEL || 'gemini-3-flash-preview';
 const MAX_HISTORY = 16;
 const MAX_CHARS = 1000;
+const MAX_OUTPUT_TOKENS = 2000;
 
 if (!API_KEY) {
-  console.error('GEMINI_API_KEY manquante.');
+  console.error('GEMINI_API_KEY manquante (fichier .env).');
   process.exit(1);
 }
 
@@ -35,12 +36,24 @@ SÉCURITÉ
 - Odeur de gaz, risque électrique, inondation importante près d'installations électriques, personne en danger : dis d'abord de sécuriser les lieux, de ne pas toucher à l'électricité, et d'appeler les secours (18 ou 112) si nécessaire.
 
 DEVIS, PRIX, DÉLAIS
-- N'invente JAMAIS de prix, de délais, de garanties, d'horaires ou de zones d'intervention précises. Le tarif dépend de l'intervention : propose un devis et invite à contacter l'entreprise par téléphone ou via le formulaire de contact du site.
+- N'invente JAMAIS de prix, de délais, de garanties, d'horaires ou de zones d'intervention précises. Le tarif dépend de l'intervention : propose un devis et invite à contacter l'entreprise par téléphone au +33 6 02 79 12 08 ou via le formulaire de contact du site.
 - Si le visiteur veut une intervention, demande sa ville ou son code postal et le type de problème, puis invite-le à appeler ou à remplir le formulaire de contact.
 - Si tu ne sais pas, dis-le et oriente vers l'équipe.
 
 DONNÉES PERSONNELLES
 - Ne demande pas de données sensibles. Si le visiteur donne ses coordonnées, rappelle qu'il vaut mieux les saisir dans le formulaire de contact du site.`;
+
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+
+/**
+ * Réflexion du modèle : ses « tokens de réflexion » comptent dans maxOutputTokens.
+ * Sans limite, une réponse peut être coupée ou vide. Pour un chatbot de site, on la réduit.
+ * - Gemini 3  : thinkingLevel
+ * - Gemini 2.5 : thinkingBudget (0 = désactivée)
+ */
+const THINKING_CONFIG = MODEL.startsWith('gemini-3')
+  ? { thinkingLevel: 'low' }
+  : { thinkingBudget: 0 };
 
 const app = express();
 app.set('trust proxy', 1);
@@ -50,22 +63,24 @@ app.use(
   '/api/chat',
   rateLimit({
     windowMs: 10 * 60 * 1000,
-    limit: 20,
+    limit: 40, // 20 était trop strict pour plusieurs visiteurs derrière la même IP
     standardHeaders: true,
     legacyHeaders: false,
     message: { error: 'rate_limited' },
   }),
 );
 
+/** Nettoie l'historique reçu du navigateur */
 function sanitize(messages) {
   if (!Array.isArray(messages)) return null;
 
-  let clean = messages
+  const clean = messages
     .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
     .map((m) => ({ role: m.role, content: m.content.trim().slice(0, MAX_CHARS) }))
     .filter((m) => m.content.length > 0)
     .slice(-MAX_HISTORY);
 
+  // L'historique doit commencer et finir par « user »
   while (clean.length && clean[0].role !== 'user') clean.shift();
   if (!clean.length || clean[clean.length - 1].role !== 'user') return null;
   return clean;
@@ -76,8 +91,7 @@ app.post('/api/chat', async (req, res) => {
   if (!messages) return res.status(400).json({ error: 'bad_request' });
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
-    const upstream = await fetch(url, {
+    const upstream = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -89,7 +103,10 @@ app.post('/api/chat', async (req, res) => {
           role: m.role === 'assistant' ? 'model' : 'user',
           parts: [{ text: m.content }],
         })),
-        generationConfig: { maxOutputTokens: 1500 },
+        generationConfig: {
+          maxOutputTokens: MAX_OUTPUT_TOKENS,
+          thinkingConfig: THINKING_CONFIG,
+        },
       }),
       signal: AbortSignal.timeout(30_000),
     });
@@ -101,15 +118,28 @@ app.post('/api/chat', async (req, res) => {
 
     const data = await upstream.json();
     const reply = (data.candidates?.[0]?.content?.parts || [])
+      .filter((p) => !p.thought) // ignore d'éventuels résumés de réflexion
       .map((p) => p.text || '')
       .join('')
       .trim();
 
+    // Réponse vide ou bloquée par les filtres : erreur explicite (pas un 200 vide)
+    if (!reply) {
+      console.error('Réponse vide', data.promptFeedback ?? data.candidates?.[0]?.finishReason);
+      return res.status(502).json({ error: 'empty_reply' });
+    }
+
     res.json({ reply });
   } catch (err) {
-    console.error('Erreur chat', err);
-    res.status(500).json({ error: 'server_error' });
+    console.error('Erreur chat', err?.name, err?.message);
+    res.status(502).json({ error: 'upstream_error' });
   }
 });
 
-app.listen(PORT, () => console.log(`Chat API (Gemini) sur http://localhost:${PORT}`));
+// JSON invalide, body trop gros… : toujours répondre en JSON
+app.use((err, _req, res, _next) => {
+  const tooLarge = err?.status === 413;
+  res.status(tooLarge ? 413 : 400).json({ error: tooLarge ? 'too_large' : 'bad_request' });
+});
+
+app.listen(PORT, () => console.log(`Chat API (Gemini, modèle ${MODEL}) sur http://localhost:${PORT}`));
