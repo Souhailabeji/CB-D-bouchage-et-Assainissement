@@ -44,3 +44,5 @@ serviceAccountKey.json
 
 .env
 server/.env
+
+*.bak

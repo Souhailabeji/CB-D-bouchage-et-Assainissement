@@ -1,43 +1,58 @@
-﻿
-<!DOCTYPE html>
-<html dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <base href="/">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script 
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+﻿<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CB Débouchage & Assainissement : débouchage de canalisations, curage, inspection caméra, vidange de fosses septiques. Devis au +33 6 02 79 12 08.">
+    <meta name="theme-color" content="#0e7490">
 
+    <title>CB Débouchage &amp; Assainissement</title>
+    <!-- .webp : le type doit être image/webp (et non image/x-icon) ; espace encodé en %20 -->
+    <link rel="icon" type="image/webp" href="images/CB_logo_principal_2000px%20(2).webp">
 
-        <title>CB Débouchage & Assainissement</title>
-        <link rel="icon" type="image/x-icon" href="images/CB_logo_principal_2000px (2).webp">
+    <!--
+      GOOGLE MAPS : désactivé, car la clé « YOUR-API-KEY » n'est pas une vraie clé
+      (la carte affichait une erreur). Si le site utilise une carte :
+      1. créez une clé dans Google Cloud Console,
+      2. restreignez-la à votre domaine (référents HTTP) et à l'API Maps JavaScript,
+      3. remplacez VOTRE_CLE ci-dessous et décommentez.
 
-        <!-- Font Family -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+      <script async src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE&loading=async"></script>
+    -->
 
-        <!-- Material Icons -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- jQuery puis turn.js : "defer" évite de bloquer l'affichage de la page.
+         L'ordre est conservé : jQuery doit rester avant turn.js. -->
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
 
-        <!-- Matomo -->
-        <script>
-          var _paq = window._paq = window._paq || [];
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-            var u="https://cbdebouchageassainissement.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='https://cdn.matomo.cloud/cbdebouchageassainissement.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script>
-        <!-- End Matomo Code -->
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-     </head>
-    <body>
-        <app-root></app-root>
-    </body>
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u = "https://cbdebouchageassainissement.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = 'https://cdn.matomo.cloud/cbdebouchageassainissement.matomo.cloud/matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+  </head>
+  <body>
+    <!-- Le chatbot s'affiche via <app-chatbot> placé dans le template de app.component.html -->
+    <app-root></app-root>
+  </body>
+</html>

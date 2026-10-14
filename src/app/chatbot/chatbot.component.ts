@@ -1,4 +1,5 @@
-﻿import {
+import { answer } from './chatbot-faq';
+import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -214,7 +215,7 @@ const SUGGESTIONS = [
       </form>
 
       <p class="legal">
-        Assistant IA : il peut se tromper. N’indiquez pas d’informations sensibles.
+        Assistant automatique : pour une urgence ou un devis, appelez-nous directement.
       </p>
     </section>
   `,
@@ -639,7 +640,6 @@ export class ChatbotComponent {
     const isUrgent = URGENT_INTENT.test(text) && !NOT_URGENT.test(text);
     const isPhone = !isUrgent && PHONE_INTENT.test(text);
 
-    // Les messages traités sur le site ne sont pas envoyés à l'IA
     this.messages.update((m) => [...m, { role: 'user', content: text, local: isUrgent || isPhone }]);
     this.draft.set('');
     if (this.input) this.input.nativeElement.value = '';
@@ -651,58 +651,26 @@ export class ChatbotComponent {
         { role: 'assistant', content: URGENT_REPLY, local: true, urgent: true },
       ]);
       this.scrollDown();
-      // Sur téléphone, on ouvre directement le composeur avec le numéro.
-      // (Doit rester ici, sans « await » avant, pour compter comme une action du visiteur.)
       if (URGENT_AUTO_DIAL && this.isMobile()) {
         window.location.href = PHONE_HREF;
       }
       return;
     }
 
-    // Demande de numéro : on répond tout de suite, avec le bouton « Appeler »
+    // Demande de numéro : réponse immédiate avec le bouton « Appeler »
     if (isPhone) {
       this.messages.update((m) => [...m, { role: 'assistant', content: PHONE_REPLY, local: true }]);
       this.scrollDown();
       return;
     }
 
+    // Réponse automatique (sans IA, sans clé API)
     this.loading.set(true);
     this.scrollDown();
-
-    this.abort?.abort();
-    this.abort = new AbortController();
-
-    try {
-      const res = await fetch(CHAT_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: this.messages()
-            .filter((m) => !m.local)
-            .map(({ role, content }) => ({ role, content })),
-        }),
-        signal: this.abort.signal,
-      });
-
-      if (res.status === 429) throw new Error('rate');
-      if (!res.ok) throw new Error('http');
-
-      const data = (await res.json()) as { reply?: string };
-      const reply = (data.reply ?? '').trim();
-      if (!reply) throw new Error('empty');
-
-      this.messages.update((m) => [...m, { role: 'assistant', content: reply }]);
-    } catch (err) {
-      if ((err as Error).name === 'AbortError') return;
-      const msg =
-        (err as Error).message === 'rate'
-          ? 'Vous envoyez beaucoup de messages. Patientez un instant avant de réessayer.'
-          : `Désolé, je rencontre un problème technique. Vous pouvez nous appeler au ${PHONE_DISPLAY}.`;
-      this.messages.update((m) => [...m, { role: 'assistant', content: msg, local: true }]);
-    } finally {
-      this.loading.set(false);
-      this.scrollDown();
-    }
+    await new Promise((r) => setTimeout(r, 700)); // petite pause pour simuler la frappe
+    this.messages.update((m) => [...m, { role: 'assistant', content: answer(text), local: true }]);
+    this.loading.set(false);
+    this.scrollDown();
   }
 
   /** Téléphone (Android / iPhone / iPad) : le lien « tel: » ouvre le composeur */
