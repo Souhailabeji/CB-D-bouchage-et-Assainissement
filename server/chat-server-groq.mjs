@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const API_KEY = (process.env.GROQ_API_KEY || '').trim().replace(/^["']|["']$/g, '');
 const MODEL = process.env.CHAT_MODEL || 'openai/gpt-oss-20b';
 const DEBUG = process.env.DEBUG === '1';
-const PHONE = '+33 6 02 79 12 08';
+const PHONE = '+33 7 53 69 64 28';
 const GROQ_URL = 'https://api.groq.com/openai/v1';
 
 if (!API_KEY) {

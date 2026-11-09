@@ -1,4 +1,4 @@
-export const PHONE = '+33 6 02 79 12 08'; // même numéro que PHONE_DISPLAY du composant
+export const PHONE = '+33 7 53 69 64 28'; // même numéro que PHONE_DISPLAY du composant
 
 const normalize = (s: string): string =>
   s

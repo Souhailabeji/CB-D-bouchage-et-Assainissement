@@ -15,7 +15,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 ========================================================= */
 
 const CHAT_ENDPOINT = '/api/chat'; // proxy vers server/chat-server.mjs
-const PHONE_DISPLAY = '+33 6 02 79 12 08';
+const PHONE_DISPLAY = '+33 7 53 69 64 28';
 const PHONE_HREF = 'tel:+33602791208'; // même numéro, format international sans espaces
 const STORAGE_KEY = 'cb-chat-v2';
 const TEASER_KEY = 'cb-chat-teaser-seen';
