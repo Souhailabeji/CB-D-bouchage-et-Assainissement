@@ -1,10 +1,10 @@
 ﻿
-//import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-//import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from '@angular/router';
-//import { provideHttpClient, withFetch, HttpClient } from '@angular/common/http';
-//import { provideClientHydration } from '@angular/platform-browser';
-//import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-//import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from '@angular/router';
+import { provideHttpClient, withFetch, HttpClient } from '@angular/common/http';
+import { provideClientHydration } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
 
